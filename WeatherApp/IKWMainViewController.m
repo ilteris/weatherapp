@@ -9,7 +9,7 @@
 #import "IKWMainViewController.h"
 #import "ReflectionView.h"
 
-@interface IKWMainViewController ()
+@interface IKWMainViewController () <UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentDegreesLabel;
@@ -28,6 +28,21 @@
     }
     return self;
 }
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 6;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hoursCell" forIndexPath:indexPath];
+    return cell;
+}
+
+
+
 
 - (void)viewDidLoad
 {
