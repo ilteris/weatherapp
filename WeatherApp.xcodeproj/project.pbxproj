@@ -9,6 +9,23 @@
 /* Begin PBXBuildFile section */
 		A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A207317B18AFDFC2007BB865 /* IKWMainViewController.m */; };
 		A20731C218AFE395007BB865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20731C118AFE395007BB865 /* Main.storyboard */; };
+		A20731C418AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C318AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf */; };
+		A20731D618AFF19D007BB865 /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C618AFF19D007BB865 /* Gotham-Black.otf */; };
+		A20731D718AFF19D007BB865 /* Gotham-BlackIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C718AFF19D007BB865 /* Gotham-BlackIta.otf */; };
+		A20731D818AFF19D007BB865 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C818AFF19D007BB865 /* Gotham-Bold.otf */; };
+		A20731D918AFF19D007BB865 /* Gotham-BoldIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C918AFF19D007BB865 /* Gotham-BoldIta.otf */; };
+		A20731DA18AFF19D007BB865 /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731CA18AFF19D007BB865 /* Gotham-Book.otf */; };
+		A20731DB18AFF19D007BB865 /* Gotham-BookIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731CB18AFF19D007BB865 /* Gotham-BookIta.otf */; };
+		A20731DC18AFF19D007BB865 /* Gotham-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731CC18AFF19D007BB865 /* Gotham-Light.otf */; };
+		A20731DD18AFF19D007BB865 /* Gotham-LightIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731CD18AFF19D007BB865 /* Gotham-LightIta.otf */; };
+		A20731DE18AFF19D007BB865 /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731CE18AFF19D007BB865 /* Gotham-Medium.otf */; };
+		A20731DF18AFF19D007BB865 /* Gotham-MediumIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731CF18AFF19D007BB865 /* Gotham-MediumIta.otf */; };
+		A20731E018AFF19D007BB865 /* Gotham-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731D018AFF19D007BB865 /* Gotham-Thin.otf */; };
+		A20731E118AFF19D007BB865 /* Gotham-ThinIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731D118AFF19D007BB865 /* Gotham-ThinIta.otf */; };
+		A20731E218AFF19D007BB865 /* Gotham-Ultra.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731D218AFF19D007BB865 /* Gotham-Ultra.otf */; };
+		A20731E318AFF19D007BB865 /* Gotham-UltraIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731D318AFF19D007BB865 /* Gotham-UltraIta.otf */; };
+		A20731E418AFF19D007BB865 /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731D418AFF19D007BB865 /* Gotham-XLight.otf */; };
+		A20731E518AFF19D007BB865 /* Gotham-XLightIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731D518AFF19D007BB865 /* Gotham-XLightIta.otf */; };
 		A20D6C0D18ADCFCC00390EDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C0C18ADCFCC00390EDD /* Foundation.framework */; };
 		A20D6C0F18ADCFCC00390EDD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C0E18ADCFCC00390EDD /* CoreGraphics.framework */; };
 		A20D6C1118ADCFCC00390EDD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C1018ADCFCC00390EDD /* UIKit.framework */; };
@@ -40,6 +57,23 @@
 		A207317A18AFDFC2007BB865 /* IKWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWMainViewController.h; sourceTree = "<group>"; };
 		A207317B18AFDFC2007BB865 /* IKWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWMainViewController.m; sourceTree = "<group>"; };
 		A20731C118AFE395007BB865 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A20731C318AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = weatherapp_parcalibulutlu.pdf; sourceTree = "<group>"; };
+		A20731C618AFF19D007BB865 /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
+		A20731C718AFF19D007BB865 /* Gotham-BlackIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackIta.otf"; sourceTree = "<group>"; };
+		A20731C818AFF19D007BB865 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
+		A20731C918AFF19D007BB865 /* Gotham-BoldIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BoldIta.otf"; sourceTree = "<group>"; };
+		A20731CA18AFF19D007BB865 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
+		A20731CB18AFF19D007BB865 /* Gotham-BookIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BookIta.otf"; sourceTree = "<group>"; };
+		A20731CC18AFF19D007BB865 /* Gotham-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.otf"; sourceTree = "<group>"; };
+		A20731CD18AFF19D007BB865 /* Gotham-LightIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-LightIta.otf"; sourceTree = "<group>"; };
+		A20731CE18AFF19D007BB865 /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
+		A20731CF18AFF19D007BB865 /* Gotham-MediumIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-MediumIta.otf"; sourceTree = "<group>"; };
+		A20731D018AFF19D007BB865 /* Gotham-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Thin.otf"; sourceTree = "<group>"; };
+		A20731D118AFF19D007BB865 /* Gotham-ThinIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-ThinIta.otf"; sourceTree = "<group>"; };
+		A20731D218AFF19D007BB865 /* Gotham-Ultra.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Ultra.otf"; sourceTree = "<group>"; };
+		A20731D318AFF19D007BB865 /* Gotham-UltraIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-UltraIta.otf"; sourceTree = "<group>"; };
+		A20731D418AFF19D007BB865 /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
+		A20731D518AFF19D007BB865 /* Gotham-XLightIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLightIta.otf"; sourceTree = "<group>"; };
 		A20D6C0918ADCFCC00390EDD /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20D6C0C18ADCFCC00390EDD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A20D6C0E18ADCFCC00390EDD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +122,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A20731C518AFF19D007BB865 /* Gotham */ = {
+			isa = PBXGroup;
+			children = (
+				A20731C618AFF19D007BB865 /* Gotham-Black.otf */,
+				A20731C718AFF19D007BB865 /* Gotham-BlackIta.otf */,
+				A20731C818AFF19D007BB865 /* Gotham-Bold.otf */,
+				A20731C918AFF19D007BB865 /* Gotham-BoldIta.otf */,
+				A20731CA18AFF19D007BB865 /* Gotham-Book.otf */,
+				A20731CB18AFF19D007BB865 /* Gotham-BookIta.otf */,
+				A20731CC18AFF19D007BB865 /* Gotham-Light.otf */,
+				A20731CD18AFF19D007BB865 /* Gotham-LightIta.otf */,
+				A20731CE18AFF19D007BB865 /* Gotham-Medium.otf */,
+				A20731CF18AFF19D007BB865 /* Gotham-MediumIta.otf */,
+				A20731D018AFF19D007BB865 /* Gotham-Thin.otf */,
+				A20731D118AFF19D007BB865 /* Gotham-ThinIta.otf */,
+				A20731D218AFF19D007BB865 /* Gotham-Ultra.otf */,
+				A20731D318AFF19D007BB865 /* Gotham-UltraIta.otf */,
+				A20731D418AFF19D007BB865 /* Gotham-XLight.otf */,
+				A20731D518AFF19D007BB865 /* Gotham-XLightIta.otf */,
+			);
+			path = Gotham;
+			sourceTree = "<group>";
+		};
 		A20D6C0018ADCFCC00390EDD = {
 			isa = PBXGroup;
 			children = (
@@ -122,11 +179,13 @@
 		A20D6C1418ADCFCC00390EDD /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				A20731C518AFF19D007BB865 /* Gotham */,
 				A207317A18AFDFC2007BB865 /* IKWMainViewController.h */,
 				A207317B18AFDFC2007BB865 /* IKWMainViewController.m */,
 				A20D6C1D18ADCFCD00390EDD /* IKWAppDelegate.h */,
 				A20D6C1E18ADCFCD00390EDD /* IKWAppDelegate.m */,
 				A20D6C2318ADCFCD00390EDD /* Images.xcassets */,
+				A20731C318AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf */,
 				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
 				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
 				A20731C118AFE395007BB865 /* Main.storyboard */,
@@ -241,9 +300,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20731E218AFF19D007BB865 /* Gotham-Ultra.otf in Resources */,
 				A20731C218AFE395007BB865 /* Main.storyboard in Resources */,
+				A20731DE18AFF19D007BB865 /* Gotham-Medium.otf in Resources */,
+				A20731D818AFF19D007BB865 /* Gotham-Bold.otf in Resources */,
 				A20D6C1918ADCFCC00390EDD /* InfoPlist.strings in Resources */,
+				A20731C418AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf in Resources */,
+				A20731E518AFF19D007BB865 /* Gotham-XLightIta.otf in Resources */,
+				A20731E418AFF19D007BB865 /* Gotham-XLight.otf in Resources */,
+				A20731DF18AFF19D007BB865 /* Gotham-MediumIta.otf in Resources */,
+				A20731E318AFF19D007BB865 /* Gotham-UltraIta.otf in Resources */,
+				A20731E018AFF19D007BB865 /* Gotham-Thin.otf in Resources */,
+				A20731E118AFF19D007BB865 /* Gotham-ThinIta.otf in Resources */,
+				A20731D618AFF19D007BB865 /* Gotham-Black.otf in Resources */,
+				A20731D918AFF19D007BB865 /* Gotham-BoldIta.otf in Resources */,
+				A20731DA18AFF19D007BB865 /* Gotham-Book.otf in Resources */,
+				A20731DC18AFF19D007BB865 /* Gotham-Light.otf in Resources */,
+				A20731D718AFF19D007BB865 /* Gotham-BlackIta.otf in Resources */,
+				A20731DD18AFF19D007BB865 /* Gotham-LightIta.otf in Resources */,
 				A20D6C2418ADCFCD00390EDD /* Images.xcassets in Resources */,
+				A20731DB18AFF19D007BB865 /* Gotham-BookIta.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

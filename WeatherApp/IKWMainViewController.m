@@ -9,6 +9,7 @@
 #import "IKWMainViewController.h"
 
 @interface IKWMainViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 
 @end
 
@@ -26,7 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"ViewDidLoad");
+
+    [self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
+    NSLog(@"locationName label is %@", self.locationNameLabel.text);
+    
 	// Do any additional setup after loading the view.
 }
 
