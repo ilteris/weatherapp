@@ -8,6 +8,7 @@
 
 #import "IKWMainViewController.h"
 #import "ReflectionView.h"
+#import "IKWHourCollectionViewCell.h"
 
 @interface IKWMainViewController () <UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
@@ -32,12 +33,21 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 6;
+    return 24;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hoursCell" forIndexPath:indexPath];
+    IKWHourCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hoursCell" forIndexPath:indexPath];
+    
+    [cell.hourLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
+    [cell.weatherLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
+    [cell.rainProbLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
+    
+    
+    cell.hourLabel.text = @"text";
+    cell.weatherIcon.image = [UIImage imageNamed:@"weatherapp-parcalibulutluicon"];
+    
     return cell;
 }
 

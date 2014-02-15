@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface IKWHourCollectionViewCell : UICollectionViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *cellBg;
+@property (weak, nonatomic) IBOutlet UILabel *hourLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weatherLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
+@property (weak, nonatomic) IBOutlet UILabel *rainProbLabel;
+//we also need the bottom blue box.
 @end

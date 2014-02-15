@@ -10,11 +10,23 @@
 
 @implementation IKWHourCollectionViewCell
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithCoder:aDecoder];
     if (self) {
+        
+        
+        //need to get the data from the model and set init below.
+        //set the background to bright if it's the current hour.
+        //UIImageView *cellBg;
+        
+        NSLog(@"here");
+        //
+       
+        
         // Initialization code
+        //set the fonts here.
+        
     }
     return self;
 }
