@@ -25,6 +25,8 @@
 		A20731E318AFF19D007BB865 /* Gotham-UltraIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731D318AFF19D007BB865 /* Gotham-UltraIta.otf */; };
 		A20731E418AFF19D007BB865 /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731D418AFF19D007BB865 /* Gotham-XLight.otf */; };
 		A20731E518AFF19D007BB865 /* Gotham-XLightIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731D518AFF19D007BB865 /* Gotham-XLightIta.otf */; };
+		A20731EA18B005EF007BB865 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20731E918B005EF007BB865 /* CoreImage.framework */; };
+		A20731F018B00879007BB865 /* ReflectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A20731EF18B00879007BB865 /* ReflectionView.m */; };
 		A20D6C0D18ADCFCC00390EDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C0C18ADCFCC00390EDD /* Foundation.framework */; };
 		A20D6C0F18ADCFCC00390EDD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C0E18ADCFCC00390EDD /* CoreGraphics.framework */; };
 		A20D6C1118ADCFCC00390EDD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C1018ADCFCC00390EDD /* UIKit.framework */; };
@@ -72,6 +74,9 @@
 		A20731D318AFF19D007BB865 /* Gotham-UltraIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-UltraIta.otf"; sourceTree = "<group>"; };
 		A20731D418AFF19D007BB865 /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
 		A20731D518AFF19D007BB865 /* Gotham-XLightIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLightIta.otf"; sourceTree = "<group>"; };
+		A20731E918B005EF007BB865 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		A20731EE18B00879007BB865 /* ReflectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflectionView.h; sourceTree = "<group>"; };
+		A20731EF18B00879007BB865 /* ReflectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionView.m; sourceTree = "<group>"; };
 		A20D6C0918ADCFCC00390EDD /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20D6C0C18ADCFCC00390EDD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A20D6C0E18ADCFCC00390EDD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20731EA18B005EF007BB865 /* CoreImage.framework in Frameworks */,
 				A20D6C0F18ADCFCC00390EDD /* CoreGraphics.framework in Frameworks */,
 				A20D6C1318ADCFCC00390EDD /* CoreData.framework in Frameworks */,
 				A20D6C1118ADCFCC00390EDD /* UIKit.framework in Frameworks */,
@@ -165,6 +171,7 @@
 		A20D6C0B18ADCFCC00390EDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A20731E918B005EF007BB865 /* CoreImage.framework */,
 				A20D6C0C18ADCFCC00390EDD /* Foundation.framework */,
 				A20D6C0E18ADCFCC00390EDD /* CoreGraphics.framework */,
 				A20D6C1018ADCFCC00390EDD /* UIKit.framework */,
@@ -182,6 +189,8 @@
 				A207317B18AFDFC2007BB865 /* IKWMainViewController.m */,
 				A20D6C1D18ADCFCD00390EDD /* IKWAppDelegate.h */,
 				A20D6C1E18ADCFCD00390EDD /* IKWAppDelegate.m */,
+				A20731EE18B00879007BB865 /* ReflectionView.h */,
+				A20731EF18B00879007BB865 /* ReflectionView.m */,
 				A20D6C2318ADCFCD00390EDD /* Images.xcassets */,
 				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
 				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
@@ -338,6 +347,7 @@
 				A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */,
 				A20D6C1F18ADCFCD00390EDD /* IKWAppDelegate.m in Sources */,
 				A20D6C1B18ADCFCC00390EDD /* main.m in Sources */,
+				A20731F018B00879007BB865 /* ReflectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +471,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeatherApp/WeatherApp-Prefix.pch";
 				INFOPLIST_FILE = "WeatherApp/WeatherApp-Info.plist";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -474,6 +485,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeatherApp/WeatherApp-Prefix.pch";
 				INFOPLIST_FILE = "WeatherApp/WeatherApp-Info.plist";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
