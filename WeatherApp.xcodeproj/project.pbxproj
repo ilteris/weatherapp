@@ -22,6 +22,7 @@
 		A20D6C2E18ADCFCD00390EDD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C1218ADCFCC00390EDD /* CoreData.framework */; };
 		A20D6C3618ADCFCD00390EDD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A20D6C3418ADCFCD00390EDD /* InfoPlist.strings */; };
 		A20D6C3818ADCFCD00390EDD /* WeatherAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A20D6C3718ADCFCD00390EDD /* WeatherAppTests.m */; };
+		A20D6CC518ADD7F000390EDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20D6CC718ADD7F000390EDD /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,11 @@
 		A20D6C3318ADCFCD00390EDD /* WeatherAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WeatherAppTests-Info.plist"; sourceTree = "<group>"; };
 		A20D6C3518ADCFCD00390EDD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A20D6C3718ADCFCD00390EDD /* WeatherAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherAppTests.m; sourceTree = "<group>"; };
+		A20D6CC818ADD80500390EDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A20D6CC918ADD8C600390EDD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		A20D6CCA18ADD8C600390EDD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A20D6CCB18ADD8C600390EDD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A20D6CCD18AFC86C00390EDD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 			children = (
 				A20D6C1D18ADCFCD00390EDD /* IKWAppDelegate.h */,
 				A20D6C1E18ADCFCD00390EDD /* IKWAppDelegate.m */,
+				A20D6CC718ADD7F000390EDD /* Main.storyboard */,
 				A20D6C2318ADCFCD00390EDD /* Images.xcassets */,
 				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
 				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
@@ -212,6 +219,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
+				tr,
 			);
 			mainGroup = A20D6C0018ADCFCC00390EDD;
 			productRefGroup = A20D6C0A18ADCFCC00390EDD /* Products */;
@@ -231,6 +240,7 @@
 			files = (
 				A20D6C1918ADCFCC00390EDD /* InfoPlist.strings in Resources */,
 				A20D6C2418ADCFCD00390EDD /* Images.xcassets in Resources */,
+				A20D6CC518ADD7F000390EDD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +288,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A20D6C1818ADCFCC00390EDD /* en */,
+				A20D6CCA18ADD8C600390EDD /* tr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -286,8 +297,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				A20D6C3518ADCFCD00390EDD /* en */,
+				A20D6CCB18ADD8C600390EDD /* tr */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A20D6CC718ADD7F000390EDD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A20D6CC818ADD80500390EDD /* Base */,
+				A20D6CC918ADD8C600390EDD /* tr */,
+				A20D6CCD18AFC86C00390EDD /* en */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
