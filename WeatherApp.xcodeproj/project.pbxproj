@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A207317B18AFDFC2007BB865 /* IKWMainViewController.m */; };
 		A20731C218AFE395007BB865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20731C118AFE395007BB865 /* Main.storyboard */; };
-		A20731C418AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C318AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf */; };
 		A20731D618AFF19D007BB865 /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C618AFF19D007BB865 /* Gotham-Black.otf */; };
 		A20731D718AFF19D007BB865 /* Gotham-BlackIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C718AFF19D007BB865 /* Gotham-BlackIta.otf */; };
 		A20731D818AFF19D007BB865 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C818AFF19D007BB865 /* Gotham-Bold.otf */; };
@@ -57,7 +56,6 @@
 		A207317A18AFDFC2007BB865 /* IKWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWMainViewController.h; sourceTree = "<group>"; };
 		A207317B18AFDFC2007BB865 /* IKWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWMainViewController.m; sourceTree = "<group>"; };
 		A20731C118AFE395007BB865 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		A20731C318AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = weatherapp_parcalibulutlu.pdf; sourceTree = "<group>"; };
 		A20731C618AFF19D007BB865 /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		A20731C718AFF19D007BB865 /* Gotham-BlackIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackIta.otf"; sourceTree = "<group>"; };
 		A20731C818AFF19D007BB865 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				A20D6C1D18ADCFCD00390EDD /* IKWAppDelegate.h */,
 				A20D6C1E18ADCFCD00390EDD /* IKWAppDelegate.m */,
 				A20D6C2318ADCFCD00390EDD /* Images.xcassets */,
-				A20731C318AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf */,
 				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
 				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
 				A20731C118AFE395007BB865 /* Main.storyboard */,
@@ -305,7 +302,6 @@
 				A20731DE18AFF19D007BB865 /* Gotham-Medium.otf in Resources */,
 				A20731D818AFF19D007BB865 /* Gotham-Bold.otf in Resources */,
 				A20D6C1918ADCFCC00390EDD /* InfoPlist.strings in Resources */,
-				A20731C418AFECDA007BB865 /* weatherapp_parcalibulutlu.pdf in Resources */,
 				A20731E518AFF19D007BB865 /* Gotham-XLightIta.otf in Resources */,
 				A20731E418AFF19D007BB865 /* Gotham-XLight.otf in Resources */,
 				A20731DF18AFF19D007BB865 /* Gotham-MediumIta.otf in Resources */,

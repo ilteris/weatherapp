@@ -10,6 +10,8 @@
 
 @interface IKWMainViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentDegreesLabel;
 
 @end
 
@@ -28,7 +30,9 @@
 {
     [super viewDidLoad];
 
+    [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Thin" size:110]];
     [self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
+    [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
     NSLog(@"locationName label is %@", self.locationNameLabel.text);
     
 	// Do any additional setup after loading the view.
