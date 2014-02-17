@@ -31,6 +31,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weatherapp-topbg" id="4vi-kI-w7M">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" id="3J8-tf-5mf" customClass="ReflectionView">
                                 <rect key="frame" x="3" y="43" width="184" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -81,7 +85,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hSJ-Sj-cg8" userLabel="weatherLabel">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hSJ-Sj-cg8" userLabel="weatherLabel">
                                                     <rect key="frame" x="16" y="58" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -114,12 +118,12 @@
                                     <outlet property="delegate" destination="cEc-fw-urO" id="Svw-Kd-xhU"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weatherapp_blackline" id="M1r-3c-ZVd">
-                                <rect key="frame" x="0.0" y="185" width="320" height="45"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weatherapp-topblackline" id="M1r-3c-ZVd">
+                                <rect key="frame" x="0.0" y="184" width="320" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PARÇALI BULUTLU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ist-ik-fKM">
-                                <rect key="frame" x="0.0" y="185" width="320" height="38"/>
+                                <rect key="frame" x="0.0" y="184" width="320" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,13 +142,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jy4-cV-at9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="0.0"/>
+            <point key="canvasLocation" x="159" y="0.0"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="uoU-sY-n9F">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ffU-GA-FaN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAx-wa-6tm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="159" y="700"/>
         </scene>
     </scenes>
     <resources>
-        <image name="weatherapp-cellbg" width="75" height="346"/>
+        <image name="weatherapp-cellbg" width="75" height="345"/>
+        <image name="weatherapp-topbg" width="320" height="184"/>
+        <image name="weatherapp-topblackline" width="320" height="39"/>
         <image name="weatherapp_background" width="320" height="568"/>
-        <image name="weatherapp_blackline" width="320" height="47"/>
         <image name="weatherapp_parcalibulutlu" width="104" height="99"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

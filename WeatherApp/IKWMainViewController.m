@@ -40,12 +40,13 @@
 {
     IKWHourCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hoursCell" forIndexPath:indexPath];
     
-    [cell.hourLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
-    [cell.weatherLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
+    [cell.hourLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:14]];
+    [cell.weatherLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:8]];
     [cell.rainProbLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
     
     
-    cell.hourLabel.text = @"text";
+    cell.hourLabel.text = @"9AM";
+    cell.weatherLabel.text = @"PARÇALI BULUTLU";
     cell.weatherIcon.image = [UIImage imageNamed:@"weatherapp-parcalibulutluicon"];
     
     return cell;
@@ -62,7 +63,7 @@
     [self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
     [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
    
-    self.currentDegreesLabel.text = @"7°";
+    self.currentDegreesLabel.text = @"12°";
 }
 
 
