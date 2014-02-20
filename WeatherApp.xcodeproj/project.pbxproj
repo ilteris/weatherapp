@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		A2FE368418B6BC2C003D0C11 /* WeatherMoApp */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A2FE368518B6BC2C003D0C11 /* Build configuration list for PBXAggregateTarget "WeatherMoApp" */;
+			buildPhases = (
+				A2FE368818B6BC4A003D0C11 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = WeatherMoApp;
+			productName = WeatherMoApp;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A207317B18AFDFC2007BB865 /* IKWMainViewController.m */; };
 		A20731C218AFE395007BB865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20731C118AFE395007BB865 /* Main.storyboard */; };
@@ -43,6 +57,12 @@
 		A20D6C2E18ADCFCD00390EDD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C1218ADCFCC00390EDD /* CoreData.framework */; };
 		A20D6C3618ADCFCD00390EDD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A20D6C3418ADCFCD00390EDD /* InfoPlist.strings */; };
 		A20D6C3818ADCFCD00390EDD /* WeatherAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A20D6C3718ADCFCD00390EDD /* WeatherAppTests.m */; };
+		A2FE367E18B6BBA7003D0C11 /* _Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367318B6BBA7003D0C11 /* _Data.m */; };
+		A2FE367F18B6BBA7003D0C11 /* _Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367518B6BBA7003D0C11 /* _Location.m */; };
+		A2FE368018B6BBA7003D0C11 /* _TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367718B6BBA7003D0C11 /* _TimeFrame.m */; };
+		A2FE368118B6BBA7003D0C11 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367918B6BBA7003D0C11 /* Data.m */; };
+		A2FE368218B6BBA7003D0C11 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367B18B6BBA7003D0C11 /* Location.m */; };
+		A2FE368318B6BBA7003D0C11 /* TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367D18B6BBA7003D0C11 /* TimeFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +120,18 @@
 		A20D6C3718ADCFCD00390EDD /* WeatherAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherAppTests.m; sourceTree = "<group>"; };
 		A20D6CCA18ADD8C600390EDD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A20D6CCB18ADD8C600390EDD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A2FE367218B6BBA7003D0C11 /* _Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Data.h; sourceTree = "<group>"; };
+		A2FE367318B6BBA7003D0C11 /* _Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Data.m; sourceTree = "<group>"; };
+		A2FE367418B6BBA7003D0C11 /* _Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Location.h; sourceTree = "<group>"; };
+		A2FE367518B6BBA7003D0C11 /* _Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Location.m; sourceTree = "<group>"; };
+		A2FE367618B6BBA7003D0C11 /* _TimeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TimeFrame.h; sourceTree = "<group>"; };
+		A2FE367718B6BBA7003D0C11 /* _TimeFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TimeFrame.m; sourceTree = "<group>"; };
+		A2FE367818B6BBA7003D0C11 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		A2FE367918B6BBA7003D0C11 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		A2FE367A18B6BBA7003D0C11 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		A2FE367B18B6BBA7003D0C11 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		A2FE367C18B6BBA7003D0C11 /* TimeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFrame.h; sourceTree = "<group>"; };
+		A2FE367D18B6BBA7003D0C11 /* TimeFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +219,7 @@
 		A20D6C1418ADCFCC00390EDD /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				A2FE367118B6BBA7003D0C11 /* Model */,
 				A20731C518AFF19D007BB865 /* Gotham */,
 				A20731F318B0260D007BB865 /* IKWHourCollectionViewCell.h */,
 				A20731F418B0260D007BB865 /* IKWHourCollectionViewCell.m */,
@@ -231,6 +264,25 @@
 				A20D6C3418ADCFCD00390EDD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2FE367118B6BBA7003D0C11 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2FE367218B6BBA7003D0C11 /* _Data.h */,
+				A2FE367318B6BBA7003D0C11 /* _Data.m */,
+				A2FE367418B6BBA7003D0C11 /* _Location.h */,
+				A2FE367518B6BBA7003D0C11 /* _Location.m */,
+				A2FE367618B6BBA7003D0C11 /* _TimeFrame.h */,
+				A2FE367718B6BBA7003D0C11 /* _TimeFrame.m */,
+				A2FE367818B6BBA7003D0C11 /* Data.h */,
+				A2FE367918B6BBA7003D0C11 /* Data.m */,
+				A2FE367A18B6BBA7003D0C11 /* Location.h */,
+				A2FE367B18B6BBA7003D0C11 /* Location.m */,
+				A2FE367C18B6BBA7003D0C11 /* TimeFrame.h */,
+				A2FE367D18B6BBA7003D0C11 /* TimeFrame.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +354,7 @@
 			targets = (
 				A20D6C0818ADCFCC00390EDD /* WeatherApp */,
 				A20D6C2818ADCFCD00390EDD /* WeatherAppTests */,
+				A2FE368418B6BC2C003D0C11 /* WeatherMoApp */,
 			);
 		};
 /* End PBXProject section */
@@ -343,16 +396,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A2FE368818B6BC4A003D0C11 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "mogenerator -m WeatherApp/WeatherApp.xcdatamodeld -O WeatherApp/Model --template-var arc=true";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A20D6C0518ADCFCC00390EDD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A20731F518B0260D007BB865 /* IKWHourCollectionViewCell.m in Sources */,
+				A2FE368018B6BBA7003D0C11 /* _TimeFrame.m in Sources */,
+				A2FE367E18B6BBA7003D0C11 /* _Data.m in Sources */,
 				A20D6C2218ADCFCD00390EDD /* WeatherApp.xcdatamodeld in Sources */,
+				A2FE368318B6BBA7003D0C11 /* TimeFrame.m in Sources */,
+				A2FE368218B6BBA7003D0C11 /* Location.m in Sources */,
 				A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */,
+				A2FE368118B6BBA7003D0C11 /* Data.m in Sources */,
 				A20D6C1F18ADCFCD00390EDD /* IKWAppDelegate.m in Sources */,
 				A20D6C1B18ADCFCC00390EDD /* main.m in Sources */,
+				A2FE367F18B6BBA7003D0C11 /* _Location.m in Sources */,
 				A20731F018B00879007BB865 /* ReflectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,6 +614,20 @@
 			};
 			name = Release;
 		};
+		A2FE368618B6BC2C003D0C11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A2FE368718B6BC2C003D0C11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -568,6 +657,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A2FE368518B6BC2C003D0C11 /* Build configuration list for PBXAggregateTarget "WeatherMoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2FE368618B6BC2C003D0C11 /* Debug */,
+				A2FE368718B6BC2C003D0C11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
