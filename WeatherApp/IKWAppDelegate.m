@@ -8,13 +8,6 @@
 
 #import "IKWAppDelegate.h"
 
-#pragma mark -
-#pragma mark Forecast API
-extern NSString * const MTForecastAPIKey;
-
-
-NSString * const MTForecastAPIKey = @"51726905c23eeb21f6f875a028510da9";
-
 
 
 @implementation IKWAppDelegate

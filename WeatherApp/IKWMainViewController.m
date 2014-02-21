@@ -10,6 +10,12 @@
 #import "ReflectionView.h"
 #import "IKWHourCollectionViewCell.h"
 
+
+#import "Data.h"
+#import "Location.h"
+#import "TimeFrame.h"
+
+
 @interface IKWMainViewController () <UICollectionViewDataSource, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
@@ -76,24 +82,16 @@
     CLLocationDegrees lat = placemark.location.coordinate.latitude;
     CLLocationDegrees lon = placemark.location.coordinate.longitude;
     
-   
-    
     // Create Location Dictionary
-   
     NSDictionary *currentLocation = @{  @"city" : city,
                                        @"country" : country,
                                        @"latitude" : @(lat),
                                        @"longitude" : @(lon) };
     
-    
-    
     // Update Current Location
     self.location = currentLocation;
     NSLog(@"currentLocation is %@",currentLocation);
-   
 }
-
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -118,11 +116,70 @@
 
 
 
+#pragma mark -
+#pragma mark Forecast API
+extern NSString * const MTForecastAPIKey;
+
+
+NSString * const MTForecastAPIKey = @"51726905c23eeb21f6f875a028510da9";
+
+
+
+- (void)requestTheJson
+{
+    NSURL *baseURL = [NSURL URLWithString:@"https://api.forecast.io/"];
+    AFHTTPClient * client = [AFHTTPClient clientWithBaseURL:baseURL];
+    
+    [client setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
+    
+    
+    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
+    
+    RKObjectMapping *LocationMapping = [RKObjectMapping mappingForClass:[Location class]];
+    [LocationMapping addAttributeMappingsFromDictionary:@{
+                                                       @"latitude" : @"latitude",
+                                                       @"longitude" : @"longitude",
+                                                       @"offset" : @"offset",
+                                                       @"timezone" : @"timezone"}];
+
+    RKObjectMapping *timeframeMapping = [RKObjectMapping mappingForClass:[TimeFrame class]];
+    
+    
+    [timeframeMapping addAttributeMappingsFromDictionary:@{
+                @"icon": @"icon",
+                @"summary": @"summary",
+                @"type": @"type",
+                @"data": @"data"}];
+    
+  
+    [timeframeMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"location" toKeyPath:@"location" withMapping:timeframeMapping]];
+    RKResponseDescriptor * responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:timeframeMapping
+                                                                                        pathPattern:nil
+                                                                                            keyPath:@"response.timeframes"
+                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [objectManager addResponseDescriptor:responseDescriptor];
+
+
+    [objectManager getObjectsAtPath:[NSString stringWithFormat:@"https://api.forecast.io/forecast/%@/%@,%@",MTForecastAPIKey,@"37.33",@"-122.03"]
+                         parameters:nil
+                            success:^(RKObjectRequestOperation * operation, RKMappingResult *mappingResult)
+     {
+         NSLog(@"success: mappings: %@", mappingResult);
+         NSArray *result = [mappingResult array];
+         //NSLog(@"result is %@", result);
+     }  
+                            failure:^(RKObjectRequestOperation * operaton, NSError * error)  
+     {  
+         NSLog (@"failure: operation: %@ \n\nerror: %@", operaton, error);  
+     }];  
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    [self requestTheJson];
     if (!self.location) {
         [self.locationManager startUpdatingLocation];
     }
