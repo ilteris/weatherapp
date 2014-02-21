@@ -25,10 +25,6 @@ NSString * const MTForecastAPIKey = @"51726905c23eeb21f6f875a028510da9";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  
-    
-    [self setupRestKit];
-    
     return YES;
 }
 
