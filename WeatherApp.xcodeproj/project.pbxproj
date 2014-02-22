@@ -57,6 +57,7 @@
 		A20D6C2E18ADCFCD00390EDD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C1218ADCFCC00390EDD /* CoreData.framework */; };
 		A20D6C3618ADCFCD00390EDD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A20D6C3418ADCFCD00390EDD /* InfoPlist.strings */; };
 		A20D6C3818ADCFCD00390EDD /* WeatherAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A20D6C3718ADCFCD00390EDD /* WeatherAppTests.m */; };
+		A2BB93A618B9659F008C67F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368D18B70327003D0C11 /* CoreLocation.framework */; };
 		A2FE367E18B6BBA7003D0C11 /* _Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367318B6BBA7003D0C11 /* _Data.m */; };
 		A2FE367F18B6BBA7003D0C11 /* _Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367518B6BBA7003D0C11 /* _Location.m */; };
 		A2FE368018B6BBA7003D0C11 /* _TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367718B6BBA7003D0C11 /* _TimeFrame.m */; };
@@ -65,8 +66,6 @@
 		A2FE368318B6BBA7003D0C11 /* TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367D18B6BBA7003D0C11 /* TimeFrame.m */; };
 		A2FE368A18B6C0E8003D0C11 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368918B6C0E8003D0C11 /* MobileCoreServices.framework */; };
 		A2FE368C18B6C0F7003D0C11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368B18B6C0F7003D0C11 /* SystemConfiguration.framework */; };
-		A2FE368E18B70327003D0C11 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368D18B70327003D0C11 /* CoreLocation.framework */; };
-		CC4FF90F8F6041898EE3B421 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9032836A8E05460D9270C91C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +80,6 @@
 
 /* Begin PBXFileReference section */
 		210459ABE1664C90A4AB7159 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		9032836A8E05460D9270C91C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A207317A18AFDFC2007BB865 /* IKWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWMainViewController.h; sourceTree = "<group>"; };
 		A207317B18AFDFC2007BB865 /* IKWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWMainViewController.m; sourceTree = "<group>"; };
 		A20731C118AFE395007BB865 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -148,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2FE368E18B70327003D0C11 /* CoreLocation.framework in Frameworks */,
+				A2BB93A618B9659F008C67F7 /* CoreLocation.framework in Frameworks */,
 				A2FE368C18B6C0F7003D0C11 /* SystemConfiguration.framework in Frameworks */,
 				A2FE368A18B6C0E8003D0C11 /* MobileCoreServices.framework in Frameworks */,
 				A20731EA18B005EF007BB865 /* CoreImage.framework in Frameworks */,
@@ -156,7 +154,6 @@
 				A20D6C1318ADCFCC00390EDD /* CoreData.framework in Frameworks */,
 				A20D6C1118ADCFCC00390EDD /* UIKit.framework in Frameworks */,
 				A20D6C0D18ADCFCC00390EDD /* Foundation.framework in Frameworks */,
-				CC4FF90F8F6041898EE3B421 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +226,6 @@
 				A20D6C1018ADCFCC00390EDD /* UIKit.framework */,
 				A20D6C1218ADCFCC00390EDD /* CoreData.framework */,
 				A20D6C2A18ADCFCD00390EDD /* XCTest.framework */,
-				9032836A8E05460D9270C91C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -603,6 +599,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeatherApp/WeatherApp-Prefix.pch";
 				INFOPLIST_FILE = "WeatherApp/WeatherApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -618,6 +618,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeatherApp/WeatherApp-Prefix.pch";
 				INFOPLIST_FILE = "WeatherApp/WeatherApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

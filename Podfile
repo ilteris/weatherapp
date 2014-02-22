@@ -1,2 +1,2 @@
 platform :ios, '7.0'
-pod 'RestKit', '0.22'
+pod "AFNetworking", "~> 2.0"
