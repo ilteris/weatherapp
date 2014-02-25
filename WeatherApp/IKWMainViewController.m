@@ -10,6 +10,7 @@
 #import "ReflectionView.h"
 #import "IKWHourCollectionViewCell.h"
 
+#import "IKWForecastClient.h"
 
 #import "Data.h"
 #import "Location.h"
@@ -91,6 +92,7 @@
     // Update Current Location
     self.location = currentLocation;
     NSLog(@"currentLocation is %@",currentLocation);
+   
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -136,8 +138,43 @@
    
     self.currentDegreesLabel.text = @"12°";
     
+    NSURLSessionTask *task =  [self globalTimelinePostsWithBlock:^(NSArray *posts, NSError *error) {
+        if (!error) {
+          
+        }
+    }];
+
+   //[[IKWForecastClient sharedClient] requestWeatherForCoordinate:CLLocationCoordinate2DMake([[self.location objectForKey:@"latitude"] floatValue], [[self.location objectForKey:@"longtitude"] floatValue]) completion:^(BOOL success, NSDictionary *response) { }];
     
 }
+
+
+#pragma mark -
+
+- (NSURLSessionDataTask *)globalTimelinePostsWithBlock:(void (^)(NSArray *posts, NSError *error))block {
+    return [[IKWForecastClient sharedClient] GET:@"@/" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        NSArray *postsFromResponse = [JSON valueForKeyPath:@"data"];
+        NSMutableArray *mutablePosts = [NSMutableArray arrayWithCapacity:[postsFromResponse count]];
+        
+        NSLog(@"here is array mutable posts %@", mutablePosts);
+        /*
+         
+         
+         for (NSDictionary *attributes in postsFromResponse) {
+         Post *post = [[Post alloc] initWithAttributes:attributes];
+         [mutablePosts addObject:post];
+         }
+         */
+        if (block) {
+            block([NSArray arrayWithArray:mutablePosts], nil);
+        }
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+        if (block) {
+            block([NSArray array], error);
+        }
+    }];
+}
+
 
 
 
