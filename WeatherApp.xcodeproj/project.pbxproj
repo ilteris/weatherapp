@@ -60,6 +60,7 @@
 		A20D6C3818ADCFCD00390EDD /* WeatherAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A20D6C3718ADCFCD00390EDD /* WeatherAppTests.m */; };
 		A2BB93A618B9659F008C67F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368D18B70327003D0C11 /* CoreLocation.framework */; };
 		A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */; };
+		A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */; };
 		A2FE367E18B6BBA7003D0C11 /* _Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367318B6BBA7003D0C11 /* _Data.m */; };
 		A2FE367F18B6BBA7003D0C11 /* _Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367518B6BBA7003D0C11 /* _Location.m */; };
 		A2FE368018B6BBA7003D0C11 /* _TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367718B6BBA7003D0C11 /* _TimeFrame.m */; };
@@ -126,8 +127,10 @@
 		A20D6C3718ADCFCD00390EDD /* WeatherAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherAppTests.m; sourceTree = "<group>"; };
 		A20D6CCA18ADD8C600390EDD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A20D6CCB18ADD8C600390EDD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A2BB93AC18BC22BB008C67F7 /* IKWForecastClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IKWForecastClient.h; path = WeatherApp/IKWForecastClient.h; sourceTree = "<group>"; };
-		A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IKWForecastClient.m; path = WeatherApp/IKWForecastClient.m; sourceTree = "<group>"; };
+		A2BB93AC18BC22BB008C67F7 /* IKWForecastClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWForecastClient.h; sourceTree = "<group>"; };
+		A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWForecastClient.m; sourceTree = "<group>"; };
+		A2BB93B518DFB702008C67F7 /* IKWForecastClient+Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IKWForecastClient+Weather.h"; sourceTree = "<group>"; };
+		A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IKWForecastClient+Weather.m"; sourceTree = "<group>"; };
 		A2FE367218B6BBA7003D0C11 /* _Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Data.h; sourceTree = "<group>"; };
 		A2FE367318B6BBA7003D0C11 /* _Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Data.m; sourceTree = "<group>"; };
 		A2FE367418B6BBA7003D0C11 /* _Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Location.h; sourceTree = "<group>"; };
@@ -203,8 +206,6 @@
 		A20D6C0018ADCFCC00390EDD = {
 			isa = PBXGroup;
 			children = (
-				A2BB93AC18BC22BB008C67F7 /* IKWForecastClient.h */,
-				A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */,
 				A20D6C1418ADCFCC00390EDD /* WeatherApp */,
 				A20D6C3118ADCFCD00390EDD /* WeatherAppTests */,
 				A20D6C0B18ADCFCC00390EDD /* Frameworks */,
@@ -242,8 +243,9 @@
 		A20D6C1418ADCFCC00390EDD /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				A2BB93B418DFB702008C67F7 /* Utilities */,
+				A2BB93B218DFB702008C67F7 /* Resources */,
 				A2FE367118B6BBA7003D0C11 /* Model */,
-				A20731C518AFF19D007BB865 /* Gotham */,
 				A20731F318B0260D007BB865 /* IKWHourCollectionViewCell.h */,
 				A20731F418B0260D007BB865 /* IKWHourCollectionViewCell.m */,
 				A207317A18AFDFC2007BB865 /* IKWMainViewController.h */,
@@ -287,6 +289,25 @@
 				A20D6C3418ADCFCD00390EDD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2BB93B218DFB702008C67F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A20731C518AFF19D007BB865 /* Gotham */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A2BB93B418DFB702008C67F7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A2BB93B518DFB702008C67F7 /* IKWForecastClient+Weather.h */,
+				A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */,
+				A2BB93AC18BC22BB008C67F7 /* IKWForecastClient.h */,
+				A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		A2FE367118B6BBA7003D0C11 /* Model */ = {
@@ -479,6 +500,7 @@
 				A2FE368218B6BBA7003D0C11 /* Location.m in Sources */,
 				A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */,
 				A2FE368118B6BBA7003D0C11 /* Data.m in Sources */,
+				A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */,
 				A20D6C1F18ADCFCD00390EDD /* IKWAppDelegate.m in Sources */,
 				A20D6C1B18ADCFCC00390EDD /* main.m in Sources */,
 				A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */,

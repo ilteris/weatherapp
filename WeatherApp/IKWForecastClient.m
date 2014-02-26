@@ -8,6 +8,14 @@
 
 #import "IKWForecastClient.h"
 
+@interface IKWForecastClient()
++ (NSURL *)baseURL;
+@end
+
+
+
+
+@implementation IKWForecastClient
 
 #pragma mark -
 #pragma mark Forecast API
@@ -15,24 +23,37 @@ NSString * const IKWForecastAPIKey = @"51726905c23eeb21f6f875a028510da9";
 
 
 
-@implementation IKWForecastClient
+#pragma mark - Class Methods
 
-+ (instancetype)sharedClient {
-    static IKWForecastClient *_sharedClient = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedClient = [[IKWForecastClient alloc] initWithBaseURL:[NSURL URLWithString:[self baseURL]]];
-      //  _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+
++ (instancetype)sharedClient
+{
+    static dispatch_once_t onceQueue;
+    static IKWForecastClient *__sharedClient = nil;
+    dispatch_once(&onceQueue, ^{
+        __sharedClient = [[self alloc] init];
     });
+    return __sharedClient;
+}
+
+
+- (id)init
+{
+    if (self = [super initWithBaseURL:[[self class] baseURL]])
+    {
+        self.requestSerializer = [AFHTTPRequestSerializer serializer];
+        self.responseSerializer = [AFJSONResponseSerializer serializer];
+        
+       
+    }
     
-    return _sharedClient;
+    return self;
 }
 
 
 
-
-+ (NSString *)baseURL {
-    return [NSString stringWithFormat:@"https://api.forecast.io/forecast/%@/", IKWForecastAPIKey];
++ (NSURL *)baseURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"https://api.forecast.io/forecast/%@/", IKWForecastAPIKey]];
 }
 
 
