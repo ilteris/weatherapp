@@ -10,7 +10,7 @@
 #import "ReflectionView.h"
 #import "IKWHourCollectionViewCell.h"
 
-#import "IKWForecastClient.h"
+#import "IKWForecastClient+Weather.h"
 
 #import "Data.h"
 #import "Location.h"
@@ -138,13 +138,16 @@
    
     self.currentDegreesLabel.text = @"12°";
     
-    NSURLSessionTask *task =  [self globalTimelinePostsWithBlock:^(NSArray *posts, NSError *error) {
-        if (!error) {
-          
-        }
+    NSLog(@"is %f", [[self.location objectForKey:@"latitude"] doubleValue]);
+    [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:[[self.location objectForKey:@"latitude"] floatValue] longitude:[[self.location objectForKey:@"latitude"] floatValue] completion:^(NSArray *stores, NSError *error) {
+        if (!error){
+            NSLog(@"no error");
+        } else {
+            NSLog(@" error");
+    }
     }];
 
-   //[[IKWForecastClient sharedClient] requestWeatherForCoordinate:CLLocationCoordinate2DMake([[self.location objectForKey:@"latitude"] floatValue], [[self.location objectForKey:@"longtitude"] floatValue]) completion:^(BOOL success, NSDictionary *response) { }];
+  
     
 }
 

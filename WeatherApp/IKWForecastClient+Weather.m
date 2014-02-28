@@ -25,6 +25,7 @@
     NSString *path = @"/";
     
     NSString *URLString = [[NSURL URLWithString:path relativeToURL:self.baseURL] absoluteString];
+    NSLog(@"URLstring is %@", URLString);
     
     return [self GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         
