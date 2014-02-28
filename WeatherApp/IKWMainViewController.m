@@ -93,6 +93,17 @@
     self.location = currentLocation;
     NSLog(@"currentLocation is %@",currentLocation);
    
+     [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:[[self.location objectForKey:@"latitude"] floatValue] longitude:[[self.location objectForKey:@"longitude"] floatValue] completion:^(NSArray *stores, NSError *error) {
+     if (!error){
+     NSLog(@"no error");
+     } else {
+     NSLog(@" error");
+     }
+     }];
+     
+     
+    
+    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -139,43 +150,8 @@
     self.currentDegreesLabel.text = @"12°";
     
     NSLog(@"is %f", [[self.location objectForKey:@"latitude"] doubleValue]);
-    [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:[[self.location objectForKey:@"latitude"] floatValue] longitude:[[self.location objectForKey:@"latitude"] floatValue] completion:^(NSArray *stores, NSError *error) {
-        if (!error){
-            NSLog(@"no error");
-        } else {
-            NSLog(@" error");
-    }
-    }];
-
-  
     
-}
-
-
-#pragma mark -
-
-- (NSURLSessionDataTask *)globalTimelinePostsWithBlock:(void (^)(NSArray *posts, NSError *error))block {
-    return [[IKWForecastClient sharedClient] GET:@"@/" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
-        NSArray *postsFromResponse = [JSON valueForKeyPath:@"data"];
-        NSMutableArray *mutablePosts = [NSMutableArray arrayWithCapacity:[postsFromResponse count]];
-        
-        NSLog(@"here is array mutable posts %@", mutablePosts);
-        /*
-         
-         
-         for (NSDictionary *attributes in postsFromResponse) {
-         Post *post = [[Post alloc] initWithAttributes:attributes];
-         [mutablePosts addObject:post];
-         }
-         */
-        if (block) {
-            block([NSArray arrayWithArray:mutablePosts], nil);
-        }
-    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
-        if (block) {
-            block([NSArray array], error);
-        }
-    }];
+    
 }
 
 

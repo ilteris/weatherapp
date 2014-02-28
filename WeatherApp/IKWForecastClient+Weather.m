@@ -18,11 +18,9 @@
     NSParameterAssert(longitude);
     
     NSDictionary *parameters = @{
-                                 @"longitude" : @(longitude),
-                                 @"latitude": @(latitude)
+                                 @"units" : @"si"
                                  };
-    
-    NSString *path = @"/";
+    NSString *path = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
     
     NSString *URLString = [[NSURL URLWithString:path relativeToURL:self.baseURL] absoluteString];
     NSLog(@"URLstring is %@", URLString);
@@ -36,6 +34,8 @@
         if (responseObject) {
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                NSLog(@"responseObject is %@", responseObject);
                 
                 //id collection = [[ObjectBuilder builder] collectionFromJSON:responseObject className:NSStringFromClass([Store class])];
                 
