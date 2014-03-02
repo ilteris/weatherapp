@@ -179,14 +179,6 @@
             </objects>
             <point key="canvasLocation" x="159" y="0.0"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="uoU-sY-n9F">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ffU-GA-FaN" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BAx-wa-6tm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="159" y="700"/>
-        </scene>
     </scenes>
     <resources>
         <image name="weatherapp-cellbg" width="75" height="345"/>
