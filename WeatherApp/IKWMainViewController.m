@@ -16,6 +16,7 @@
 #import "Location.h"
 #import "TimeFrame.h"
 
+#import "INTULocationManager.h"
 
 @interface IKWMainViewController () <UICollectionViewDataSource, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
