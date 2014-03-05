@@ -34,6 +34,11 @@
 @property (assign, nonatomic) BOOL locationFound;
 
 
+@property (assign, nonatomic) NSInteger locationRequestID;
+@property (assign, nonatomic) INTULocationAccuracy desiredAccuracy;
+@property (assign, nonatomic) NSTimeInterval timeout;
+
+
 
 
 @end
@@ -55,6 +60,46 @@
     }
     return self;
 }
+
+
+- (void)startLocationRequest
+{
+    __weak __typeof(self) weakSelf = self;
+    
+    INTULocationManager *locMgr = [INTULocationManager sharedInstance];
+    self.locationRequestID = [locMgr requestLocationWithDesiredAccuracy:self.desiredAccuracy
+                                                                timeout:self.timeout
+                                                                  block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                                                      __typeof(weakSelf) strongSelf = weakSelf;
+                                                                      
+                                                                      if (status == INTULocationStatusSuccess) {
+                                                                          // achievedAccuracy is at least the desired accuracy (potentially better)
+                                                                          NSLog(@"Location request successful! Current Location:\n%@", currentLocation);
+                                                                      }
+                                                                      else if (status == INTULocationStatusTimedOut) {
+                                                                          // You may wish to inspect achievedAccuracy here to see if it is acceptable, if you plan to use currentLocation
+                                                                          NSLog(@"Location request timed out. Current Location:\n%@", currentLocation);
+                                                                          
+                                                                      }
+                                                                      else {
+                                                                          // An error occurred
+                                                                          if (status == INTULocationStatusServicesNotDetermined) {
+                                                                              NSLog(@"Error: User has not responded to the permissions alert.");
+                                                                          } else if (status == INTULocationStatusServicesDenied) {
+                                                                              NSLog(@"Error: User has denied this app permissions to access device location.");
+                                                                          } else if (status == INTULocationStatusServicesRestricted) {
+                                                                              NSLog(@"Error: User is restricted from using location services by a usage policy.");
+                                                                          } else if (status == INTULocationStatusServicesDisabled) {
+                                                                              NSLog(@"Error: Location services are turned off for all apps on this device.");
+                                                                          } else {
+                                                                              NSLog(@"An unknown error occurred.\n(Are you using iOS Simulator with location set to 'None'?)");
+                                                                          }
+                                                                      }
+                                                                      
+                                                                      strongSelf.locationRequestID = NSNotFound;
+                                                                  }];
+}
+
 
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
@@ -86,23 +131,23 @@
     
     // Create Location Dictionary
     NSDictionary *currentLocation = @{  @"city" : city,
-                                       @"country" : country,
-                                       @"latitude" : @(lat),
-                                       @"longitude" : @(lon) };
+                                        @"country" : country,
+                                        @"latitude" : @(lat),
+                                        @"longitude" : @(lon) };
     
     // Update Current Location
     self.location = currentLocation;
     NSLog(@"currentLocation is %@",currentLocation);
-   
-     [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:[[self.location objectForKey:@"latitude"] floatValue] longitude:[[self.location objectForKey:@"longitude"] floatValue] completion:^(NSArray *stores, NSError *error) {
-     if (!error){
-     NSLog(@"no error");
-     } else {
-     NSLog(@" error");
-     }
-     }];
-     
-     
+    
+    [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:[[self.location objectForKey:@"latitude"] floatValue] longitude:[[self.location objectForKey:@"longitude"] floatValue] completion:^(NSArray *stores, NSError *error) {
+        if (!error){
+            NSLog(@"no error");
+        } else {
+            NSLog(@" error");
+        }
+    }];
+    
+    
     
     
 }
@@ -135,19 +180,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     if (!self.location) {
         [self.locationManager startUpdatingLocation];
     }
     
     
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
-
+    
     
     [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:110]];
     [self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
     [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
-   
+    
     self.currentDegreesLabel.text = @"12°";
     
     NSLog(@"is %f", [[self.location objectForKey:@"latitude"] doubleValue]);
