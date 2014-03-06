@@ -18,7 +18,7 @@
 
 #import "INTULocationManager.h"
 
-@interface IKWMainViewController () <UICollectionViewDataSource, CLLocationManagerDelegate>
+@interface IKWMainViewController () <UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentDegreesLabel;
@@ -51,11 +51,6 @@
     self = [super initWithCoder:aDecoder];
     if (self) {        // Custom initialization
         
-        self.locationManager = [[CLLocationManager alloc] init];
-        
-        // Configure Location Manager
-        [self.locationManager setDelegate:self];
-        [self.locationManager setDesiredAccuracy:kCLLocationAccuracyKilometer];
         
     }
     return self;
@@ -75,6 +70,19 @@
                                                                       if (status == INTULocationStatusSuccess) {
                                                                           // achievedAccuracy is at least the desired accuracy (potentially better)
                                                                           NSLog(@"Location request successful! Current Location:\n%@", currentLocation);
+                                                                          
+                                                                          /*
+                                                                          [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:[[self.location objectForKey:@"latitude"] floatValue] longitude:[[self.location objectForKey:@"longitude"] floatValue] completion:^(NSArray *stores, NSError *error) {
+                                                                              if (!error){
+                                                                                  NSLog(@"no error");
+                                                                              } else {
+                                                                                  NSLog(@" error");
+                                                                              }
+                                                                          }];
+                                                                           
+                                                                           */
+                                                                          
+                                                                          
                                                                       }
                                                                       else if (status == INTULocationStatusTimedOut) {
                                                                           // You may wish to inspect achievedAccuracy here to see if it is acceptable, if you plan to use currentLocation
@@ -102,55 +110,6 @@
 
 
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    if (![locations count] || self.locationFound) return;
-    
-    // Stop Updating Location
-    _locationFound = YES;
-    [manager stopUpdatingLocation];
-    
-    // Current Location
-    CLLocation *currentLocation = [locations objectAtIndex:0];
-    
-    // Reverse Geocode
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-        if ([placemarks count]) {
-            _locationFound = NO;
-            [self processPlacemark:[placemarks objectAtIndex:0]];
-        }
-    }];
-}
-
-- (void)processPlacemark:(CLPlacemark *)placemark {
-    // Extract Data
-    NSString *city = [placemark locality];
-    NSString *country = [placemark country];
-    CLLocationDegrees lat = placemark.location.coordinate.latitude;
-    CLLocationDegrees lon = placemark.location.coordinate.longitude;
-    
-    // Create Location Dictionary
-    NSDictionary *currentLocation = @{  @"city" : city,
-                                        @"country" : country,
-                                        @"latitude" : @(lat),
-                                        @"longitude" : @(lon) };
-    
-    // Update Current Location
-    self.location = currentLocation;
-    NSLog(@"currentLocation is %@",currentLocation);
-    
-    [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:[[self.location objectForKey:@"latitude"] floatValue] longitude:[[self.location objectForKey:@"longitude"] floatValue] completion:^(NSArray *stores, NSError *error) {
-        if (!error){
-            NSLog(@"no error");
-        } else {
-            NSLog(@" error");
-        }
-    }];
-    
-    
-    
-    
-}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -181,10 +140,12 @@
 {
     [super viewDidLoad];
     
-    if (!self.location) {
-        [self.locationManager startUpdatingLocation];
-    }
+    self.desiredAccuracy = INTULocationAccuracyCity;
+    self.timeout = 10.0;
     
+    self.locationRequestID = NSNotFound;
+    
+    [self startLocationRequest];
     
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
     
