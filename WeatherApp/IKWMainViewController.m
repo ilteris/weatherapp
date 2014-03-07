@@ -71,17 +71,18 @@
                                                                           // achievedAccuracy is at least the desired accuracy (potentially better)
                                                                           NSLog(@"Location request successful! Current Location:\n%@", currentLocation);
                                                                           
-                                                                          /*
-                                                                          [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:[[self.location objectForKey:@"latitude"] floatValue] longitude:[[self.location objectForKey:@"longitude"] floatValue] completion:^(NSArray *stores, NSError *error) {
+                                                                          CLLocationCoordinate2D coord;
+                                                                          coord.longitude = currentLocation.coordinate.longitude;
+                                                                          coord.latitude = currentLocation.coordinate.latitude;
+                                                                          
+                                                                          
+                                                                          [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:coord.latitude longitude:coord.longitude completion:^(NSArray *stores, NSError *error) {
                                                                               if (!error){
                                                                                   NSLog(@"no error");
                                                                               } else {
                                                                                   NSLog(@" error");
                                                                               }
                                                                           }];
-                                                                           
-                                                                           */
-                                                                          
                                                                           
                                                                       }
                                                                       else if (status == INTULocationStatusTimedOut) {
