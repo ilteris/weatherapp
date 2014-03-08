@@ -28,10 +28,6 @@
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
 
-//location
-@property (strong, nonatomic) NSDictionary *location;
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (assign, nonatomic) BOOL locationFound;
 
 
 @property (assign, nonatomic) NSInteger locationRequestID;
@@ -156,9 +152,7 @@
     [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
     
     self.currentDegreesLabel.text = @"12°";
-    
-    NSLog(@"is %f", [[self.location objectForKey:@"latitude"] doubleValue]);
-    
+        
     
 }
 
