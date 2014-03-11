@@ -61,6 +61,7 @@
 		A2BB93A618B9659F008C67F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368D18B70327003D0C11 /* CoreLocation.framework */; };
 		A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */; };
 		A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */; };
+		A2BB93BA18DFB702008C67F7 /* IKWSyncObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93B918DFB702008C67F7 /* IKWSyncObject.m */; };
 		A2FE367E18B6BBA7003D0C11 /* _Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367318B6BBA7003D0C11 /* _Data.m */; };
 		A2FE367F18B6BBA7003D0C11 /* _Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367518B6BBA7003D0C11 /* _Location.m */; };
 		A2FE368018B6BBA7003D0C11 /* _TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367718B6BBA7003D0C11 /* _TimeFrame.m */; };
@@ -131,6 +132,8 @@
 		A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWForecastClient.m; sourceTree = "<group>"; };
 		A2BB93B518DFB702008C67F7 /* IKWForecastClient+Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IKWForecastClient+Weather.h"; sourceTree = "<group>"; };
 		A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IKWForecastClient+Weather.m"; sourceTree = "<group>"; };
+		A2BB93B818DFB702008C67F7 /* IKWSyncObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWSyncObject.h; sourceTree = "<group>"; };
+		A2BB93B918DFB702008C67F7 /* IKWSyncObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWSyncObject.m; sourceTree = "<group>"; };
 		A2FE367218B6BBA7003D0C11 /* _Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Data.h; sourceTree = "<group>"; };
 		A2FE367318B6BBA7003D0C11 /* _Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Data.m; sourceTree = "<group>"; };
 		A2FE367418B6BBA7003D0C11 /* _Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Location.h; sourceTree = "<group>"; };
@@ -250,6 +253,8 @@
 				A20731F418B0260D007BB865 /* IKWHourCollectionViewCell.m */,
 				A207317A18AFDFC2007BB865 /* IKWMainViewController.h */,
 				A207317B18AFDFC2007BB865 /* IKWMainViewController.m */,
+				A2BB93B818DFB702008C67F7 /* IKWSyncObject.h */,
+				A2BB93B918DFB702008C67F7 /* IKWSyncObject.m */,
 				A20D6C1D18ADCFCD00390EDD /* IKWAppDelegate.h */,
 				A20D6C1E18ADCFCD00390EDD /* IKWAppDelegate.m */,
 				A20731EE18B00879007BB865 /* ReflectionView.h */,
@@ -493,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A20731F518B0260D007BB865 /* IKWHourCollectionViewCell.m in Sources */,
+				A2BB93BA18DFB702008C67F7 /* IKWSyncObject.m in Sources */,
 				A2FE368018B6BBA7003D0C11 /* _TimeFrame.m in Sources */,
 				A2FE367E18B6BBA7003D0C11 /* _Data.m in Sources */,
 				A20D6C2218ADCFCD00390EDD /* WeatherApp.xcdatamodeld in Sources */,
