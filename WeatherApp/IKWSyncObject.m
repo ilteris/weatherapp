@@ -7,6 +7,7 @@
 //
 
 #import "IKWSyncObject.h"
+#import <Mantle/Mantle.h>
 
 @implementation IKWSyncObject
 
@@ -18,6 +19,20 @@
     });
     
     return sharedEngine;
+}
+
+- (id)collectionFromJSON:(NSDictionary *)JSON className:(NSString *)className
+{
+    NSParameterAssert(className);
+    
+    if ([JSON isKindOfClass:[NSArray class]]) {
+        
+        NSValueTransformer *valueTransformer = [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:NSClassFromString(className)];
+        NSArray *collection = [valueTransformer transformedValue:JSON];
+        return collection;
+        
+    }
+    return nil;
 }
 
 
