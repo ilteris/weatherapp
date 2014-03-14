@@ -11,5 +11,7 @@
 @interface IKWSyncObject : NSObject
 
 + (IKWSyncObject *)sharedEngine;
+- (id)collectionFromJSON:(NSDictionary *)JSON className:(NSString *)className;
+
 
 @end
