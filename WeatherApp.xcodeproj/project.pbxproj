@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		1F462B37D31E4EE69EE7A050 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC463ED75D8B4ED0817FC013 /* libPods.a */; };
+		A206405018D4DCA800AE1F31 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A206404F18D4DCA800AE1F31 /* Location.m */; };
+		A206405318D4DCA900AE1F31 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A206405218D4DCA900AE1F31 /* Data.m */; };
 		A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A207317B18AFDFC2007BB865 /* IKWMainViewController.m */; };
 		A20731C218AFE395007BB865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20731C118AFE395007BB865 /* Main.storyboard */; };
 		A20731D618AFF19D007BB865 /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C618AFF19D007BB865 /* Gotham-Black.otf */; };
@@ -78,6 +80,10 @@
 
 /* Begin PBXFileReference section */
 		210459ABE1664C90A4AB7159 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		A206404E18D4DCA800AE1F31 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = ../Location.h; sourceTree = "<group>"; };
+		A206404F18D4DCA800AE1F31 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = ../Location.m; sourceTree = "<group>"; };
+		A206405118D4DCA900AE1F31 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Data.h; path = ../Data.h; sourceTree = "<group>"; };
+		A206405218D4DCA900AE1F31 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Data.m; path = ../Data.m; sourceTree = "<group>"; };
 		A207317A18AFDFC2007BB865 /* IKWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWMainViewController.h; sourceTree = "<group>"; };
 		A207317B18AFDFC2007BB865 /* IKWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWMainViewController.m; sourceTree = "<group>"; };
 		A20731C118AFE395007BB865 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -300,6 +306,10 @@
 		A2FE367118B6BBA7003D0C11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A206405118D4DCA900AE1F31 /* Data.h */,
+				A206405218D4DCA900AE1F31 /* Data.m */,
+				A206404E18D4DCA800AE1F31 /* Location.h */,
+				A206404F18D4DCA800AE1F31 /* Location.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -472,7 +482,9 @@
 				A20D6C2218ADCFCD00390EDD /* WeatherApp.xcdatamodeld in Sources */,
 				A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */,
 				A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */,
+				A206405318D4DCA900AE1F31 /* Data.m in Sources */,
 				A20D6C1F18ADCFCD00390EDD /* IKWAppDelegate.m in Sources */,
+				A206405018D4DCA800AE1F31 /* Location.m in Sources */,
 				A20D6C1B18ADCFCC00390EDD /* main.m in Sources */,
 				A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */,
 				A20731F018B00879007BB865 /* ReflectionView.m in Sources */,
