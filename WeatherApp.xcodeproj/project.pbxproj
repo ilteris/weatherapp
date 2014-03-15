@@ -62,12 +62,6 @@
 		A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */; };
 		A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */; };
 		A2BB93BA18DFB702008C67F7 /* IKWSyncObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93B918DFB702008C67F7 /* IKWSyncObject.m */; };
-		A2FE367E18B6BBA7003D0C11 /* _Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367318B6BBA7003D0C11 /* _Data.m */; };
-		A2FE367F18B6BBA7003D0C11 /* _Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367518B6BBA7003D0C11 /* _Location.m */; };
-		A2FE368018B6BBA7003D0C11 /* _TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367718B6BBA7003D0C11 /* _TimeFrame.m */; };
-		A2FE368118B6BBA7003D0C11 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367918B6BBA7003D0C11 /* Data.m */; };
-		A2FE368218B6BBA7003D0C11 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367B18B6BBA7003D0C11 /* Location.m */; };
-		A2FE368318B6BBA7003D0C11 /* TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FE367D18B6BBA7003D0C11 /* TimeFrame.m */; };
 		A2FE368A18B6C0E8003D0C11 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368918B6C0E8003D0C11 /* MobileCoreServices.framework */; };
 		A2FE368C18B6C0F7003D0C11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368B18B6C0F7003D0C11 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
@@ -134,18 +128,6 @@
 		A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IKWForecastClient+Weather.m"; sourceTree = "<group>"; };
 		A2BB93B818DFB702008C67F7 /* IKWSyncObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWSyncObject.h; sourceTree = "<group>"; };
 		A2BB93B918DFB702008C67F7 /* IKWSyncObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWSyncObject.m; sourceTree = "<group>"; };
-		A2FE367218B6BBA7003D0C11 /* _Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Data.h; sourceTree = "<group>"; };
-		A2FE367318B6BBA7003D0C11 /* _Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Data.m; sourceTree = "<group>"; };
-		A2FE367418B6BBA7003D0C11 /* _Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Location.h; sourceTree = "<group>"; };
-		A2FE367518B6BBA7003D0C11 /* _Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Location.m; sourceTree = "<group>"; };
-		A2FE367618B6BBA7003D0C11 /* _TimeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TimeFrame.h; sourceTree = "<group>"; };
-		A2FE367718B6BBA7003D0C11 /* _TimeFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TimeFrame.m; sourceTree = "<group>"; };
-		A2FE367818B6BBA7003D0C11 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
-		A2FE367918B6BBA7003D0C11 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
-		A2FE367A18B6BBA7003D0C11 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		A2FE367B18B6BBA7003D0C11 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		A2FE367C18B6BBA7003D0C11 /* TimeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFrame.h; sourceTree = "<group>"; };
-		A2FE367D18B6BBA7003D0C11 /* TimeFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFrame.m; sourceTree = "<group>"; };
 		A2FE368918B6C0E8003D0C11 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A2FE368B18B6C0F7003D0C11 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A2FE368D18B70327003D0C11 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -318,18 +300,6 @@
 		A2FE367118B6BBA7003D0C11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A2FE367218B6BBA7003D0C11 /* _Data.h */,
-				A2FE367318B6BBA7003D0C11 /* _Data.m */,
-				A2FE367418B6BBA7003D0C11 /* _Location.h */,
-				A2FE367518B6BBA7003D0C11 /* _Location.m */,
-				A2FE367618B6BBA7003D0C11 /* _TimeFrame.h */,
-				A2FE367718B6BBA7003D0C11 /* _TimeFrame.m */,
-				A2FE367818B6BBA7003D0C11 /* Data.h */,
-				A2FE367918B6BBA7003D0C11 /* Data.m */,
-				A2FE367A18B6BBA7003D0C11 /* Location.h */,
-				A2FE367B18B6BBA7003D0C11 /* Location.m */,
-				A2FE367C18B6BBA7003D0C11 /* TimeFrame.h */,
-				A2FE367D18B6BBA7003D0C11 /* TimeFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -499,18 +469,12 @@
 			files = (
 				A20731F518B0260D007BB865 /* IKWHourCollectionViewCell.m in Sources */,
 				A2BB93BA18DFB702008C67F7 /* IKWSyncObject.m in Sources */,
-				A2FE368018B6BBA7003D0C11 /* _TimeFrame.m in Sources */,
-				A2FE367E18B6BBA7003D0C11 /* _Data.m in Sources */,
 				A20D6C2218ADCFCD00390EDD /* WeatherApp.xcdatamodeld in Sources */,
-				A2FE368318B6BBA7003D0C11 /* TimeFrame.m in Sources */,
-				A2FE368218B6BBA7003D0C11 /* Location.m in Sources */,
 				A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */,
-				A2FE368118B6BBA7003D0C11 /* Data.m in Sources */,
 				A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */,
 				A20D6C1F18ADCFCD00390EDD /* IKWAppDelegate.m in Sources */,
 				A20D6C1B18ADCFCC00390EDD /* main.m in Sources */,
 				A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */,
-				A2FE367F18B6BBA7003D0C11 /* _Location.m in Sources */,
 				A20731F018B00879007BB865 /* ReflectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
