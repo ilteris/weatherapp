@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B3116" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Data" representedClassName="Data" syncable="YES">
         <attribute name="apparentTemperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="cloudCover" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dewPoint" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,27 +14,20 @@
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="timeFrame" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="windBearing" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="windSpeed" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="timeframe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeFrame" inverseName="datas" inverseEntity="TimeFrame" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="datas" inverseEntity="Location" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="offset" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="timezone" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="timeframes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TimeFrame" inverseName="location" inverseEntity="TimeFrame" syncable="YES"/>
-    </entity>
-    <entity name="TimeFrame" representedClassName="TimeFrame" syncable="YES">
-        <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="datas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Data" inverseName="timeframe" inverseEntity="Data" syncable="YES"/>
-        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="timeframes" inverseEntity="Location" syncable="YES"/>
+        <relationship name="datas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Data" inverseName="location" inverseEntity="Data" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Data" positionX="-576" positionY="-1600" width="128" height="268"/>
-        <element name="Location" positionX="-767" positionY="-1648" width="128" height="118"/>
-        <element name="TimeFrame" positionX="-774" positionY="-1431" width="128" height="118"/>
+        <element name="Data" positionX="-603" positionY="-1737" width="128" height="298"/>
+        <element name="Location" positionX="-900" positionY="-1737" width="128" height="118"/>
     </elements>
 </model>
