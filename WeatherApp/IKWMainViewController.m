@@ -72,13 +72,7 @@
                                                                           coord.latitude = currentLocation.coordinate.latitude;
                                                                           
                                                                           
-                                                                          [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:coord.latitude longitude:coord.longitude completion:^(NSArray *stores, NSError *error) {
-                                                                              if (!error){
-                                                                                  NSLog(@"no error");
-                                                                              } else {
-                                                                                  NSLog(@" error");
-                                                                              }
-                                                                          }];
+                                                                          
                                                                           
                                                                       }
                                                                       else if (status == INTULocationStatusTimedOut) {
