@@ -14,7 +14,6 @@
 
 #import "Data.h"
 #import "Location.h"
-#import "TimeFrame.h"
 
 #import "INTULocationManager.h"
 
