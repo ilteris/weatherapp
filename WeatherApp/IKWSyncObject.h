@@ -11,6 +11,7 @@
 @interface IKWSyncObject : NSObject
 
 + (IKWSyncObject *)sharedEngine;
+- (void)processJSONDataRecordsIntoCoreData:(NSDictionary*)JSONDict;
 
 - (void)startSync;
 

@@ -127,8 +127,8 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
 }
 
 
-- (void)processJSONDataRecordsIntoCoreData {
-    
+- (void)processJSONDataRecordsIntoCoreData:(NSDictionary*)JSONDict {
+    NSLog(@"dict is %@", JSONDict);
 }
 
 

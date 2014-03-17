@@ -37,10 +37,14 @@
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
-                NSLog(@"responseObject is %@", responseObject);
+             //   NSLog(@"responseObject is %@", responseObject);
                 
+                //id collection = [[IKWSyncObject sharedEngine] collectionFromJSON:responseObject className:NSStringFromClass([Location class])];
+
+                [[IKWSyncObject sharedEngine] processJSONDataRecordsIntoCoreData:responseObject];
                 
-              // dispatch_async(dispatch_get_main_queue(), ^{ completion(collection, nil); });
+               dispatch_async(dispatch_get_main_queue(), ^{
+                   completion(nil, nil); });
                 
             });
             
