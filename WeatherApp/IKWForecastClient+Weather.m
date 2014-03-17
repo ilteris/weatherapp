@@ -39,9 +39,8 @@
                 
                 NSLog(@"responseObject is %@", responseObject);
                 
-                id collection = [[IKWSyncObject sharedEngine] collectionFromJSON:responseObject className:NSStringFromClass([Location class])];
                 
-               dispatch_async(dispatch_get_main_queue(), ^{ completion(collection, nil); });
+              // dispatch_async(dispatch_get_main_queue(), ^{ completion(collection, nil); });
                 
             });
             

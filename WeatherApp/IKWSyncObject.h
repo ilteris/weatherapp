@@ -11,7 +11,10 @@
 @interface IKWSyncObject : NSObject
 
 + (IKWSyncObject *)sharedEngine;
-- (id)collectionFromJSON:(NSDictionary *)JSON className:(NSString *)className;
 
+- (void)startSync;
+
+
+@property (atomic, assign, readonly) BOOL syncInProgress;
 
 @end

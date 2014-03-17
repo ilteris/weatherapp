@@ -10,12 +10,10 @@
 #import "ReflectionView.h"
 #import "IKWHourCollectionViewCell.h"
 
-#import "IKWForecastClient+Weather.h"
 
 #import "Data.h"
 #import "Location.h"
 
-#import "INTULocationManager.h"
 
 @interface IKWMainViewController () <UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
@@ -29,9 +27,6 @@
 
 
 
-@property (assign, nonatomic) NSInteger locationRequestID;
-@property (assign, nonatomic) INTULocationAccuracy desiredAccuracy;
-@property (assign, nonatomic) NSTimeInterval timeout;
 
 
 
@@ -49,59 +44,6 @@
         
     }
     return self;
-}
-
-
-- (void)startLocationRequest
-{
-    __weak __typeof(self) weakSelf = self;
-    
-    INTULocationManager *locMgr = [INTULocationManager sharedInstance];
-    self.locationRequestID = [locMgr requestLocationWithDesiredAccuracy:self.desiredAccuracy
-                                                                timeout:self.timeout
-                                                                  block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-                                                                      __typeof(weakSelf) strongSelf = weakSelf;
-                                                                      
-                                                                      if (status == INTULocationStatusSuccess) {
-                                                                          // achievedAccuracy is at least the desired accuracy (potentially better)
-                                                                          NSLog(@"Location request successful! Current Location:\n%@", currentLocation);
-                                                                          
-                                                                          CLLocationCoordinate2D coord;
-                                                                          coord.longitude = currentLocation.coordinate.longitude;
-                                                                          coord.latitude = currentLocation.coordinate.latitude;
-                                                                          
-                                                                          
-                                                                          [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:coord.latitude longitude:coord.longitude completion:^(NSArray *stores, NSError *error) {
-                                                                              if (!error){
-                                                                                  NSLog(@"no error");
-                                                                              } else {
-                                                                                  NSLog(@" error");
-                                                                              }
-                                                                          }];
-                                                                          
-                                                                      }
-                                                                      else if (status == INTULocationStatusTimedOut) {
-                                                                          // You may wish to inspect achievedAccuracy here to see if it is acceptable, if you plan to use currentLocation
-                                                                          NSLog(@"Location request timed out. Current Location:\n%@", currentLocation);
-                                                                          
-                                                                      }
-                                                                      else {
-                                                                          // An error occurred
-                                                                          if (status == INTULocationStatusServicesNotDetermined) {
-                                                                              NSLog(@"Error: User has not responded to the permissions alert.");
-                                                                          } else if (status == INTULocationStatusServicesDenied) {
-                                                                              NSLog(@"Error: User has denied this app permissions to access device location.");
-                                                                          } else if (status == INTULocationStatusServicesRestricted) {
-                                                                              NSLog(@"Error: User is restricted from using location services by a usage policy.");
-                                                                          } else if (status == INTULocationStatusServicesDisabled) {
-                                                                              NSLog(@"Error: Location services are turned off for all apps on this device.");
-                                                                          } else {
-                                                                              NSLog(@"An unknown error occurred.\n(Are you using iOS Simulator with location set to 'None'?)");
-                                                                          }
-                                                                      }
-                                                                      
-                                                                      strongSelf.locationRequestID = NSNotFound;
-                                                                  }];
 }
 
 
@@ -136,13 +78,7 @@
 {
     [super viewDidLoad];
     
-    self.desiredAccuracy = INTULocationAccuracyCity;
-    self.timeout = 10.0;
-    
-    self.locationRequestID = NSNotFound;
-    
-    [self startLocationRequest];
-    
+       
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
     
     
