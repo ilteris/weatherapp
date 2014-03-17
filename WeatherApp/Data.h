@@ -31,4 +31,25 @@
 @property (nonatomic) NSTimeInterval createdAt;
 @property (nonatomic, retain) Location *location;
 
+
+/*
+ apparentTemperature
+ cloudCover
+ createdAt
+ dewPoint
+ humidity
+ icon
+ ozone
+ precipIntensity
+ precipProbability
+ pressure
+ summary
+ temperature
+ time
+ timeFrame
+ windBearing
+ windSpeed
+ */
+
+
 @end

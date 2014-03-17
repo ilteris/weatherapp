@@ -24,9 +24,11 @@
 - (id)collectionFromJSON:(NSDictionary *)JSON className:(NSString *)className
 {
     NSParameterAssert(className);
+    NSLog(@"collectionFromJSON is %@", JSON);
     
     if ([JSON isKindOfClass:[NSArray class]]) {
         
+        NSLog(@"collectionFromJSON");
         NSValueTransformer *valueTransformer = [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:NSClassFromString(className)];
         NSArray *collection = [valueTransformer transformedValue:JSON];
         return collection;

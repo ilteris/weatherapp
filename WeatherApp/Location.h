@@ -6,25 +6,18 @@
 //  Copyright (c) 2014 ilteris. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import <Mantle/Mantle.h>
 
-@class Data;
 
-@interface Location : NSManagedObject
+@interface Location : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic) float latitude;
-@property (nonatomic) float longitude;
-@property (nonatomic) int16_t offset;
-@property (nonatomic, retain) NSString * timezone;
-@property (nonatomic, retain) NSSet *datas;
-@end
+@property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSNumber *latitude;
+@property (nonatomic, copy, readonly) NSNumber *longitude;
+@property (nonatomic, copy, readonly) NSString *offset;
+@property (nonatomic, copy, readonly) NSNumber *timezone;
 
-@interface Location (CoreDataGeneratedAccessors)
 
-- (void)addDatasObject:(Data *)value;
-- (void)removeDatasObject:(Data *)value;
-- (void)addDatas:(NSSet *)values;
-- (void)removeDatas:(NSSet *)values;
+
 
 @end

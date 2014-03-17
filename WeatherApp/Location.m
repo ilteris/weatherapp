@@ -7,15 +7,25 @@
 //
 
 #import "Location.h"
-#import "Data.h"
 
 
 @implementation Location
 
-@dynamic latitude;
-@dynamic longitude;
-@dynamic offset;
-@dynamic timezone;
-@dynamic datas;
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{
+             @"name" : @"name",
+             @"latitude" : @"latitude",
+             @"longitude" : @"longitude",
+             @"offset": @"offset",
+             @"timezone" : @"timezone"
+            };
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, ID: %@, name: %@>", NSStringFromClass([self class]), self, self.timezone, self.name];
+}
 
 @end
