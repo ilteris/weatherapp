@@ -2,7 +2,7 @@
 //  Data.h
 //  WeatherApp
 //
-//  Created by ilteris on 3/15/14.
+//  Created by ilteris on 3/18/14.
 //  Copyright (c) 2014 ilteris. All rights reserved.
 //
 
@@ -30,26 +30,5 @@
 @property (nonatomic, retain) NSString * timeFrame;
 @property (nonatomic) NSTimeInterval createdAt;
 @property (nonatomic, retain) Location *location;
-
-
-/*
- apparentTemperature
- cloudCover
- createdAt
- dewPoint
- humidity
- icon
- ozone
- precipIntensity
- precipProbability
- pressure
- summary
- temperature
- time
- timeFrame
- windBearing
- windSpeed
- */
-
 
 @end

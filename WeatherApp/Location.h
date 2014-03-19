@@ -2,22 +2,29 @@
 //  Location.h
 //  WeatherApp
 //
-//  Created by ilteris on 3/15/14.
+//  Created by ilteris on 3/18/14.
 //  Copyright (c) 2014 ilteris. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
+@class Data;
 
-@interface Location : MTLModel <MTLJSONSerializing>
+@interface Location : NSManagedObject
 
-@property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, copy, readonly) NSNumber *latitude;
-@property (nonatomic, copy, readonly) NSNumber *longitude;
-@property (nonatomic, copy, readonly) NSString *offset;
-@property (nonatomic, copy, readonly) NSNumber *timezone;
+@property (nonatomic) float latitude;
+@property (nonatomic) float longitude;
+@property (nonatomic) int16_t offset;
+@property (nonatomic, retain) NSString * timezone;
+@property (nonatomic, retain) NSSet *datas;
+@end
 
+@interface Location (CoreDataGeneratedAccessors)
 
-
+- (void)addDatasObject:(Data *)value;
+- (void)removeDatasObject:(Data *)value;
+- (void)addDatas:(NSSet *)values;
+- (void)removeDatas:(NSSet *)values;
 
 @end

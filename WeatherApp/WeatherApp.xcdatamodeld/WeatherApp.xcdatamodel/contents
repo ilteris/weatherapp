@@ -28,6 +28,6 @@
     </entity>
     <elements>
         <element name="Data" positionX="-603" positionY="-1737" width="128" height="298"/>
-        <element name="Location" positionX="-900" positionY="-1737" width="128" height="118"/>
+        <element name="Location" positionX="-812" positionY="-1737" width="128" height="118"/>
     </elements>
 </model>

@@ -128,7 +128,7 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
 
 
 - (void)processJSONDataRecordsIntoCoreData:(NSDictionary*)JSONDict {
-    NSLog(@"dict is %@", JSONDict);
+    //NSLog(@"dict is %@", JSONDict);
     NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
         if (![self initialSyncComplete]) { // import all downloaded data to Core Data for initial sync
             NSDictionary *JSONDictionary = [JSONDict copy];
@@ -138,6 +138,20 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
                 //[self newManagedObjectWithClassName:className forRecord:record];
             }
         } else { //initial already down, now need to replace / update.
+            
+            NSDictionary *JSONDictionary = [JSONDict copy];
+            NSArray *currently = [JSONDictionary objectForKey:@"currently"];
+            NSArray *hourly = [JSONDictionary objectForKey:@"hourly"];
+            NSArray *daily = [JSONDictionary objectForKey:@"daily"];
+            
+            
+            NSLog(@"currently %@",currently);
+            /*
+            for (NSDictionary *record in records) {
+                NSLog(@"record is %@", record);
+            }
+             */
+            
             /*
             NSArray *downloadedRecords = [self JSONDataRecordsForClass:className sortedByKey:@"objectId"];
             if ([downloadedRecords lastObject]) {
