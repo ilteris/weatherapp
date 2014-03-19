@@ -129,11 +129,77 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
 
 - (void)processJSONDataRecordsIntoCoreData:(NSDictionary*)JSONDict {
     NSLog(@"dict is %@", JSONDict);
+    NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
+        if (![self initialSyncComplete]) { // import all downloaded data to Core Data for initial sync
+            NSDictionary *JSONDictionary = [JSONDict copy];
+            NSArray *records = [JSONDictionary objectForKey:@"results"];
+            for (NSDictionary *record in records) {
+                NSLog(@"record is %@", record);
+                //[self newManagedObjectWithClassName:className forRecord:record];
+            }
+        } else { //initial already down, now need to replace / update.
+            /*
+            NSArray *downloadedRecords = [self JSONDataRecordsForClass:className sortedByKey:@"objectId"];
+            if ([downloadedRecords lastObject]) {
+                NSArray *storedRecords = [self managedObjectsForClass:className sortedByKey:@"objectId" usingArrayOfIds:[downloadedRecords valueForKey:@"objectId"] inArrayOfIds:YES];
+                int currentIndex = 0;
+                for (NSDictionary *record in downloadedRecords) {
+                    NSManagedObject *storedManagedObject = nil;
+                    if ([storedRecords count] > currentIndex) {
+                        storedManagedObject = [storedRecords objectAtIndex:currentIndex];
+                    }
+                    
+                    if ([[storedManagedObject valueForKey:@"objectId"] isEqualToString:[record valueForKey:@"objectId"]]) {
+                        [self updateManagedObject:[storedRecords objectAtIndex:currentIndex] withRecord:record];
+                    } else {
+                        [self newManagedObjectWithClassName:className forRecord:record];
+                    }
+                    currentIndex++;
+                }
+            }
+             */
+        }
+        
+        [managedObjectContext performBlockAndWait:^{
+            NSError *error = nil;
+            if (![managedObjectContext save:&error]) {
+                NSLog(@"Unable to save context with error %@", error);
+            }
+        }];
+        
+        [self executeSyncCompletedOperations];
+   
+    
+    //[self downloadDataForRegisteredObjects:NO];
 }
 
+- (void)executeSyncCompletedOperations {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setInitialSyncCompleted];
+        NSError *error = nil;
+        [[SDCoreDataController sharedInstance] saveBackgroundContext];
+        if (error) {
+            NSLog(@"Error saving background context after creating objects on server: %@", error);
+        }
+        
+        [[SDCoreDataController sharedInstance] saveMasterContext];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:kIKWSyncObjectSyncCompletedNotificationName
+         object:nil];
+        [self willChangeValueForKey:@"syncInProgress"];
+        _syncInProgress = NO;
+        [self didChangeValueForKey:@"syncInProgress"];
+    });
+}
 
+- (BOOL)initialSyncComplete {
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:kIKWSyncObjectInitialCompleteKey] boolValue];
+}
 
-
+- (void)setInitialSyncCompleted {
+    [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithBool:YES] forKey:kIKWSyncObjectInitialCompleteKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 
 @end
