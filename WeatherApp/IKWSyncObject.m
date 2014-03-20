@@ -132,11 +132,8 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
     NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
         if (![self initialSyncComplete]) { // import all downloaded data to Core Data for initial sync
             NSDictionary *JSONDictionary = [JSONDict copy];
-            NSArray *records = [JSONDictionary objectForKey:@"results"];
-            for (NSDictionary *record in records) {
-                NSLog(@"record is %@", record);
-                //[self newManagedObjectWithClassName:className forRecord:record];
-            }
+            
+           
         } else { //initial already down, now need to replace / update.
             
             NSDictionary *JSONDictionary = [JSONDict copy];
@@ -144,6 +141,10 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             NSArray *hourly = [JSONDictionary objectForKey:@"hourly"];
             NSArray *daily = [JSONDictionary objectForKey:@"daily"];
             
+            NSLog(@"latitude is %@", [JSONDictionary objectForKey:@"latitude"]);
+            NSLog(@"latitude is %@", [JSONDictionary objectForKey:@"longitude"]);
+            NSLog(@"timezone is %@", [JSONDictionary objectForKey:@"timezone"]);
+            NSLog(@"offset is %@", [JSONDictionary objectForKey:@"offset"]);
             
             NSLog(@"currently %@",currently);
             /*
