@@ -11,6 +11,8 @@
 #import "SDCoreDataController.h"
 #import "INTULocationManager.h"
 #import "IKWForecastClient+Weather.h"
+#import "Location.h"
+#import "Data.h"
 
 
 NSString * const kIKWSyncObjectInitialCompleteKey               = @"IKWSyncObjectInitialSyncCompleted";
@@ -131,7 +133,6 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
     //NSLog(@"dict is %@", JSONDict);
     NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
         if (![self initialSyncComplete]) { // import all downloaded data to Core Data for initial sync
-            NSDictionary *JSONDictionary = [JSONDict copy];
             
            
         } else { //initial already down, now need to replace / update.
@@ -141,38 +142,23 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             NSArray *hourly = [JSONDictionary objectForKey:@"hourly"];
             NSArray *daily = [JSONDictionary objectForKey:@"daily"];
             
+            NSLog(@"currently %@",currently);
+
+            
             NSLog(@"latitude is %@", [JSONDictionary objectForKey:@"latitude"]);
-            NSLog(@"latitude is %@", [JSONDictionary objectForKey:@"longitude"]);
+            NSLog(@"longitude is %@", [JSONDictionary objectForKey:@"longitude"]);
             NSLog(@"timezone is %@", [JSONDictionary objectForKey:@"timezone"]);
             NSLog(@"offset is %@", [JSONDictionary objectForKey:@"offset"]);
             
-            NSLog(@"currently %@",currently);
-            /*
-            for (NSDictionary *record in records) {
-                NSLog(@"record is %@", record);
-            }
-             */
+            NSDictionary* locationRecord = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                           [JSONDictionary objectForKey:@"longitude"],@"latitude",
+                                           [JSONDictionary objectForKey:@"latitude"],@"longitude",
+                                           [JSONDictionary objectForKey:@"timezone"],@"timezone",
+                                           [JSONDictionary objectForKey:@"offset"],@"offset",
+                                           nil];
             
-            /*
-            NSArray *downloadedRecords = [self JSONDataRecordsForClass:className sortedByKey:@"objectId"];
-            if ([downloadedRecords lastObject]) {
-                NSArray *storedRecords = [self managedObjectsForClass:className sortedByKey:@"objectId" usingArrayOfIds:[downloadedRecords valueForKey:@"objectId"] inArrayOfIds:YES];
-                int currentIndex = 0;
-                for (NSDictionary *record in downloadedRecords) {
-                    NSManagedObject *storedManagedObject = nil;
-                    if ([storedRecords count] > currentIndex) {
-                        storedManagedObject = [storedRecords objectAtIndex:currentIndex];
-                    }
-                    
-                    if ([[storedManagedObject valueForKey:@"objectId"] isEqualToString:[record valueForKey:@"objectId"]]) {
-                        [self updateManagedObject:[storedRecords objectAtIndex:currentIndex] withRecord:record];
-                    } else {
-                        [self newManagedObjectWithClassName:className forRecord:record];
-                    }
-                    currentIndex++;
-                }
-            }
-             */
+            [self newManagedObjectWithClassName:@"Location" forRecord:locationRecord];
+
         }
         
         [managedObjectContext performBlockAndWait:^{
@@ -187,6 +173,53 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
     
     //[self downloadDataForRegisteredObjects:NO];
 }
+
+
+- (void)newManagedObjectWithClassName:(NSString*)className forRecord:(NSDictionary *)record {
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:className inManagedObjectContext:[[SDCoreDataController sharedInstance] backgroundManagedObjectContext]];
+    [record enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [self setValue:obj forKey:key forManagedObject:newManagedObject];
+    }];
+    //[record setValue:[NSNumber numberWithInt:SDObjectSynced] forKey:@"syncStatus"];
+}
+
+- (void)updateManagedObject:(NSManagedObject *)managedObject withRecord:(NSDictionary *)record {
+    [record enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [self setValue:obj forKey:key forManagedObject:managedObject];
+    }];
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key forManagedObject:(NSManagedObject *)managedObject {
+    if ([key isEqualToString:@"createdAt"] || [key isEqualToString:@"updatedAt"]) {
+       // NSDate *date = [self dateUsingStringFromAPI:value];
+       // [managedObject setValue:date forKey:key];
+    } else if ([value isKindOfClass:[NSDictionary class]]) {
+        if ([value objectForKey:@"__type"]) {
+            NSString *dataType = [value objectForKey:@"__type"];
+            if ([dataType isEqualToString:@"Date"]) {
+                NSString *dateString = [value objectForKey:@"iso"];
+             //   NSDate *date = [self dateUsingStringFromAPI:dateString];
+             //   [managedObject setValue:date forKey:key];
+            } else if ([dataType isEqualToString:@"File"]) {
+                NSString *urlString = [value objectForKey:@"url"];
+                NSURL *url = [NSURL URLWithString:urlString];
+                NSURLRequest *request = [NSURLRequest requestWithURL:url];
+                NSURLResponse *response = nil;
+                NSError *error = nil;
+                NSData *dataResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+                [managedObject setValue:dataResponse forKey:key];
+            } else {
+                NSLog(@"Unknown Data Type Received");
+                [managedObject setValue:nil forKey:key];
+            }
+        }
+    } else {
+        [managedObject setValue:value forKey:key];
+    }
+}
+
+
+
 
 - (void)executeSyncCompletedOperations {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -215,6 +248,8 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
     [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithBool:YES] forKey:kIKWSyncObjectInitialCompleteKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+
 
 
 @end
