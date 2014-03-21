@@ -138,9 +138,9 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
         } else { //initial already down, now need to replace / update.
             
             NSDictionary *JSONDictionary = [JSONDict copy];
-            NSArray *currently = [JSONDictionary objectForKey:@"currently"];
-            NSArray *hourly = [JSONDictionary objectForKey:@"hourly"];
-            NSArray *daily = [JSONDictionary objectForKey:@"daily"];
+            NSDictionary *currently = [JSONDictionary objectForKey:@"currently"];
+            NSDictionary *hourly = [JSONDictionary objectForKey:@"hourly"];
+            NSDictionary *daily = [JSONDictionary objectForKey:@"daily"];
             
             NSLog(@"currently %@",currently);
 
@@ -158,6 +158,13 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
                                            nil];
             
             [self newManagedObjectWithClassName:@"Location" forRecord:locationRecord];
+         
+               
+           NSLog(@"[hourly objectForKey:@\"data\"] %@", [hourly objectForKey:@"data"]);
+                
+                
+               // [self newManagedObjectWithClassName:@"Data" forRecord:dict];
+            
 
         }
         
