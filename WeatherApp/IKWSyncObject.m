@@ -161,9 +161,12 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
          
                
            NSLog(@"[hourly objectForKey:@\"data\"] %@", [hourly objectForKey:@"data"]);
-                
-                
-               // [self newManagedObjectWithClassName:@"Data" forRecord:dict];
+            
+            
+            for (NSDictionary *hourlyData in [hourly objectForKey:@"data"]) {
+                [self newManagedObjectWithClassName:@"Data" forRecord:hourlyData];
+            }
+            
             
 
         }
