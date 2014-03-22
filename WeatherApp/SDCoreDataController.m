@@ -87,9 +87,15 @@
     [self.masterManagedObjectContext performBlockAndWait:^{
         NSError *error = nil;
         BOOL saved = [self.masterManagedObjectContext save:&error];
+       
+
         if (!saved) {
             // do some real error handling 
             NSLog(@"Could not save master context due to %@", error);
+        }
+        else
+        {
+             NSLog(@"saved");
         }
     }];
 }
@@ -101,6 +107,10 @@
         if (!saved) {
             // do some real error handling 
             NSLog(@"Could not save background context due to %@", error);
+        }
+        else
+        {
+            NSLog(@"saved");
         }
     }];
 }

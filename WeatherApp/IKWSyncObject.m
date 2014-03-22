@@ -166,17 +166,18 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             [self newManagedObjectWithClassName:@"Location" forRecord:locationRecord];
          
                
-           NSLog(@"[hourly objectForKey:@\"data\"] %@", [hourly objectForKey:@"data"]);
+            //NSLog(@"[hourly objectForKey:@\"data\"] %@", [hourly objectForKey:@"data"]);
             
             //for currently data
             [self newManagedObjectWithClassName:@"Data" forRecord:currently];
             
             //for minutely data (if available)
             
+            /*
             for (NSDictionary *hourlyData in [hourly objectForKey:@"data"]) {
                 [self newManagedObjectWithClassName:@"Data" forRecord:hourlyData];
             }
-            
+            */
             
             
             //for hourly data
@@ -189,12 +190,9 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             
             //for daily data
             
-            for (NSDictionary *hourlyData in [hourly objectForKey:@"data"]) {
-                [self newManagedObjectWithClassName:@"Data" forRecord:hourlyData];
+            for (NSDictionary *dailyData in [daily objectForKey:@"data"]) {
+                [self newManagedObjectWithClassName:@"Data" forRecord:dailyData];
             }
-            
-           
-            
             
 
         }
@@ -203,6 +201,10 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             NSError *error = nil;
             if (![managedObjectContext save:&error]) {
                 NSLog(@"Unable to save context with error %@", error);
+            }
+            else
+            {
+                NSLog(@"saved");
             }
         }];
         
