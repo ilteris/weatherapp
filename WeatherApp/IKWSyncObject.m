@@ -51,14 +51,7 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
     [self startLocationRequest];
 
     
-    if (!self.syncInProgress) {
-        [self willChangeValueForKey:@"syncInProgress"];
-        _syncInProgress = YES;
-        [self didChangeValueForKey:@"syncInProgress"];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            [self downloadDataForRegisteredObjects:YES];
-        });
-    }
+   
 }
 
 
@@ -135,7 +128,8 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
     
     // for version 1.0
 
-    NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
+        NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] masterManagedObjectContext];
+    
         if (![self initialSyncComplete]) { // import all downloaded data to Core Data for initial sync
             
            
@@ -148,13 +142,13 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             NSDictionary *hourly = [JSONDictionary objectForKey:@"hourly"];
             NSDictionary *daily = [JSONDictionary objectForKey:@"daily"];
             
-            NSLog(@"currently %@",currently);
+          //  NSLog(@"currently %@",currently);
 
             
-            NSLog(@"latitude is %@", [JSONDictionary objectForKey:@"latitude"]);
-            NSLog(@"longitude is %@", [JSONDictionary objectForKey:@"longitude"]);
-            NSLog(@"timezone is %@", [JSONDictionary objectForKey:@"timezone"]);
-            NSLog(@"offset is %@", [JSONDictionary objectForKey:@"offset"]);
+           // NSLog(@"latitude is %@", [JSONDictionary objectForKey:@"latitude"]);
+           // NSLog(@"longitude is %@", [JSONDictionary objectForKey:@"longitude"]);
+           // NSLog(@"timezone is %@", [JSONDictionary objectForKey:@"timezone"]);
+           // NSLog(@"offset is %@", [JSONDictionary objectForKey:@"offset"]);
             
             NSDictionary* locationRecord = [[NSDictionary alloc] initWithObjectsAndKeys:
                                            [JSONDictionary objectForKey:@"longitude"],@"latitude",

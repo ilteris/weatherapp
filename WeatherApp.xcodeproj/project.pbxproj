@@ -22,9 +22,9 @@
 
 /* Begin PBXBuildFile section */
 		1F462B37D31E4EE69EE7A050 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC463ED75D8B4ED0817FC013 /* libPods.a */; };
+		A201C12A18DE23F400344FAA /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A201C12918DE23F400344FAA /* Data.m */; };
+		A201C12D18DE23F400344FAA /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A201C12C18DE23F400344FAA /* Location.m */; };
 		A206405618D632BE00AE1F31 /* SDCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = A206405518D632BE00AE1F31 /* SDCoreDataController.m */; };
-		A206405918D921D200AE1F31 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A206405818D921D200AE1F31 /* Data.m */; };
-		A206405C18D921D300AE1F31 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A206405B18D921D300AE1F31 /* Location.m */; };
 		A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A207317B18AFDFC2007BB865 /* IKWMainViewController.m */; };
 		A20731C218AFE395007BB865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20731C118AFE395007BB865 /* Main.storyboard */; };
 		A20731D618AFF19D007BB865 /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A20731C618AFF19D007BB865 /* Gotham-Black.otf */; };
@@ -81,12 +81,12 @@
 
 /* Begin PBXFileReference section */
 		210459ABE1664C90A4AB7159 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		A201C12818DE23F400344FAA /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		A201C12918DE23F400344FAA /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		A201C12B18DE23F400344FAA /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		A201C12C18DE23F400344FAA /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		A206405418D632BE00AE1F31 /* SDCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCoreDataController.h; sourceTree = "<group>"; };
 		A206405518D632BE00AE1F31 /* SDCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCoreDataController.m; sourceTree = "<group>"; };
-		A206405718D921D200AE1F31 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
-		A206405818D921D200AE1F31 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
-		A206405A18D921D300AE1F31 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		A206405B18D921D300AE1F31 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		A207317A18AFDFC2007BB865 /* IKWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWMainViewController.h; sourceTree = "<group>"; };
 		A207317B18AFDFC2007BB865 /* IKWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWMainViewController.m; sourceTree = "<group>"; };
 		A20731C118AFE395007BB865 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -254,10 +254,10 @@
 				A20731EF18B00879007BB865 /* ReflectionView.m */,
 				A20D6C2318ADCFCD00390EDD /* Images.xcassets */,
 				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
-				A206405A18D921D300AE1F31 /* Location.h */,
-				A206405B18D921D300AE1F31 /* Location.m */,
-				A206405718D921D200AE1F31 /* Data.h */,
-				A206405818D921D200AE1F31 /* Data.m */,
+				A201C12B18DE23F400344FAA /* Location.h */,
+				A201C12C18DE23F400344FAA /* Location.m */,
+				A201C12818DE23F400344FAA /* Data.h */,
+				A201C12918DE23F400344FAA /* Data.m */,
 				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
 				A20731C118AFE395007BB865 /* Main.storyboard */,
 			);
@@ -487,12 +487,12 @@
 				A20D6C2218ADCFCD00390EDD /* WeatherApp.xcdatamodeld in Sources */,
 				A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */,
 				A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */,
-				A206405918D921D200AE1F31 /* Data.m in Sources */,
+				A201C12A18DE23F400344FAA /* Data.m in Sources */,
 				A20D6C1F18ADCFCD00390EDD /* IKWAppDelegate.m in Sources */,
 				A20D6C1B18ADCFCC00390EDD /* main.m in Sources */,
 				A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */,
 				A20731F018B00879007BB865 /* ReflectionView.m in Sources */,
-				A206405C18D921D300AE1F31 /* Location.m in Sources */,
+				A201C12D18DE23F400344FAA /* Location.m in Sources */,
 				A206405618D632BE00AE1F31 /* SDCoreDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

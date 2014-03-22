@@ -2,7 +2,7 @@
 //  Data.m
 //  WeatherApp
 //
-//  Created by ilteris on 3/18/14.
+//  Created by ilteris on 3/22/14.
 //  Copyright (c) 2014 ilteris. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 
 @dynamic apparentTemperature;
 @dynamic cloudCover;
+@dynamic createdAt;
 @dynamic dewPoint;
 @dynamic humidity;
 @dynamic icon;
@@ -24,10 +25,9 @@
 @dynamic summary;
 @dynamic temperature;
 @dynamic time;
+@dynamic timeFrame;
 @dynamic windBearing;
 @dynamic windSpeed;
-@dynamic timeFrame;
-@dynamic createdAt;
 @dynamic location;
 
 @end
