@@ -121,6 +121,8 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
 
 - (void)downloadDataForRegisteredObjects:(BOOL)useUpdatedAtDate {
     
+    //always need to check the latest data on the CoreData.
+    //update the data strting from the latest data until whenever the api allows.
     //request the JSON
     //get the JSON
     //processJSON into coredata
@@ -130,12 +132,16 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
 
 
 - (void)processJSONDataRecordsIntoCoreData:(NSDictionary*)JSONDict {
-    //NSLog(@"dict is %@", JSONDict);
+    
+    // for version 1.0
+
     NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
         if (![self initialSyncComplete]) { // import all downloaded data to Core Data for initial sync
             
            
         } else { //initial already down, now need to replace / update.
+            
+            // let's make coredata delete everything and re-fill like a bucket if it's here.
             
             NSDictionary *JSONDictionary = [JSONDict copy];
             NSDictionary *currently = [JSONDictionary objectForKey:@"currently"];
@@ -162,10 +168,32 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
                
            NSLog(@"[hourly objectForKey:@\"data\"] %@", [hourly objectForKey:@"data"]);
             
+            //for currently data
+            [self newManagedObjectWithClassName:@"Data" forRecord:currently];
+            
+            //for minutely data (if available)
             
             for (NSDictionary *hourlyData in [hourly objectForKey:@"data"]) {
                 [self newManagedObjectWithClassName:@"Data" forRecord:hourlyData];
             }
+            
+            
+            
+            //for hourly data
+            
+            for (NSDictionary *hourlyData in [hourly objectForKey:@"data"]) {
+                [self newManagedObjectWithClassName:@"Data" forRecord:hourlyData];
+            }
+            
+            
+            
+            //for daily data
+            
+            for (NSDictionary *hourlyData in [hourly objectForKey:@"data"]) {
+                [self newManagedObjectWithClassName:@"Data" forRecord:hourlyData];
+            }
+            
+           
             
             
 
