@@ -2,19 +2,30 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Data" representedClassName="Data" syncable="YES">
         <attribute name="apparentTemperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="apparentTemperatureMaxTime" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="cloudCover" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dewPoint" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="moonPhase" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="ozone" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="precipAccumulation" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="precipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="precipIntensityMax" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="precipIntensityMaxTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="precipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="precipType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sunriseTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="sunsetTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="temperatureMax" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="temperatureMin" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="temperatureMinTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="timeFrame" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visibility" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="windBearing" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="windSpeed" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="datas" inverseEntity="Location" syncable="YES"/>
@@ -27,7 +38,7 @@
         <relationship name="datas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Data" inverseName="location" inverseEntity="Data" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Data" positionX="-603" positionY="-1737" width="128" height="298"/>
-        <element name="Location" positionX="-812" positionY="-1737" width="128" height="118"/>
+        <element name="Data" positionX="-639" positionY="-1962" width="128" height="463"/>
+        <element name="Location" positionX="-900" positionY="-1674" width="128" height="118"/>
     </elements>
 </model>
