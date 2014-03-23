@@ -63,6 +63,8 @@
 		A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */; };
 		A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */; };
 		A2BB93BA18DFB702008C67F7 /* IKWSyncObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93B918DFB702008C67F7 /* IKWSyncObject.m */; };
+		A2F7A46918DFA3EA003201B7 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7A46818DFA3EA003201B7 /* Data.m */; };
+		A2F7A46C18DFA3F8003201B7 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7A46B18DFA3F8003201B7 /* Location.m */; };
 		A2FE368A18B6C0E8003D0C11 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368918B6C0E8003D0C11 /* MobileCoreServices.framework */; };
 		A2FE368C18B6C0F7003D0C11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368B18B6C0F7003D0C11 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
@@ -131,6 +133,10 @@
 		A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IKWForecastClient+Weather.m"; sourceTree = "<group>"; };
 		A2BB93B818DFB702008C67F7 /* IKWSyncObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWSyncObject.h; sourceTree = "<group>"; };
 		A2BB93B918DFB702008C67F7 /* IKWSyncObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWSyncObject.m; sourceTree = "<group>"; };
+		A2F7A46718DFA3EA003201B7 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Data.h; path = WeatherApp/Data.h; sourceTree = SOURCE_ROOT; };
+		A2F7A46818DFA3EA003201B7 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Data.m; path = WeatherApp/Data.m; sourceTree = SOURCE_ROOT; };
+		A2F7A46A18DFA3F8003201B7 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = WeatherApp/Location.h; sourceTree = SOURCE_ROOT; };
+		A2F7A46B18DFA3F8003201B7 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = WeatherApp/Location.m; sourceTree = SOURCE_ROOT; };
 		A2FE368918B6C0E8003D0C11 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A2FE368B18B6C0F7003D0C11 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A2FE368D18B70327003D0C11 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -305,6 +311,10 @@
 		A2FE367118B6BBA7003D0C11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A2F7A46A18DFA3F8003201B7 /* Location.h */,
+				A2F7A46B18DFA3F8003201B7 /* Location.m */,
+				A2F7A46718DFA3EA003201B7 /* Data.h */,
+				A2F7A46818DFA3EA003201B7 /* Data.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -472,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2F7A46918DFA3EA003201B7 /* Data.m in Sources */,
 				A20731F518B0260D007BB865 /* IKWHourCollectionViewCell.m in Sources */,
 				A2BB93BA18DFB702008C67F7 /* IKWSyncObject.m in Sources */,
 				A20D6C2218ADCFCD00390EDD /* WeatherApp.xcdatamodeld in Sources */,
@@ -481,6 +492,7 @@
 				A20D6C1B18ADCFCC00390EDD /* main.m in Sources */,
 				A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */,
 				A20731F018B00879007BB865 /* ReflectionView.m in Sources */,
+				A2F7A46C18DFA3F8003201B7 /* Location.m in Sources */,
 				A206405618D632BE00AE1F31 /* SDCoreDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
