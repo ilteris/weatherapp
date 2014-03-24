@@ -2,7 +2,7 @@
 //  Data.h
 //  WeatherApp
 //
-//  Created by ilteris on 3/23/14.
+//  Created by ilteris on 3/24/14.
 //  Copyright (c) 2014 ilteris. All rights reserved.
 //
 
@@ -39,7 +39,13 @@
 @property (nonatomic) float temperatureMin;
 @property (nonatomic) int64_t temperatureMinTime;
 @property (nonatomic) float temperatureMax;
-@property (nonatomic) float apparentTemperatureMaxTime;
+@property (nonatomic) int64_t temperatureMaxTime;
+@property (nonatomic) int64_t apparentTemperatureMaxTime;
+@property (nonatomic) int16_t nearestStormDistance;
+@property (nonatomic) float nearestStormBearing;
+@property (nonatomic) int64_t apparentTemperatureMinTime;
+@property (nonatomic) float apparentTemperatureMin;
+@property (nonatomic) float apparentTemperatureMax;
 @property (nonatomic, retain) Location *location;
 
 @end

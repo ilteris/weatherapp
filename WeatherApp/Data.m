@@ -2,7 +2,7 @@
 //  Data.m
 //  WeatherApp
 //
-//  Created by ilteris on 3/23/14.
+//  Created by ilteris on 3/24/14.
 //  Copyright (c) 2014 ilteris. All rights reserved.
 //
 
@@ -38,7 +38,13 @@
 @dynamic temperatureMin;
 @dynamic temperatureMinTime;
 @dynamic temperatureMax;
+@dynamic temperatureMaxTime;
 @dynamic apparentTemperatureMaxTime;
+@dynamic nearestStormDistance;
+@dynamic nearestStormBearing;
+@dynamic apparentTemperatureMinTime;
+@dynamic apparentTemperatureMin;
+@dynamic apparentTemperatureMax;
 @dynamic location;
 
 @end
