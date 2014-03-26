@@ -157,13 +157,13 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
                                            [JSONDictionary objectForKey:@"offset"],@"offset",
                                            nil];
             
-            [self newManagedObjectWithClassName:@"Location" forRecord:locationRecord];
+            [self newManagedObjectWithClassName:@"Location" forRecord:locationRecord withTimeFrame:nil];
          
                
             //NSLog(@"[hourly objectForKey:@\"data\"] %@", [hourly objectForKey:@"data"]);
             
             //for currently data
-            [self newManagedObjectWithClassName:@"Data" forRecord:currently];
+            [self newManagedObjectWithClassName:@"Data" forRecord:currently withTimeFrame:@"currently"];
             
             //for minutely data (if available)
             
@@ -177,7 +177,7 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             //for hourly data
             
             for (NSDictionary *hourlyData in [hourly objectForKey:@"data"]) {
-                [self newManagedObjectWithClassName:@"Data" forRecord:hourlyData];
+                [self newManagedObjectWithClassName:@"Data" forRecord:hourlyData withTimeFrame:@"hourly"];
             }
             
             
@@ -185,7 +185,7 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             //for daily data
             
             for (NSDictionary *dailyData in [daily objectForKey:@"data"]) {
-                [self newManagedObjectWithClassName:@"Data" forRecord:dailyData];
+                [self newManagedObjectWithClassName:@"Data" forRecord:dailyData withTimeFrame:@"daily"];
             }
             
 
@@ -209,11 +209,16 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
 }
 
 
-- (void)newManagedObjectWithClassName:(NSString*)className forRecord:(NSDictionary *)record {
+- (void)newManagedObjectWithClassName:(NSString*)className forRecord:(NSDictionary *)record withTimeFrame:(NSString*)timeFrame
+{
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:className inManagedObjectContext:[[SDCoreDataController sharedInstance] backgroundManagedObjectContext]];
     [record enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [self setValue:obj forKey:key forManagedObject:newManagedObject];
     }];
+    
+    
+    if (timeFrame) [self setValue:timeFrame forKey:@"timeFrame" forManagedObject:newManagedObject];
+    
     //[record setValue:[NSNumber numberWithInt:SDObjectSynced] forKey:@"syncStatus"];
 }
 
@@ -247,7 +252,8 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
                 [managedObject setValue:nil forKey:key];
             }
         }
-    } else {
+    } else { //if it cannot find the key it shouldn't crash, so add NSParameterAssert to avoid a crash.
+        //also need to add the time frame somewhere here.
         [managedObject setValue:value forKey:key];
     }
 }
