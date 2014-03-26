@@ -20,7 +20,7 @@
         //set the background to bright if it's the current hour.
         //UIImageView *cellBg;
         
-        NSLog(@"here");
+        //NSLog(@"here");
         //
        
         

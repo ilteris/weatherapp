@@ -9,7 +9,7 @@
 #import "IKWMainViewController.h"
 #import "ReflectionView.h"
 #import "IKWHourCollectionViewCell.h"
-
+#import "SDCoreDataController.h"
 
 #import "Data.h"
 #import "Location.h"
@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 
 
@@ -70,15 +71,36 @@
     return cell;
 }
 
-
-
+- (void)loadRecordsFromCoreData {
+    NSLog(@"loadRecordsFromCoreData");
+    __block NSArray *items = nil;
+    
+    [self.managedObjectContext performBlockAndWait:^{
+        [self.managedObjectContext reset];
+        NSError *error = nil;
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Data"];
+        [request setSortDescriptors:[NSArray arrayWithObject:
+                                     [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]]];
+        
+        items =  [self.managedObjectContext executeFetchRequest:request error:&error];
+        NSLog(@"items are %@", items);
+        if (nil == items)
+            NSLog(@"Failed to fetch history items: %@", error);
+        
+    }];
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-       
+    
+    self.managedObjectContext = [[SDCoreDataController sharedInstance] newManagedObjectContext];
+
+    [self loadRecordsFromCoreData];
+
+    
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
     
     
@@ -88,7 +110,6 @@
     
     self.currentDegreesLabel.text = @"12°";
         
-    
 }
 
 
