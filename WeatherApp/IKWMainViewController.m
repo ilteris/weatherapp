@@ -82,8 +82,15 @@
         [request setSortDescriptors:[NSArray arrayWithObject:
                                      [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]]];
         
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeFrame = %@", @"hourly"];
+        [request setPredicate:predicate];
         items =  [self.managedObjectContext executeFetchRequest:request error:&error];
-        NSLog(@"items are %@", items);
+        //NSLog(@"items are %@", items);
+        for (Data* data in items) {
+            NSLog(@"Data is %@", [data description]);
+        }
+        
         if (nil == items)
             NSLog(@"Failed to fetch history items: %@", error);
         

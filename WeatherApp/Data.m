@@ -47,4 +47,10 @@
 @dynamic apparentTemperatureMax;
 @dynamic location;
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, ID: %@, name: %lld>", NSStringFromClass([self class]), self, self.timeFrame, self.time];
+}
+
+
 @end
