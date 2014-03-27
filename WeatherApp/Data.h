@@ -2,7 +2,7 @@
 //  Data.h
 //  WeatherApp
 //
-//  Created by ilteris on 3/24/14.
+//  Created by ilteris on 3/26/14.
 //  Copyright (c) 2014 ilteris. All rights reserved.
 //
 
@@ -24,7 +24,7 @@
 @property (nonatomic) float pressure;
 @property (nonatomic, retain) NSString * summary;
 @property (nonatomic) float temperature;
-@property (nonatomic) int64_t time;
+@property (nonatomic) double time;
 @property (nonatomic, retain) NSString * timeFrame;
 @property (nonatomic) float visibility;
 @property (nonatomic) float windBearing;
@@ -39,13 +39,14 @@
 @property (nonatomic) float temperatureMin;
 @property (nonatomic) int64_t temperatureMinTime;
 @property (nonatomic) float temperatureMax;
-@property (nonatomic) int64_t temperatureMaxTime;
 @property (nonatomic) int64_t apparentTemperatureMaxTime;
 @property (nonatomic) int16_t nearestStormDistance;
 @property (nonatomic) float nearestStormBearing;
 @property (nonatomic) int64_t apparentTemperatureMinTime;
 @property (nonatomic) float apparentTemperatureMin;
 @property (nonatomic) float apparentTemperatureMax;
+@property (nonatomic) int64_t temperatureMaxTime;
+@property (nonatomic) float precipIntensityError;
 @property (nonatomic, retain) Location *location;
 
 @end

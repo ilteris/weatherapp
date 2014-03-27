@@ -16,6 +16,7 @@
         <attribute name="ozone" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="precipAccumulation" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="precipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="precipIntensityError" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="precipIntensityMax" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="precipIntensityMaxTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="precipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -29,7 +30,7 @@
         <attribute name="temperatureMaxTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="temperatureMin" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="temperatureMinTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="timeFrame" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="visibility" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="windBearing" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -44,7 +45,7 @@
         <relationship name="datas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Data" inverseName="location" inverseEntity="Data" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Data" positionX="-666" positionY="-1962" width="128" height="553"/>
+        <element name="Data" positionX="-666" positionY="-1962" width="128" height="568"/>
         <element name="Location" positionX="-900" positionY="-1674" width="128" height="118"/>
     </elements>
 </model>

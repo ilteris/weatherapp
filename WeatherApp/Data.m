@@ -2,7 +2,7 @@
 //  Data.m
 //  WeatherApp
 //
-//  Created by ilteris on 3/24/14.
+//  Created by ilteris on 3/26/14.
 //  Copyright (c) 2014 ilteris. All rights reserved.
 //
 
@@ -38,19 +38,14 @@
 @dynamic temperatureMin;
 @dynamic temperatureMinTime;
 @dynamic temperatureMax;
-@dynamic temperatureMaxTime;
 @dynamic apparentTemperatureMaxTime;
 @dynamic nearestStormDistance;
 @dynamic nearestStormBearing;
 @dynamic apparentTemperatureMinTime;
 @dynamic apparentTemperatureMin;
 @dynamic apparentTemperatureMax;
+@dynamic temperatureMaxTime;
+@dynamic precipIntensityError;
 @dynamic location;
-
-- (NSString *)description
-{
-    return [NSString stringWithFormat:@"<%@: %p, ID: %@, name: %lld>", NSStringFromClass([self class]), self, self.timeFrame, self.time];
-}
-
 
 @end
