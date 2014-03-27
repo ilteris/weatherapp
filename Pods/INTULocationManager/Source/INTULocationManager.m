@@ -3,28 +3,43 @@
 //
 //  Copyright (c) 2014 Intuit Inc.
 //
-//	Permission is hereby granted, free of charge, to any person obtaining
-//	a copy of this software and associated documentation files (the
-//	"Software"), to deal in the Software without restriction, including
-//	without limitation the rights to use, copy, modify, merge, publish,
-//	distribute, sublicense, and/or sell copies of the Software, and to
-//	permit persons to whom the Software is furnished to do so, subject to
-//	the following conditions:
+//  Permission is hereby granted, free of charge, to any person obtaining
+//  a copy of this software and associated documentation files (the
+//  "Software"), to deal in the Software without restriction, including
+//  without limitation the rights to use, copy, modify, merge, publish,
+//  distribute, sublicense, and/or sell copies of the Software, and to
+//  permit persons to whom the Software is furnished to do so, subject to
+//  the following conditions:
 //
-//	The above copyright notice and this permission notice shall be
-//	included in all copies or substantial portions of the Software.
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
 //
-//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-//	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-//	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-//	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-//	LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-//	OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-//	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+//  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+//  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+//  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+//  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 #import "INTULocationManager.h"
 #import "INTULocationRequest.h"
+
+
+#ifndef INTU_ENABLE_LOGGING
+    #ifdef DEBUG
+        #define INTU_ENABLE_LOGGING 1
+    #else
+        #define INTU_ENABLE_LOGGING 0
+    #endif /* DEBUG */
+#endif /* INTU_ENABLE_LOGGING */
+
+#if INTU_ENABLE_LOGGING
+    #define INTULMLog(...)          NSLog(@"INTULocationManager: %@", [NSString stringWithFormat:__VA_ARGS__]);
+#else
+    #define INTULMLog(...)
+#endif /* INTU_ENABLE_LOGGING */
 
 
 @interface INTULocationManager () <CLLocationManagerDelegate, INTULocationRequestDelegate>
@@ -91,6 +106,7 @@ static id _sharedInstance;
  
  @param desiredAccuracy The desired accuracy for this request, which if achieved will trigger the successful completion.
  @param timeout The maximum number of seconds to wait while attempting to achieve the desired accuracy.
+                If this value is 0.0, no timeout will be set (will wait indefinitely for success, unless request is force completed or cancelled).
  @param block The block to be executed when the request succeeds, fails, or times out. Three parameters are passed into the block:
                     - The current location (the most recent one acquired, regardless of accuracy level), or nil if no valid location was acquired
                     - The achieved accuracy for the current location (may be less than the desired accuracy if the request failed)
@@ -144,7 +160,7 @@ static id _sharedInstance;
     }
     [self.locationRequests removeObject:locationRequestToCancel];
     [locationRequestToCancel cancelLocationRequest];
-    NSLog(@"INTULocationManager: Location Request cancelled with ID: %ld", (long)locationRequestToCancel.requestID);
+    INTULMLog(@"Location Request cancelled with ID: %ld", (long)locationRequestToCancel.requestID);
     [self stopUpdatingLocationIfPossible];
 }
 
@@ -164,7 +180,7 @@ static id _sharedInstance;
     
     [self startUpdatingLocationIfNeeded];
     [self.locationRequests addObject:locationRequest];
-    NSLog(@"INTULocationManager: Location Request added with ID: %ld", (long)locationRequest.requestID);
+    INTULMLog(@"Location Request added with ID: %ld", (long)locationRequest.requestID);
 }
 
 /**
@@ -196,7 +212,7 @@ static id _sharedInstance;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         [self.locationManager startUpdatingLocation];
         if (self.isUpdatingLocation == NO) {
-            NSLog(@"INTULocationManager: Location services started.");
+            INTULMLog(@"Location services started.");
         }
         self.isUpdatingLocation = YES;
     }
@@ -211,7 +227,7 @@ static id _sharedInstance;
     if ([self.locationRequests count] == 0) {
         [self.locationManager stopUpdatingLocation];
         if (self.isUpdatingLocation) {
-            NSLog(@"INTULocationManager: Location services stopped.");
+            INTULMLog(@"Location services stopped.");
         }
         self.isUpdatingLocation = NO;
     }
@@ -266,7 +282,7 @@ static id _sharedInstance;
     for (INTULocationRequest *locationRequest in locationRequests) {
         [self completeLocationRequest:locationRequest];
     }
-    NSLog(@"INTULocationManager: Finished completing all location requests.");
+    INTULMLog(@"Finished completing all location requests.");
 }
 
 /**
@@ -290,7 +306,7 @@ static id _sharedInstance;
     if (locationRequest.block) {
         locationRequest.block(currentLocation, achievedAccuracy, status);
     }
-    NSLog(@"INTULocationManager: Location Request completed with ID: %ld, currentLocation: %@, achievedAccuracy: %lu, status: %lu", (long)locationRequest.requestID, currentLocation, (unsigned long) achievedAccuracy, (unsigned long)status);
+    INTULMLog(@"Location Request completed with ID: %ld, currentLocation: %@, achievedAccuracy: %lu, status: %lu", (long)locationRequest.requestID, currentLocation, (unsigned long) achievedAccuracy, (unsigned long)status);
 }
 
 /**
@@ -388,7 +404,7 @@ static id _sharedInstance;
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-	NSLog(@"INTULocationManager: Location update error: %@", [error localizedDescription]);
+	INTULMLog(@"Location update error: %@", [error localizedDescription]);
 	self.updateFailed = YES;
 	
 	[self completeAllLocationRequests];

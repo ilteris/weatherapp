@@ -18,19 +18,14 @@ PODS:
   - AFNetworking/UIKit (2.2.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - INTULocationManager (1.0.0)
-  - Mantle (1.4.1):
-    - Mantle/extobjc
-  - Mantle/extobjc (1.4.1)
+  - INTULocationManager (1.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - INTULocationManager
-  - Mantle (~> 1.4.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
-  INTULocationManager: 4d3cd8539854f1047762290838f73ed3a4de1065
-  Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
+  INTULocationManager: a4080ce8cf5751e0c5242d0c75755790cfc51da0
 
 COCOAPODS: 0.29.0
