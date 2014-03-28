@@ -7,7 +7,6 @@
 //
 
 #import "IKWSyncObject.h"
-#import <Mantle/Mantle.h>
 #import "SDCoreDataController.h"
 #import "INTULocationManager.h"
 #import "IKWForecastClient+Weather.h"

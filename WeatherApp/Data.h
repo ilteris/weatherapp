@@ -49,4 +49,6 @@
 @property (nonatomic) float precipIntensityError;
 @property (nonatomic, retain) Location *location;
 
+
+
 @end
