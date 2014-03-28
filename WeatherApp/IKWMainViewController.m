@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
 
+@property (nonatomic, strong) NSArray *hourlyItems;
+
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 
@@ -52,19 +54,28 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 24;
+    return [self.hourlyItems count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     IKWHourCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hoursCell" forIndexPath:indexPath];
     
+    Data *data = [self.hourlyItems objectAtIndex:indexPath.row];
+    
     [cell.hourLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:14]];
     [cell.weatherLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:8]];
     [cell.rainProbLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
     
+   
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"h a"];
     
-    cell.hourLabel.text = @"9AM";
+    NSString *startTimeString = [formatter stringFromDate: [NSDate dateWithTimeIntervalSince1970:data.time]];
+    
+    
+    NSLog(@"startTimeString is %@", startTimeString);
+    cell.hourLabel.text = startTimeString;
     cell.weatherLabel.text = @"PARÇALI BULUTLU";
     cell.weatherIcon.image = [UIImage imageNamed:@"weatherapp-parcalibulutluicon"];
     
@@ -73,7 +84,7 @@
 
 - (void)loadRecordsFromCoreData {
     NSLog(@"loadRecordsFromCoreData");
-    __block NSArray *items = nil;
+    
     
     [self.managedObjectContext performBlockAndWait:^{
         [self.managedObjectContext reset];
@@ -85,14 +96,14 @@
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeFrame = %@", @"hourly"];
         [request setPredicate:predicate];
-        items =  [self.managedObjectContext executeFetchRequest:request error:&error];
+        self.hourlyItems =  [self.managedObjectContext executeFetchRequest:request error:&error];
         //NSLog(@"items are %@", items);
-        for (Data* data in items) {
+        for (Data* data in self.hourlyItems) {
             NSLog(@"Data is %@", [data description]);
         }
         
-        if (nil == items)
-            NSLog(@"Failed to fetch history items: %@", error);
+        if (nil == self.hourlyItems)
+            NSLog(@"Failed to fetch  items: %@", error);
         
     }];
 }

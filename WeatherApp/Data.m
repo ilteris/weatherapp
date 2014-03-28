@@ -50,7 +50,8 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p, ID: %@, name: %@>", NSStringFromClass([self class]), self, self.timeFrame, [NSDate dateWithTimeIntervalSince1970:self.time]];
+    return [NSString stringWithFormat:@"<%@: %p, timeframe: %@, time: %@>", NSStringFromClass([self class]), self, self.timeFrame, [NSDate dateWithTimeIntervalSince1970:self.time]];
+    
 }
 
 
