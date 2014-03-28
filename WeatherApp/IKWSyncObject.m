@@ -104,7 +104,8 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
           coord.longitude = currentLocation.coordinate.longitude;
           coord.latitude = currentLocation.coordinate.latitude;
           
-          
+        [self deleteRecordsFromCoreData];
+            
           [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:coord.latitude longitude:coord.longitude completion:^(NSArray *stores, NSError *error) {
               if (!error){
                   NSLog(@"no error");
@@ -216,6 +217,41 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
     
     //[self downloadDataForRegisteredObjects:NO];
 }
+
+
+- (void)deleteRecordsFromCoreData {
+    
+    NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
+
+    
+    [managedObjectContext performBlockAndWait:^{
+        NSError *error = nil;
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Data"];
+        [request setSortDescriptors:[NSArray arrayWithObject:
+                                     [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]]];
+        [request setIncludesPropertyValues:NO];  //only fetch the managedObjectID
+        
+        
+        NSArray * results  =  [managedObjectContext executeFetchRequest:request error:&error];
+        
+        //NSLog(@"items are %@", items);
+        for (Data* data in results) {
+            [managedObjectContext deleteObject:data];
+        }
+        
+        NSError *saveError = nil;
+        [managedObjectContext save:&saveError];
+        
+        
+        if (nil == results)
+            NSLog(@"Failed to fetch  items: %@", error);
+        
+    }];
+    
+    
+   
+}
+
 
 
 - (void)newManagedObjectWithClassName:(NSString*)className forRecord:(NSDictionary *)record withTimeFrame:(NSString*)timeFrame

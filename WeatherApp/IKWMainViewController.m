@@ -82,6 +82,8 @@
     return cell;
 }
 
+
+
 - (void)loadRecordsFromCoreData {
     NSLog(@"loadRecordsFromCoreData");
     
@@ -137,6 +139,7 @@
         NSLog(@"sync is not in progress");
     }
 }
+
 
 
 - (void)viewDidAppear:(BOOL)animated {
