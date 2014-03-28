@@ -10,7 +10,7 @@
 #import "ReflectionView.h"
 #import "IKWHourCollectionViewCell.h"
 #import "SDCoreDataController.h"
-
+#import "IKWSyncObject.h"
 #import "Data.h"
 #import "Location.h"
 
@@ -130,7 +130,41 @@
         
 }
 
+- (void)checkSyncStatus {
+    if ([[IKWSyncObject sharedEngine] syncInProgress]) {
+        NSLog(@"sync is in progress");
+        } else {
+        NSLog(@"sync is not in progress");
+    }
+}
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self checkSyncStatus];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"IKWSyncObjectSyncCompleted" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self loadRecordsFromCoreData];
+        NSLog(@"reload collectionview");
+        
+    }];
+    [[IKWSyncObject sharedEngine] addObserver:self forKeyPath:@"syncInProgress" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"IKWSyncObjectSyncCompleted" object:nil];
+    [[IKWSyncObject sharedEngine] removeObserver:self forKeyPath:@"syncInProgress"];
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"syncInProgress"]) {
+        [self checkSyncStatus];
+    }
+}
 
 
 - (void)didReceiveMemoryWarning
