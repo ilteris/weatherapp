@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSArray *hourlyItems;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (weak, nonatomic) IBOutlet UICollectionView *hourCollectionView;
 
 
 
@@ -59,6 +60,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"reload collectionview cellForItemAtIndexPath");
     IKWHourCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hoursCell" forIndexPath:indexPath];
     
     Data *data = [self.hourlyItems objectAtIndex:indexPath.row];
@@ -74,7 +76,6 @@
     NSString *startTimeString = [formatter stringFromDate: [NSDate dateWithTimeIntervalSince1970:data.time]];
     
     
-    NSLog(@"startTimeString is %@", startTimeString);
     cell.hourLabel.text = startTimeString;
     cell.weatherLabel.text = @"PARÇALI BULUTLU";
     cell.weatherIcon.image = [UIImage imageNamed:@"weatherapp-parcalibulutluicon"];
@@ -101,7 +102,7 @@
         self.hourlyItems =  [self.managedObjectContext executeFetchRequest:request error:&error];
         //NSLog(@"items are %@", items);
         for (Data* data in self.hourlyItems) {
-            NSLog(@"Data is %@", [data description]);
+            //NSLog(@"Data is %@", [data description]);
         }
         
         if (nil == self.hourlyItems)
@@ -149,7 +150,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"IKWSyncObjectSyncCompleted" object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self loadRecordsFromCoreData];
-        NSLog(@"reload collectionview");
+        [self.hourCollectionView reloadData]; //might as well reload in batch.
+        
         
     }];
     [[IKWSyncObject sharedEngine] addObserver:self forKeyPath:@"syncInProgress" options:NSKeyValueObservingOptionNew context:nil];
