@@ -77,7 +77,7 @@
     
     
     cell.hourLabel.text = startTimeString;
-    cell.weatherLabel.text = @"PARÇALI BULUTLU";
+    cell.weatherLabel.text = [NSLocalizedString(data.summary, nil ) uppercaseString]; //@"PARÇALI BULUTLU";
     cell.weatherIcon.image = [UIImage imageNamed:@"weatherapp-parcalibulutluicon"];
     
     return cell;
@@ -102,7 +102,7 @@
         self.hourlyItems =  [self.managedObjectContext executeFetchRequest:request error:&error];
         //NSLog(@"items are %@", items);
         for (Data* data in self.hourlyItems) {
-            //NSLog(@"Data is %@", [data description]);
+            NSLog(@"Data.summary is %@", data.summary);
         }
         
         if (nil == self.hourlyItems)
@@ -144,6 +144,9 @@
 
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    NSLog(@"viewDidAppear");
+    
     [super viewDidAppear:animated];
     
     [self checkSyncStatus];
