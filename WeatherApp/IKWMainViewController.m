@@ -96,13 +96,14 @@
                                      [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]]];
         
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeFrame = %@", @"hourly"];
-        [request setPredicate:predicate];
+        NSPredicate *hourlyPredicate = [NSPredicate predicateWithFormat:@"timeFrame = %@", @"hourly"];
+        [request setPredicate:hourlyPredicate];
         self.hourlyItems =  [self.managedObjectContext executeFetchRequest:request error:&error];
         //NSLog(@"items are %@", items);
         for (Data* data in self.hourlyItems) {
             NSLog(@"Data.summary is %@", data.summary);
         }
+        
         
         if (nil == self.hourlyItems)
             NSLog(@"Failed to fetch  items: %@", error);
@@ -128,6 +129,7 @@
     [self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
     [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
     
+    self.currentWeatherLabel.text = @"here here";
     self.currentDegreesLabel.text = @"12°";
         
 }
