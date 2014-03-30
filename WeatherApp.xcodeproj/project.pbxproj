@@ -59,6 +59,7 @@
 		A20D6C2E18ADCFCD00390EDD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20D6C1218ADCFCC00390EDD /* CoreData.framework */; };
 		A20D6C3618ADCFCD00390EDD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A20D6C3418ADCFCD00390EDD /* InfoPlist.strings */; };
 		A20D6C3818ADCFCD00390EDD /* WeatherAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A20D6C3718ADCFCD00390EDD /* WeatherAppTests.m */; };
+		A2962AF818E8B8E500B0FC9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2962AFA18E8B8E500B0FC9E /* Localizable.strings */; };
 		A2BB93A618B9659F008C67F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368D18B70327003D0C11 /* CoreLocation.framework */; };
 		A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */; };
 		A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */; };
@@ -127,6 +128,8 @@
 		A20D6C3718ADCFCD00390EDD /* WeatherAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherAppTests.m; sourceTree = "<group>"; };
 		A20D6CCA18ADD8C600390EDD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A20D6CCB18ADD8C600390EDD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A2962AF918E8B8E500B0FC9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A2962AFB18E8B8ED00B0FC9E /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2BB93AC18BC22BB008C67F7 /* IKWForecastClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWForecastClient.h; sourceTree = "<group>"; };
 		A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWForecastClient.m; sourceTree = "<group>"; };
 		A2BB93B518DFB702008C67F7 /* IKWForecastClient+Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IKWForecastClient+Weather.h"; sourceTree = "<group>"; };
@@ -267,6 +270,7 @@
 				A20D6C1718ADCFCC00390EDD /* InfoPlist.strings */,
 				A20D6C1A18ADCFCC00390EDD /* main.m */,
 				A20D6C1C18ADCFCC00390EDD /* WeatherApp-Prefix.pch */,
+				A2962AFA18E8B8E500B0FC9E /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -405,6 +409,7 @@
 				A20731DE18AFF19D007BB865 /* Gotham-Medium.otf in Resources */,
 				A20731D818AFF19D007BB865 /* Gotham-Bold.otf in Resources */,
 				A20D6C1918ADCFCC00390EDD /* InfoPlist.strings in Resources */,
+				A2962AF818E8B8E500B0FC9E /* Localizable.strings in Resources */,
 				A20731E518AFF19D007BB865 /* Gotham-XLightIta.otf in Resources */,
 				A20731E418AFF19D007BB865 /* Gotham-XLight.otf in Resources */,
 				A20731DF18AFF19D007BB865 /* Gotham-MediumIta.otf in Resources */,
@@ -532,6 +537,15 @@
 				A20D6CCB18ADD8C600390EDD /* tr */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A2962AFA18E8B8E500B0FC9E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2962AF918E8B8E500B0FC9E /* en */,
+				A2962AFB18E8B8ED00B0FC9E /* tr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

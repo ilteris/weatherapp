@@ -60,7 +60,6 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"reload collectionview cellForItemAtIndexPath");
     IKWHourCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hoursCell" forIndexPath:indexPath];
     
     Data *data = [self.hourlyItems objectAtIndex:indexPath.row];
@@ -77,7 +76,7 @@
     
     
     cell.hourLabel.text = startTimeString;
-    cell.weatherLabel.text = [NSLocalizedString(data.summary, nil ) uppercaseString]; //@"PARÇALI BULUTLU";
+    cell.weatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString]; //@"PARÇALI BULUTLU";
     cell.weatherIcon.image = [UIImage imageNamed:@"weatherapp-parcalibulutluicon"];
     
     return cell;
