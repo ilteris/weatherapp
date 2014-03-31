@@ -170,7 +170,7 @@
                         <outlet property="currentWeatherLabel" destination="Ist-ik-fKM" id="aJz-Sd-wUl"/>
                         <outlet property="hourCollectionView" destination="SRE-YA-cyh" id="cHR-VC-IKM"/>
                         <outlet property="locationNameLabel" destination="CR4-TF-oXz" id="4F4-Hz-gip"/>
-                        <outlet property="reflectionView" destination="hy1-Jt-2nr" id="Ag6-sV-Bvm"/>
+                        <outlet property="reflectionView" destination="3J8-tf-5mf" id="aYn-su-yJ4"/>
                         <outlet property="scrollView" destination="jJL-Q9-eu9" id="xnP-Fn-wsS"/>
                         <outlet property="view1" destination="i8Y-3t-aqa" id="pAD-Du-ziq"/>
                         <outlet property="view2" destination="xd2-z7-t0P" id="50Z-UA-w8N"/>

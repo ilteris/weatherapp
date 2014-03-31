@@ -76,7 +76,7 @@
     
     
     cell.hourLabel.text = startTimeString;
-    cell.weatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString]; //@"PARÇALI BULUTLU";
+    cell.weatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
     cell.weatherIcon.image = [UIImage imageNamed:@"weatherapp-parcalibulutluicon"];
     
     return cell;
@@ -101,7 +101,7 @@
         self.hourlyItems =  [self.managedObjectContext executeFetchRequest:request error:&error];
         //NSLog(@"items are %@", items);
         for (Data* data in self.hourlyItems) {
-            NSLog(@"Data.summary is %@", data.summary);
+            //NSLog(@"Data.summary is %@", data.summary);
         }
         
         
@@ -125,12 +125,7 @@
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
     
     
-    [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:110]];
-    [self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
-    [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
-    
-    self.currentWeatherLabel.text = @"here here";
-    self.currentDegreesLabel.text = @"12°";
+  
         
 }
 
@@ -159,6 +154,46 @@
         
     }];
     [[IKWSyncObject sharedEngine] addObserver:self forKeyPath:@"syncInProgress" options:NSKeyValueObservingOptionNew context:nil];
+    
+    
+    [self.managedObjectContext performBlockAndWait:^{
+        [self.managedObjectContext reset];
+        NSError *error = nil;
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Data"];
+        [request setSortDescriptors:[NSArray arrayWithObject:
+                                     [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]]];
+        
+        
+        NSPredicate *hourlyPredicate = [NSPredicate predicateWithFormat:@"timeFrame = %@", @"currently"];
+        [request setPredicate:hourlyPredicate];
+        NSArray* currently  =  [self.managedObjectContext executeFetchRequest:request error:&error];
+        //NSLog(@"items are %@", items);
+        [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:110]];
+        [self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
+        [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
+        
+        NSLog(@"currently is %@", currently);
+        
+        for (Data* data in currently) {
+            NSLog(@"Data.summary is %f", data.temperature);
+            
+            
+            self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
+            int rounded = (data.temperature + 0.5);
+            self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
+            [self.reflectionView updateReflection];
+            
+            
+        }
+        
+        
+        if (nil == self.hourlyItems)
+            NSLog(@"Failed to fetch  items: %@", error);
+        
+    }];
+    
+    
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
