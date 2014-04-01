@@ -67,7 +67,7 @@
     [cell.hourLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:14]];
     [cell.weatherLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:8]];
     [cell.rainProbLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
-    [cell.temperatureLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
+    [cell.temperatureLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:13]];
     
    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
