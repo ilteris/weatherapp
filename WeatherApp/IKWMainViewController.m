@@ -67,6 +67,7 @@
     [cell.hourLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:14]];
     [cell.weatherLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:8]];
     [cell.rainProbLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
+    [cell.temperatureLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
     
    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -77,6 +78,9 @@
     
     cell.hourLabel.text = startTimeString;
     cell.weatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
+    int rounded = (data.temperature + 0.5);
+    cell.temperatureLabel.text = [NSString stringWithFormat:@"%i°", rounded];
+
     cell.weatherIcon.image = [UIImage imageNamed:@"weatherapp-parcalibulutluicon"];
     
     return cell;

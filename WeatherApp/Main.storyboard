@@ -90,7 +90,13 @@
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hSJ-Sj-cg8" userLabel="weatherLabel">
                                                                     <rect key="frame" x="12" y="58" width="50" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ErM-GZ-LyM" userLabel="temperatureLabel">
+                                                                    <rect key="frame" x="12" y="226" width="50" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8aB-9u-OC1" userLabel="rainProbLabel">
@@ -110,6 +116,7 @@
                                                             <outlet property="cellBg" destination="cCs-ne-KDe" id="syu-Uf-naB"/>
                                                             <outlet property="hourLabel" destination="wq4-fJ-2MX" id="szd-5Y-0am"/>
                                                             <outlet property="rainProbLabel" destination="8aB-9u-OC1" id="UZq-bL-Gqf"/>
+                                                            <outlet property="temperatureLabel" destination="ErM-GZ-LyM" id="rbi-qx-Wd5"/>
                                                             <outlet property="weatherIcon" destination="o8T-Q8-Ge7" id="LAC-Qo-rML"/>
                                                             <outlet property="weatherLabel" destination="hSJ-Sj-cg8" id="DV1-Yn-e8d"/>
                                                         </connections>
