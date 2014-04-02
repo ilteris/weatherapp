@@ -105,7 +105,7 @@
         self.hourlyItems =  [self.managedObjectContext executeFetchRequest:request error:&error];
         //NSLog(@"items are %@", items);
         for (Data* data in self.hourlyItems) {
-            //NSLog(@"Data.summary is %@", data.summary);
+            NSLog(@"Data.icon is %@", data.icon);
         }
         
         
