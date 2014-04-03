@@ -106,6 +106,7 @@
         //NSLog(@"items are %@", items);
         for (Data* data in self.hourlyItems) {
             NSLog(@"Data.icon is %@", data.icon);
+             NSLog(@"precipProbability is %f", data.precipProbability*100);
         }
         
         
