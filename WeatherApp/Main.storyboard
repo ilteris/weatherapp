@@ -31,10 +31,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graph-example.png" id="xkS-6u-i6s">
-                                        <rect key="frame" x="0.0" y="350" width="1200" height="200"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" id="i8Y-3t-aqa" userLabel="View1">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -205,7 +201,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="graph-example.png" width="486" height="94"/>
         <image name="weatherapp-cellbg" width="75" height="345"/>
         <image name="weatherapp-topbg" width="320" height="184"/>
         <image name="weatherapp-topblackline" width="320" height="39"/>
