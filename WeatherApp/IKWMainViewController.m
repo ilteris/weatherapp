@@ -80,8 +80,8 @@
     cell.weatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
     int rounded = (data.temperature + 0.5);
     cell.temperatureLabel.text = [NSString stringWithFormat:@"%i°", rounded];
-
-    cell.weatherIcon.image = [UIImage imageNamed:@"weatherapp-parcalibulutluicon"];
+    
+    cell.weatherIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", data.icon]];
     
     return cell;
 }
@@ -106,7 +106,7 @@
         //NSLog(@"items are %@", items);
         for (Data* data in self.hourlyItems) {
             NSLog(@"Data.icon is %@", data.icon);
-             NSLog(@"precipProbability is %f", data.precipProbability*100);
+             //NSLog(@"precipProbability is %f", data.precipProbability*100);
         }
         
         
@@ -187,8 +187,6 @@
             int rounded = (data.temperature + 0.5);
             self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
             [self.reflectionView updateReflection];
-            
-            
         }
         
         

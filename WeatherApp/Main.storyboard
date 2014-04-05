@@ -118,7 +118,7 @@
                                                                     <color key="backgroundColor" white="0.14233577250000001" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </view>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="o8T-Q8-Ge7" userLabel="weatherIcon">
-                                                                    <rect key="frame" x="18" y="109" width="38" height="30"/>
+                                                                    <rect key="frame" x="18" y="109" width="37" height="50"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
                                                             </subviews>
