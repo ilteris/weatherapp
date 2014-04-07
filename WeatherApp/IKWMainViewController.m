@@ -82,7 +82,18 @@
     cell.temperatureLabel.text = [NSString stringWithFormat:@"%i°", rounded];
     
     cell.weatherIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", data.icon]];
+    CGFloat height = cell.containerRainProbView.frame.size.height;
+    NSLog(@"height is %f", height); //41 is 100 per cent rain probability.
+    CGFloat newHeight = data.precipProbability * height * 100;
+    CGRect cellRect = cell.containerRainProbView.frame;
+    cellRect.size.height = newHeight;
+    cell.containerRainProbView.frame = cellRect;
+    NSLog(@"cell.containerRainProbView is %@", NSStringFromCGRect(cell.containerRainProbView.frame));
+    NSLog(@"precipProbability is %f", data.precipProbability*100);
+    NSLog(@"new height is %f", newHeight); //41 is 100 per cent rain probability.
+
     
+
     return cell;
 }
 
@@ -105,8 +116,8 @@
         self.hourlyItems =  [self.managedObjectContext executeFetchRequest:request error:&error];
         //NSLog(@"items are %@", items);
         for (Data* data in self.hourlyItems) {
-            NSLog(@"Data.icon is %@", data.icon);
-             //NSLog(@"precipProbability is %f", data.precipProbability*100);
+            //NSLog(@"Data.icon is %@", data.icon);
+             NSLog(@"precipProbability is %f", data.precipProbability*100);
         }
         
         

@@ -105,7 +105,7 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <view contentMode="scaleToFill" id="2Wg-QC-0MU" userLabel="containerProb">
+                                                                <view clipsSubviews="YES" contentMode="scaleToFill" id="2Wg-QC-0MU" userLabel="containerRainProbView">
                                                                     <rect key="frame" x="1" y="305" width="73" height="41"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
@@ -126,6 +126,8 @@
                                                         </view>
                                                         <connections>
                                                             <outlet property="cellBg" destination="cCs-ne-KDe" id="syu-Uf-naB"/>
+                                                            <outlet property="containerRainProbView" destination="2Wg-QC-0MU" id="43T-HA-Ywg"/>
+                                                            <outlet property="heightRainChildView" destination="gxV-MI-qxJ" id="izU-gX-0zh"/>
                                                             <outlet property="hourLabel" destination="wq4-fJ-2MX" id="szd-5Y-0am"/>
                                                             <outlet property="rainProbLabel" destination="8aB-9u-OC1" id="UZq-bL-Gqf"/>
                                                             <outlet property="temperatureLabel" destination="ErM-GZ-LyM" id="rbi-qx-Wd5"/>

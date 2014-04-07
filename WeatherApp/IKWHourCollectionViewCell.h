@@ -16,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *rainProbLabel;
 //we also need the bottom blue box.
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UIView *containerRainProbView;
+@property (weak, nonatomic) IBOutlet UIView *heightRainChildView;
 
 @end
