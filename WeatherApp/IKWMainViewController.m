@@ -194,7 +194,7 @@
         for (Data* data in currently) {
             NSLog(@"Data.summary is %f", data.temperature);
             
-            
+            self.currentlyIconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"c_%@",data.icon]];
             self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
             int rounded = (data.temperature + 0.5);
             self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
