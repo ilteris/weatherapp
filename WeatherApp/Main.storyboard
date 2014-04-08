@@ -56,8 +56,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weatherapp_parcalibulutlu" id="m4H-2K-IZY">
-                                                <rect key="frame" x="186" y="56" width="104" height="99"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="m4H-2K-IZY" userLabel="currentlyView">
+                                                <rect key="frame" x="192" y="31" width="110" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="SRE-YA-cyh">
@@ -189,6 +189,7 @@
                     <connections>
                         <outlet property="currentDegreesLabel" destination="R2n-Hb-5eb" id="eAT-rj-Qqh"/>
                         <outlet property="currentWeatherLabel" destination="Ist-ik-fKM" id="aJz-Sd-wUl"/>
+                        <outlet property="currentlyIconView" destination="m4H-2K-IZY" id="nUm-Vt-skI"/>
                         <outlet property="hourCollectionView" destination="SRE-YA-cyh" id="cHR-VC-IKM"/>
                         <outlet property="locationNameLabel" destination="CR4-TF-oXz" id="4F4-Hz-gip"/>
                         <outlet property="reflectionView" destination="3J8-tf-5mf" id="aYn-su-yJ4"/>
@@ -207,7 +208,6 @@
         <image name="weatherapp-topbg" width="320" height="184"/>
         <image name="weatherapp-topblackline" width="320" height="39"/>
         <image name="weatherapp_background" width="320" height="568"/>
-        <image name="weatherapp_parcalibulutlu" width="104" height="99"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

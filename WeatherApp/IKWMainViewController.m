@@ -30,6 +30,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UICollectionView *hourCollectionView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *currentlyIconView;
 
 
 
