@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentDegreesLabel;
-@property (strong, nonatomic) IBOutlet ReflectionView *reflectionView;
+@property (strong, nonatomic) IBOutlet ReflectionView *temperatureReflectionView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *view1;
@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *hourCollectionView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *currentlyIconView;
+@property (weak, nonatomic) IBOutlet ReflectionView *iconReflectionView;
 
 
 
@@ -198,11 +199,15 @@
 
             self.currentlyIconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"c_%@",data.icon]];
             self.currentlyIconView.frame = CGRectMake(self.currentlyIconView.frame.origin.x, self.currentlyIconView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
+            self.iconReflectionView.frame =CGRectMake(self.iconReflectionView.frame.origin.x, self.iconReflectionView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
+
 
             self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
             int rounded = (data.temperature + 0.5);
             self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
-            [self.reflectionView updateReflection];
+            [self.temperatureReflectionView updateReflection];
+            [self.iconReflectionView updateReflection];
+
         }
         
         

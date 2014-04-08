@@ -43,7 +43,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" id="3J8-tf-5mf" customClass="ReflectionView">
+                                            <view contentMode="scaleToFill" id="3J8-tf-5mf" userLabel="temperatureReflectionView" customClass="ReflectionView">
                                                 <rect key="frame" x="3" y="43" width="184" height="95"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
@@ -56,10 +56,17 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="m4H-2K-IZY" userLabel="currentlyView">
-                                                <rect key="frame" x="192" y="45" width="110" height="133"/>
+                                            <view contentMode="scaleToFill" id="wub-PX-eEm" userLabel="iconReflectionView" customClass="ReflectionView">
+                                                <rect key="frame" x="193" y="53" width="115" height="109"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
+                                                <subviews>
+                                                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="m4H-2K-IZY" userLabel="currentlyView">
+                                                        <rect key="frame" x="0.0" y="1" width="110" height="133"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
                                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="SRE-YA-cyh">
                                                 <rect key="frame" x="0.0" y="222" width="320" height="346"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,9 +198,10 @@
                         <outlet property="currentWeatherLabel" destination="Ist-ik-fKM" id="aJz-Sd-wUl"/>
                         <outlet property="currentlyIconView" destination="m4H-2K-IZY" id="nUm-Vt-skI"/>
                         <outlet property="hourCollectionView" destination="SRE-YA-cyh" id="cHR-VC-IKM"/>
+                        <outlet property="iconReflectionView" destination="wub-PX-eEm" id="VSD-1x-tFw"/>
                         <outlet property="locationNameLabel" destination="CR4-TF-oXz" id="4F4-Hz-gip"/>
-                        <outlet property="reflectionView" destination="3J8-tf-5mf" id="aYn-su-yJ4"/>
                         <outlet property="scrollView" destination="jJL-Q9-eu9" id="xnP-Fn-wsS"/>
+                        <outlet property="temperatureReflectionView" destination="3J8-tf-5mf" id="9Jc-zX-eYf"/>
                         <outlet property="view1" destination="i8Y-3t-aqa" id="pAD-Du-ziq"/>
                         <outlet property="view2" destination="xd2-z7-t0P" id="50Z-UA-w8N"/>
                     </connections>
