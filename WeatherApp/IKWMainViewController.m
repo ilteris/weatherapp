@@ -193,8 +193,12 @@
         
         for (Data* data in currently) {
             NSLog(@"Data.summary is %f", data.temperature);
-            
+            //set the icon view based on the icon here
+            [self getImageSizeForIcon:data.icon];
+
             self.currentlyIconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"c_%@",data.icon]];
+            self.currentlyIconView.frame = CGRectMake(self.currentlyIconView.frame.origin.x, self.currentlyIconView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
+
             self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
             int rounded = (data.temperature + 0.5);
             self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
@@ -209,6 +213,28 @@
     
     
     
+}
+
+-(CGSize)getImageSizeForIcon:(NSString*)iconName {
+    
+    
+    NSDictionary *iconsSizes = @{
+                      @"clear-day" : [NSValue valueWithCGSize:(CGSize){85, 85}],
+                      @"clear-night" : [NSValue valueWithCGSize:(CGSize){85, 85}],
+                      @"cloudy" : [NSValue valueWithCGSize:(CGSize){105, 65}],
+                      @"fog" : [NSValue valueWithCGSize:(CGSize){103, 101}],
+                      @"partly-cloudy-day" : [NSValue valueWithCGSize:(CGSize){105, 85}],
+                      @"partly-cloudy-night" : [NSValue valueWithCGSize:(CGSize){105, 85}],
+                      @"sleet" : [NSValue valueWithCGSize:(CGSize){105, 95}],
+                      @"snow" : [NSValue valueWithCGSize:(CGSize){105, 97}],
+                      @"rain" : [NSValue valueWithCGSize:(CGSize){103, 94}],
+                      @"wind" : [NSValue valueWithCGSize:(CGSize){105, 94}]
+                      };
+    
+   
+    CGSize size = [iconsSizes[iconName] CGSizeValue];
+    NSLog(@"iconName is %@, %@", iconName, NSStringFromCGSize(size));
+    return size;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
