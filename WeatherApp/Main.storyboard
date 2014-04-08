@@ -57,7 +57,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="wub-PX-eEm" userLabel="iconReflectionView" customClass="ReflectionView">
-                                                <rect key="frame" x="193" y="53" width="115" height="109"/>
+                                                <rect key="frame" x="193" y="57" width="115" height="109"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="m4H-2K-IZY" userLabel="currentlyView">
