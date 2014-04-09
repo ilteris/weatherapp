@@ -7,20 +7,17 @@
 //
 
 #import "IKWMainViewController.h"
-#import "ReflectionView.h"
 #import "IKWHourCollectionViewCell.h"
 #import "SDCoreDataController.h"
 #import "IKWSyncObject.h"
 #import "Data.h"
 #import "Location.h"
 #import "IKWCurrentlyViewController.h"
-
+#import "IKWHourCollectionViewCell+ConfigureForCell.h"
 
 @interface IKWMainViewController () <UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
-@property (weak, nonatomic) IBOutlet UILabel *currentDegreesLabel;
-@property (strong, nonatomic) IBOutlet ReflectionView *temperatureReflectionView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *view1;
@@ -31,8 +28,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UICollectionView *hourCollectionView;
 
-@property (weak, nonatomic) IBOutlet UIImageView *currentlyIconView;
-@property (weak, nonatomic) IBOutlet ReflectionView *iconReflectionView;
 @property (strong, nonatomic) IKWCurrentlyViewController *currentlyViewController;
 
 
@@ -40,19 +35,6 @@
 @end
 
 @implementation IKWMainViewController
-
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {        // Custom initialization
-        
-        
-    }
-    return self;
-}
-
-
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -66,35 +48,7 @@
     
     Data *data = [self.hourlyItems objectAtIndex:indexPath.row];
     
-    [cell.hourLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:14]];
-    [cell.weatherLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:8]];
-    [cell.rainProbLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
-    [cell.temperatureLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:13]];
-    
-   
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h a"];
-    
-    NSString *startTimeString = [formatter stringFromDate: [NSDate dateWithTimeIntervalSince1970:data.time]];
-    
-    
-    cell.hourLabel.text = startTimeString;
-    cell.weatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
-    int rounded = (data.temperature + 0.5);
-    cell.temperatureLabel.text = [NSString stringWithFormat:@"%i°", rounded];
-    
-    cell.weatherIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", data.icon]];
-    CGFloat height = cell.containerRainProbView.frame.size.height;
-    NSLog(@"height is %f", height); //41 is 100 per cent rain probability.
-    CGFloat newHeight = data.precipProbability * height * 100;
-    CGRect cellRect = cell.containerRainProbView.frame;
-    cellRect.size.height = newHeight;
-    cell.containerRainProbView.frame = cellRect;
-    NSLog(@"cell.containerRainProbView is %@", NSStringFromCGRect(cell.containerRainProbView.frame));
-    NSLog(@"precipProbability is %f", data.precipProbability*100);
-    NSLog(@"new height is %f", newHeight); //41 is 100 per cent rain probability.
-
-    
+    [cell configureForCell:data];
 
     return cell;
 }
@@ -106,7 +60,6 @@
     if ([[segue identifier] isEqualToString:@"currentlyViewController"]) {
         self.currentlyViewController = segue.destinationViewController;
         
-    
     }
     
 }
@@ -197,7 +150,7 @@
         [request setPredicate:hourlyPredicate];
         NSArray* currently  =  [self.managedObjectContext executeFetchRequest:request error:&error];
         //NSLog(@"items are %@", items);
-        [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:110]];
+      
         [self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
         [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
         
@@ -208,19 +161,9 @@
             //set the icon view based on the icon here
             [self getImageSizeForIcon:data.icon];
 
-            self.currentlyIconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"c_%@",data.icon]];
-            self.currentlyIconView.frame = CGRectMake(self.currentlyIconView.frame.origin.x, self.currentlyIconView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
-            self.iconReflectionView.frame =CGRectMake(self.iconReflectionView.frame.origin.x, self.iconReflectionView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
-
-
+          
             self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
-            int rounded = (data.temperature + 0.5);
-            self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
-            [self.temperatureReflectionView updateReflection];
-            [self.iconReflectionView updateReflection];
-
-        }
-        
+                   }
         
         if (nil == self.hourlyItems)
             NSLog(@"Failed to fetch  items: %@", error);

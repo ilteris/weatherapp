@@ -7,18 +7,22 @@
 //
 
 #import "IKWCurrentlyViewController.h"
+#import "ReflectionView.h"
 
 @interface IKWCurrentlyViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *currentlyIconView;
+@property (weak, nonatomic) IBOutlet ReflectionView *iconReflectionView;
+@property (weak, nonatomic) IBOutlet UILabel *currentDegreesLabel;
+@property (strong, nonatomic) IBOutlet ReflectionView *temperatureReflectionView;
 
 @end
 
 @implementation IKWCurrentlyViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    self = [super initWithCoder:aDecoder];
+    if (self) {        // Custom initialization
     }
     return self;
 }
@@ -26,6 +30,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:110]];
+    /*
+    self.currentlyIconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"c_%@",data.icon]];
+    self.currentlyIconView.frame = CGRectMake(self.currentlyIconView.frame.origin.x, self.currentlyIconView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
+    self.iconReflectionView.frame =CGRectMake(self.iconReflectionView.frame.origin.x, self.iconReflectionView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
+
+     int rounded = (data.temperature + 0.5);
+
+    self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
+    [self.temperatureReflectionView updateReflection];
+    [self.iconReflectionView updateReflection];
+    */
+    
     // Do any additional setup after loading the view.
 }
 
@@ -35,15 +53,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
