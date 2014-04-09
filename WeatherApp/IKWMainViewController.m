@@ -13,6 +13,7 @@
 #import "IKWSyncObject.h"
 #import "Data.h"
 #import "Location.h"
+#import "IKWCurrentlyViewController.h"
 
 
 @interface IKWMainViewController () <UICollectionViewDataSource>
@@ -32,8 +33,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *currentlyIconView;
 @property (weak, nonatomic) IBOutlet ReflectionView *iconReflectionView;
-
-
+@property (strong, nonatomic) IKWCurrentlyViewController *currentlyViewController;
 
 
 
@@ -99,6 +99,17 @@
     return cell;
 }
 
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"currentlyViewController"]) {
+        self.currentlyViewController = segue.destinationViewController;
+        
+    
+    }
+    
+}
 
 
 - (void)loadRecordsFromCoreData {

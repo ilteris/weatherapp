@@ -39,10 +39,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weatherapp-topbg" id="4vi-kI-w7M">
+                                            <containerView contentMode="scaleToFill" id="hMm-2G-A0q">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <segue destination="3AA-F8-SFx" kind="embed" id="8qe-Be-otZ"/>
+                                                </connections>
+                                            </containerView>
                                             <view contentMode="scaleToFill" id="3J8-tf-5mf" userLabel="temperatureReflectionView" customClass="ReflectionView">
                                                 <rect key="frame" x="3" y="43" width="184" height="95"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -209,6 +213,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jy4-cV-at9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="159" y="0.0"/>
+        </scene>
+        <!--Currently View Controller-->
+        <scene sceneID="28o-sm-yZT">
+            <objects>
+                <viewController storyboardIdentifier="currentlyViewController" automaticallyAdjustsScrollViewInsets="NO" id="3AA-F8-SFx" customClass="IKWCurrentlyViewController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="06v-G4-ItK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weatherapp-topbg" id="4vi-kI-w7M">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Cs-N8-STc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652" y="0.0"/>
         </scene>
     </scenes>
     <resources>
