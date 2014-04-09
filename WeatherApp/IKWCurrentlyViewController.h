@@ -10,4 +10,6 @@
 
 @interface IKWCurrentlyViewController : UIViewController
 
+- (void) updateDataForManagedObjectContext:(NSManagedObjectContext*)managedObjectContext;
+
 @end

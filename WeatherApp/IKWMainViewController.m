@@ -58,6 +58,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"currentlyViewController"]) {
+        NSLog(@"segue identifier is %@", [segue identifier]);
+
         self.currentlyViewController = segue.destinationViewController;
         
     }
@@ -68,6 +70,8 @@
 - (void)loadRecordsFromCoreData {
     NSLog(@"loadRecordsFromCoreData");
     
+    self.managedObjectContext = [[SDCoreDataController sharedInstance] newManagedObjectContext];
+
     
     [self.managedObjectContext performBlockAndWait:^{
         [self.managedObjectContext reset];
@@ -85,8 +89,6 @@
             //NSLog(@"Data.icon is %@", data.icon);
              NSLog(@"precipProbability is %f", data.precipProbability*100);
         }
-        
-        
         if (nil == self.hourlyItems)
             NSLog(@"Failed to fetch  items: %@", error);
         
@@ -97,11 +99,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    self.managedObjectContext = [[SDCoreDataController sharedInstance] newManagedObjectContext];
-
     [self loadRecordsFromCoreData];
+    [self.currentlyViewController updateDataForManagedObjectContext:self.managedObjectContext];
 
     
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
@@ -130,45 +129,18 @@
     [self checkSyncStatus];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"IKWSyncObjectSyncCompleted" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"IKWSyncObjectSyncCompleted is IKWSyncObjectSyncCompleted");
         [self loadRecordsFromCoreData];
         [self.hourCollectionView reloadData]; //might as well reload in batch.
-        
+        [self.currentlyViewController updateDataForManagedObjectContext:self.managedObjectContext];
         
     }];
+    
+    
     [[IKWSyncObject sharedEngine] addObserver:self forKeyPath:@"syncInProgress" options:NSKeyValueObservingOptionNew context:nil];
     
     
-    [self.managedObjectContext performBlockAndWait:^{
-        [self.managedObjectContext reset];
-        NSError *error = nil;
-        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Data"];
-        [request setSortDescriptors:[NSArray arrayWithObject:
-                                     [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]]];
-        
-        
-        NSPredicate *hourlyPredicate = [NSPredicate predicateWithFormat:@"timeFrame = %@", @"currently"];
-        [request setPredicate:hourlyPredicate];
-        NSArray* currently  =  [self.managedObjectContext executeFetchRequest:request error:&error];
-        //NSLog(@"items are %@", items);
-      
-        [self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
-        [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
-        
-        NSLog(@"currently is %@", currently);
-        
-        for (Data* data in currently) {
-            NSLog(@"Data.summary is %f", data.temperature);
-            //set the icon view based on the icon here
-            [self getImageSizeForIcon:data.icon];
-
-          
-            self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
-                   }
-        
-        if (nil == self.hourlyItems)
-            NSLog(@"Failed to fetch  items: %@", error);
-        
-    }];
+    
     
     
     

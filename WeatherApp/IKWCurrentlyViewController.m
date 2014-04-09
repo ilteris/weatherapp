@@ -8,6 +8,8 @@
 
 #import "IKWCurrentlyViewController.h"
 #import "ReflectionView.h"
+#import "SDCoreDataController.h"
+#import "Data.h"
 
 @interface IKWCurrentlyViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *currentlyIconView;
@@ -31,20 +33,81 @@
 {
     [super viewDidLoad];
     
-    [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:110]];
-    /*
-    self.currentlyIconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"c_%@",data.icon]];
-    self.currentlyIconView.frame = CGRectMake(self.currentlyIconView.frame.origin.x, self.currentlyIconView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
-    self.iconReflectionView.frame =CGRectMake(self.iconReflectionView.frame.origin.x, self.iconReflectionView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
-
-     int rounded = (data.temperature + 0.5);
-
-    self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
-    [self.temperatureReflectionView updateReflection];
-    [self.iconReflectionView updateReflection];
-    */
+  
+    
     
     // Do any additional setup after loading the view.
+}
+
+
+- (void)updateDataForManagedObjectContext:(NSManagedObjectContext*)managedObjectContext
+{
+    [managedObjectContext performBlockAndWait:^{
+        [managedObjectContext reset];
+        NSError *error = nil;
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Data"];
+        [request setSortDescriptors:[NSArray arrayWithObject:
+                                     [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]]];
+        
+        
+        NSPredicate *hourlyPredicate = [NSPredicate predicateWithFormat:@"timeFrame = %@", @"currently"];
+        [request setPredicate:hourlyPredicate];
+        NSArray* currently  =  [[[SDCoreDataController sharedInstance] newManagedObjectContext] executeFetchRequest:request error:&error];
+        //NSLog(@"items are %@", items);
+        
+        //[self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
+        //[self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
+        
+        NSLog(@"currently is %@", currently);
+        
+        for (Data* data in currently) {
+            NSLog(@"Data.summary is %f", data.temperature);
+            //set the icon view based on the icon here
+            [self getImageSizeForIcon:data.icon];
+            
+            [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:110]];
+            
+            self.currentlyIconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"c_%@",data.icon]];
+            self.currentlyIconView.frame = CGRectMake(self.currentlyIconView.frame.origin.x, self.currentlyIconView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
+            self.iconReflectionView.frame =CGRectMake(self.iconReflectionView.frame.origin.x, self.iconReflectionView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
+            
+            int rounded = (data.temperature + 0.5);
+            
+            self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
+            [self.temperatureReflectionView updateReflection];
+            [self.iconReflectionView updateReflection];
+            
+            
+          //  self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
+        }
+        
+        if (nil == currently)
+            NSLog(@"Failed to fetch  items: %@", error);
+        
+    }];
+}
+
+
+-(CGSize)getImageSizeForIcon:(NSString*)iconName {
+    
+    
+    NSDictionary *iconsSizes = @{
+                                 @"clear-day" : [NSValue valueWithCGSize:(CGSize){85, 85}],
+                                 @"clear-night" : [NSValue valueWithCGSize:(CGSize){85, 85}],
+                                 @"cloudy" : [NSValue valueWithCGSize:(CGSize){105, 65}],
+                                 @"fog" : [NSValue valueWithCGSize:(CGSize){103, 101}],
+                                 @"partly-cloudy-day" : [NSValue valueWithCGSize:(CGSize){105, 85}],
+                                 @"partly-cloudy-night" : [NSValue valueWithCGSize:(CGSize){105, 85}],
+                                 @"sleet" : [NSValue valueWithCGSize:(CGSize){105, 95}],
+                                 @"snow" : [NSValue valueWithCGSize:(CGSize){105, 97}],
+                                 @"rain" : [NSValue valueWithCGSize:(CGSize){103, 94}],
+                                 @"wind" : [NSValue valueWithCGSize:(CGSize){105, 94}]
+                                 };
+    
+    
+    CGSize size = [iconsSizes[iconName] CGSizeValue];
+    NSLog(@"iconName is %@, %@", iconName, NSStringFromCGSize(size));
+    return size;
 }
 
 - (void)didReceiveMemoryWarning

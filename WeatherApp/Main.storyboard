@@ -44,7 +44,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <segue destination="3AA-F8-SFx" kind="embed" id="8qe-Be-otZ"/>
+                                                    <segue destination="3AA-F8-SFx" kind="embed" identifier="currentlyViewController" id="8qe-Be-otZ"/>
                                                 </connections>
                                             </containerView>
                                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="SRE-YA-cyh">
@@ -174,14 +174,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="2si-EL-p7O"/>
                     <connections>
-                        <outlet property="currentDegreesLabel" destination="R2n-Hb-5eb" id="eAT-rj-Qqh"/>
                         <outlet property="currentWeatherLabel" destination="Ist-ik-fKM" id="aJz-Sd-wUl"/>
-                        <outlet property="currentlyIconView" destination="m4H-2K-IZY" id="nUm-Vt-skI"/>
                         <outlet property="hourCollectionView" destination="SRE-YA-cyh" id="cHR-VC-IKM"/>
-                        <outlet property="iconReflectionView" destination="wub-PX-eEm" id="VSD-1x-tFw"/>
                         <outlet property="locationNameLabel" destination="CR4-TF-oXz" id="4F4-Hz-gip"/>
                         <outlet property="scrollView" destination="jJL-Q9-eu9" id="xnP-Fn-wsS"/>
-                        <outlet property="temperatureReflectionView" destination="3J8-tf-5mf" id="9Jc-zX-eYf"/>
                         <outlet property="view1" destination="i8Y-3t-aqa" id="pAD-Du-ziq"/>
                         <outlet property="view2" destination="xd2-z7-t0P" id="50Z-UA-w8N"/>
                     </connections>
@@ -193,7 +189,7 @@
         <!--Currently View Controller-->
         <scene sceneID="28o-sm-yZT">
             <objects>
-                <viewController storyboardIdentifier="currentlyViewController" automaticallyAdjustsScrollViewInsets="NO" id="3AA-F8-SFx" customClass="IKWCurrentlyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="currentlyVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3AA-F8-SFx" customClass="IKWCurrentlyViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="06v-G4-ItK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -230,6 +226,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="currentDegreesLabel" destination="R2n-Hb-5eb" id="pN4-kw-MVo"/>
+                        <outlet property="currentlyIconView" destination="m4H-2K-IZY" id="t9B-9q-NDq"/>
+                        <outlet property="iconReflectionView" destination="wub-PX-eEm" id="xDu-Nr-hEW"/>
+                        <outlet property="temperatureReflectionView" destination="3J8-tf-5mf" id="SST-WY-uAQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Cs-N8-STc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
