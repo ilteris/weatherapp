@@ -7,14 +7,13 @@
 //
 
 #import "IKWForecastClient+Weather.h"
-#import "IKWSyncObject.h"
-#import "Location.h"
+
 
 @implementation IKWForecastClient (Weather)
 
 - (NSURLSessionDataTask *)requestWeatherForCoordinateLatitude:(double)latitude
                                             longitude:(double)longitude
-                                           completion:(CRArrayCompletionBlock)completion
+                                           completion:(JSONCompletionBlock)completion
 {
     NSParameterAssert(latitude);
     NSParameterAssert(longitude);
@@ -36,16 +35,8 @@
         if (responseObject) {
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                
-             //   NSLog(@"responseObject is %@", responseObject);
-                
-                //id collection = [[IKWSyncObject sharedEngine] collectionFromJSON:responseObject className:NSStringFromClass([Location class])];
-
-                [[IKWSyncObject sharedEngine] processJSONDataRecordsIntoCoreData:responseObject];
-                
-               dispatch_async(dispatch_get_main_queue(), ^{
-                   completion(nil, nil); });
-                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(responseObject, nil); });
             });
             
         } else {

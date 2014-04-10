@@ -246,19 +246,15 @@
 		A20D6C1418ADCFCC00390EDD /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				A2BB93B418DFB702008C67F7 /* Utilities */,
 				A2BB93B218DFB702008C67F7 /* Resources */,
+				A2BB93B418DFB702008C67F7 /* Utilities */,
 				A2FE367118B6BBA7003D0C11 /* Model */,
 				A20731F318B0260D007BB865 /* IKWHourCollectionViewCell.h */,
+				A20731F418B0260D007BB865 /* IKWHourCollectionViewCell.m */,
 				A2962B0918F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.h */,
 				A2962B0A18F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.m */,
-				A20731F418B0260D007BB865 /* IKWHourCollectionViewCell.m */,
 				A207317A18AFDFC2007BB865 /* IKWMainViewController.h */,
 				A207317B18AFDFC2007BB865 /* IKWMainViewController.m */,
-				A206405418D632BE00AE1F31 /* SDCoreDataController.h */,
-				A206405518D632BE00AE1F31 /* SDCoreDataController.m */,
-				A2BB93B818DFB702008C67F7 /* IKWSyncObject.h */,
-				A2BB93B918DFB702008C67F7 /* IKWSyncObject.m */,
 				A20D6C1D18ADCFCD00390EDD /* IKWAppDelegate.h */,
 				A20D6C1E18ADCFCD00390EDD /* IKWAppDelegate.m */,
 				A20731EE18B00879007BB865 /* ReflectionView.h */,
@@ -314,10 +310,14 @@
 		A2BB93B418DFB702008C67F7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A2BB93B818DFB702008C67F7 /* IKWSyncObject.h */,
+				A2BB93B918DFB702008C67F7 /* IKWSyncObject.m */,
 				A2BB93B518DFB702008C67F7 /* IKWForecastClient+Weather.h */,
 				A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */,
 				A2BB93AC18BC22BB008C67F7 /* IKWForecastClient.h */,
 				A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */,
+				A206405418D632BE00AE1F31 /* SDCoreDataController.h */,
+				A206405518D632BE00AE1F31 /* SDCoreDataController.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";

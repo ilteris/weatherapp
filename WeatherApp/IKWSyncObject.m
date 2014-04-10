@@ -65,25 +65,6 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
 }
 
 
-- (void)executeSyncCompletedOperations {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self setInitialSyncCompleted];
-        NSError *error = nil;
-        [[SDCoreDataController sharedInstance] saveBackgroundContext];
-        if (error) {
-            NSLog(@"Error saving background context after creating objects on server: %@", error);
-        }
-        
-        [[SDCoreDataController sharedInstance] saveMasterContext];
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:kIKWSyncObjectSyncCompletedNotificationName
-         object:nil];
-        [self willChangeValueForKey:@"syncInProgress"];
-        _syncInProgress = NO;
-        [self didChangeValueForKey:@"syncInProgress"];
-    });
-}
-
 
 
 
@@ -106,9 +87,12 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
           
         [self deleteRecordsFromCoreData];
             
-          [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:coord.latitude longitude:coord.longitude completion:^(NSArray *stores, NSError *error) {
+          [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:coord.latitude longitude:coord.longitude completion:^(NSDictionary *weatherData, NSError *error) {
+              NSLog(@"weatherData is %@", weatherData);
+
               if (!error){
                   NSLog(@"no error");
+
               } else {
                   NSLog(@" error");
               }
@@ -213,9 +197,25 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
         }];
         
         [self executeSyncCompletedOperations];
-   
-    
-    //[self downloadDataForRegisteredObjects:NO];
+}
+
+
+- (void)executeSyncCompletedOperations {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setInitialSyncCompleted];
+        NSError *error = nil;
+        [[SDCoreDataController sharedInstance] saveBackgroundContext];
+        if (error) {
+            NSLog(@"Error saving background context after creating objects on server: %@", error);
+        }
+        
+        [[SDCoreDataController sharedInstance] saveMasterContext];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kIKWSyncObjectSyncCompletedNotificationName
+                                                            object:nil];
+        [self willChangeValueForKey:@"syncInProgress"];
+        _syncInProgress = NO;
+        [self didChangeValueForKey:@"syncInProgress"];
+    });
 }
 
 
@@ -247,9 +247,6 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             NSLog(@"Failed to fetch  items: %@", error);
         
     }];
-    
-    
-   
 }
 
 

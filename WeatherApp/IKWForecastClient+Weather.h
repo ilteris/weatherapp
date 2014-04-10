@@ -10,11 +10,11 @@
 
 @interface IKWForecastClient (Weather)
 
-typedef void (^CRArrayCompletionBlock)(NSArray *collection, NSError *error);
+typedef void (^JSONCompletionBlock)(NSDictionary *JSON, NSError *error);
 
 
 - (NSURLSessionDataTask *)requestWeatherForCoordinateLatitude:(double)latitude
                                             longitude:(double)longitude
-                                           completion:(CRArrayCompletionBlock)completion;
+                                           completion:(JSONCompletionBlock)completion;
 
 @end

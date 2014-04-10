@@ -72,7 +72,6 @@
     
     self.managedObjectContext = [[SDCoreDataController sharedInstance] newManagedObjectContext];
 
-    
     [self.managedObjectContext performBlockAndWait:^{
         [self.managedObjectContext reset];
         NSError *error = nil;
@@ -100,14 +99,9 @@
 {
     [super viewDidLoad];
     [self loadRecordsFromCoreData];
-    [self.currentlyViewController updateDataForManagedObjectContext:self.managedObjectContext];
-
-    
+   // [self.currentlyViewController updateDataForManagedObjectContext:self.managedObjectContext];
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
     
-    
-  
-        
 }
 
 - (void)checkSyncStatus {
@@ -132,19 +126,17 @@
         NSLog(@"IKWSyncObjectSyncCompleted is IKWSyncObjectSyncCompleted");
         [self loadRecordsFromCoreData];
         [self.hourCollectionView reloadData]; //might as well reload in batch.
-        [self.currentlyViewController updateDataForManagedObjectContext:self.managedObjectContext];
+        NSLog(@"self.managedObjectContext is %@", self.managedObjectContext);
+      //   [self.currentlyViewController updateDataForManagedObjectContext:self.managedObjectContext];
         
     }];
     
     
     [[IKWSyncObject sharedEngine] addObserver:self forKeyPath:@"syncInProgress" options:NSKeyValueObservingOptionNew context:nil];
     
-    
-    
-    
-    
-    
 }
+
+
 
 -(CGSize)getImageSizeForIcon:(NSString*)iconName {
     
