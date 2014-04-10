@@ -45,7 +45,7 @@
 {
     
         //[self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
-        [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
+        [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:23]];
         
     
         for (Data* data in currently) {
@@ -53,7 +53,7 @@
             //set the icon view based on the icon here
             [self getImageSizeForIcon:data.icon];
             
-            [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:110]];
+            [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Thin" size:130]];
             
             self.currentlyIconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"c_%@",data.icon]];
             self.currentlyIconView.frame = CGRectMake(self.currentlyIconView.frame.origin.x, self.currentlyIconView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
