@@ -8,6 +8,7 @@
 
 #import "IKWDailyViewController.h"
 #import "IKWDayCollectionViewCell.h"
+#import "IKWDayCollectionViewCell+ConfigureForCell.h"
 #import "Data.h"
 
 
@@ -44,7 +45,8 @@
     
     Data *data = [self.data objectAtIndex:indexPath.row];
     
-   // [cell configureForCell:data];
+    
+    [cell configureForCell:data];
     
     return cell;
 }
