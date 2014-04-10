@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIView *view2;
 
 @property (nonatomic, strong) NSArray *hourlyItems;
+@property (nonatomic, strong) NSArray *totalData;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UICollectionView *hourCollectionView;
@@ -58,8 +59,6 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"currentlyViewController"]) {
-        NSLog(@"segue identifier is %@", [segue identifier]);
-
         self.currentlyViewController = segue.destinationViewController;
         
     }
@@ -69,9 +68,7 @@
 
 - (void)loadRecordsFromCoreData {
     NSLog(@"loadRecordsFromCoreData");
-    
     self.managedObjectContext = [[SDCoreDataController sharedInstance] newManagedObjectContext];
-
     [self.managedObjectContext performBlockAndWait:^{
         [self.managedObjectContext reset];
         NSError *error = nil;
@@ -79,18 +76,18 @@
         [request setSortDescriptors:[NSArray arrayWithObject:
                                      [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]]];
         
+        self.totalData =  [self.managedObjectContext executeFetchRequest:request error:&error];
         
-        NSPredicate *hourlyPredicate = [NSPredicate predicateWithFormat:@"timeFrame = %@", @"hourly"];
-        [request setPredicate:hourlyPredicate];
-        self.hourlyItems =  [self.managedObjectContext executeFetchRequest:request error:&error];
-        //NSLog(@"items are %@", items);
-        for (Data* data in self.hourlyItems) {
-            //NSLog(@"Data.icon is %@", data.icon);
-             NSLog(@"precipProbability is %f", data.precipProbability*100);
-        }
-        if (nil == self.hourlyItems)
+        if (nil == self.totalData)
             NSLog(@"Failed to fetch  items: %@", error);
         
+        
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeFrame =  %@", @"hourly"];
+        
+        self.hourlyItems = [self.totalData filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"hourlyItems is %@", self.hourlyItems);
     }];
 }
 
@@ -99,7 +96,6 @@
 {
     [super viewDidLoad];
     [self loadRecordsFromCoreData];
-   // [self.currentlyViewController updateDataForManagedObjectContext:self.managedObjectContext];
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
     
 }
@@ -126,8 +122,6 @@
         NSLog(@"IKWSyncObjectSyncCompleted is IKWSyncObjectSyncCompleted");
         [self loadRecordsFromCoreData];
         [self.hourCollectionView reloadData]; //might as well reload in batch.
-        NSLog(@"self.managedObjectContext is %@", self.managedObjectContext);
-      //   [self.currentlyViewController updateDataForManagedObjectContext:self.managedObjectContext];
         
     }];
     
@@ -137,28 +131,6 @@
 }
 
 
-
--(CGSize)getImageSizeForIcon:(NSString*)iconName {
-    
-    
-    NSDictionary *iconsSizes = @{
-                      @"clear-day" : [NSValue valueWithCGSize:(CGSize){85, 85}],
-                      @"clear-night" : [NSValue valueWithCGSize:(CGSize){85, 85}],
-                      @"cloudy" : [NSValue valueWithCGSize:(CGSize){105, 65}],
-                      @"fog" : [NSValue valueWithCGSize:(CGSize){103, 101}],
-                      @"partly-cloudy-day" : [NSValue valueWithCGSize:(CGSize){105, 85}],
-                      @"partly-cloudy-night" : [NSValue valueWithCGSize:(CGSize){105, 85}],
-                      @"sleet" : [NSValue valueWithCGSize:(CGSize){105, 95}],
-                      @"snow" : [NSValue valueWithCGSize:(CGSize){105, 97}],
-                      @"rain" : [NSValue valueWithCGSize:(CGSize){103, 94}],
-                      @"wind" : [NSValue valueWithCGSize:(CGSize){105, 94}]
-                      };
-    
-   
-    CGSize size = [iconsSizes[iconName] CGSizeValue];
-    NSLog(@"iconName is %@, %@", iconName, NSStringFromCGSize(size));
-    return size;
-}
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];

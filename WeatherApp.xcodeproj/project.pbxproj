@@ -253,6 +253,8 @@
 				A20731F418B0260D007BB865 /* IKWHourCollectionViewCell.m */,
 				A2962B0918F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.h */,
 				A2962B0A18F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.m */,
+				A2962B0618F59A2700B0FC9E /* IKWCurrentlyViewController.h */,
+				A2962B0718F59A2700B0FC9E /* IKWCurrentlyViewController.m */,
 				A207317A18AFDFC2007BB865 /* IKWMainViewController.h */,
 				A207317B18AFDFC2007BB865 /* IKWMainViewController.m */,
 				A20D6C1D18ADCFCD00390EDD /* IKWAppDelegate.h */,
@@ -263,8 +265,6 @@
 				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
 				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
 				A20731C118AFE395007BB865 /* Main.storyboard */,
-				A2962B0618F59A2700B0FC9E /* IKWCurrentlyViewController.h */,
-				A2962B0718F59A2700B0FC9E /* IKWCurrentlyViewController.m */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
