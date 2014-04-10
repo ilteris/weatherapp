@@ -17,7 +17,6 @@
 
 @interface IKWMainViewController () <UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *view1;

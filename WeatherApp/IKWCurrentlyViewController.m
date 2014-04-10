@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet ReflectionView *iconReflectionView;
 @property (weak, nonatomic) IBOutlet UILabel *currentDegreesLabel;
 @property (strong, nonatomic) IBOutlet ReflectionView *temperatureReflectionView;
+@property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
 
 @end
 
@@ -44,7 +45,7 @@
 {
     
         //[self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
-        //[self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
+        [self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
         
     
         for (Data* data in currently) {
@@ -64,8 +65,7 @@
             [self.temperatureReflectionView updateReflection];
             [self.iconReflectionView updateReflection];
             
-            
-          //  self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
+           self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
         }
         
    
