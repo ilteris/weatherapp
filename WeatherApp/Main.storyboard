@@ -131,17 +131,14 @@
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <view contentMode="scaleToFill" id="xd2-z7-t0P" userLabel="View2">
+                                    <containerView contentMode="scaleToFill" id="7RA-ba-AN9">
                                         <rect key="frame" x="320" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weatherapp_background" id="Hyp-4p-TXI">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </imageView>
-                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </view>
+                                        <connections>
+                                            <segue destination="MLZ-KH-22f" kind="embed" identifier="dailyViewController" id="ld7-qV-EB1"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
@@ -167,7 +164,7 @@
                         <outlet property="locationNameLabel" destination="CR4-TF-oXz" id="4F4-Hz-gip"/>
                         <outlet property="scrollView" destination="jJL-Q9-eu9" id="xnP-Fn-wsS"/>
                         <outlet property="view1" destination="i8Y-3t-aqa" id="pAD-Du-ziq"/>
-                        <outlet property="view2" destination="xd2-z7-t0P" id="50Z-UA-w8N"/>
+                        <outlet property="view2" destination="7RA-ba-AN9" id="nmd-r2-ckp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jy4-cV-at9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,7 +232,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Cs-N8-STc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="0.0"/>
+            <point key="canvasLocation" x="629" y="-108"/>
+        </scene>
+        <!--Daily View Controller-->
+        <scene sceneID="F45-lB-xKJ">
+            <objects>
+                <viewController storyboardIdentifier="dailyViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MLZ-KH-22f" customClass="IKWDailyViewController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="irP-VS-8AU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weatherapp_background" id="Xi9-gA-vPB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ynd-Ix-3XJ">
+                                <rect key="frame" x="0.0" y="68" width="320" height="500"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cl9-im-s0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629" y="203"/>
         </scene>
     </scenes>
     <resources>
