@@ -12,6 +12,7 @@
 
 
 @interface IKWDailyViewController () <UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -26,6 +27,11 @@
     return self;
 }
 
+-(void)reloadData {
+    
+    [self.collectionView reloadData];
+
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -48,6 +54,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"viewdidload for daily view");
     // Do any additional setup after loading the view.
 }
 

@@ -11,4 +11,6 @@
 @interface IKWDailyViewController : UIViewController
 
 @property (nonatomic, copy) NSArray *data;
+
+-(void)reloadData;
 @end

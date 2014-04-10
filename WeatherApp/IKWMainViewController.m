@@ -65,7 +65,7 @@
     if ([[segue identifier] isEqualToString:@"currentlyViewController"]) {
         self.currentlyViewController = segue.destinationViewController;
         
-    } else if ([[segue identifier] isEqualToString:@"dayViewController"])  {
+    } else if ([[segue identifier] isEqualToString:@"dailyViewController"])  {
         self.dailyViewController = segue.destinationViewController;
 
 
@@ -103,11 +103,11 @@
         
         NSArray *dailyData = [self.totalData filteredArrayUsingPredicate:dailyPredicate];
         
-        
         [self.currentlyViewController updateCurrentWeatherWithData:currentlyData];
         
         
         self.dailyViewController.data = dailyData;
+        [self.dailyViewController reloadData];
         
         
         
@@ -148,11 +148,9 @@
         
     }];
     
-    
     [[IKWSyncObject sharedEngine] addObserver:self forKeyPath:@"syncInProgress" options:NSKeyValueObservingOptionNew context:nil];
     
 }
-
 
 
 - (void)viewDidDisappear:(BOOL)animated {

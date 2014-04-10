@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface IKWDayCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *weatherLabel;
+@property (weak, nonatomic) IBOutlet UILabel *maxDegreeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *minDegreeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weekDayLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
 
 @end
