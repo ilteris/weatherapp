@@ -40,26 +40,13 @@
 }
 
 
-- (void)updateDataForManagedObjectContext:(NSManagedObjectContext*)managedObjectContext
+-(void)updateCurrentWeatherWithData:(NSArray*)currently;
 {
-    [managedObjectContext performBlockAndWait:^{
-        [managedObjectContext reset];
-        NSError *error = nil;
-        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Data"];
-        [request setSortDescriptors:[NSArray arrayWithObject:
-                                     [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]]];
-        
-        
-        NSPredicate *hourlyPredicate = [NSPredicate predicateWithFormat:@"timeFrame = %@", @"currently"];
-        [request setPredicate:hourlyPredicate];
-        NSArray* currently  =  [[[SDCoreDataController sharedInstance] newManagedObjectContext] executeFetchRequest:request error:&error];
-        //NSLog(@"items are %@", items);
-        
+    
         //[self.locationNameLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:11]];
         //[self.currentWeatherLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:17]];
         
-        NSLog(@"currently is %@", currently);
-        
+    
         for (Data* data in currently) {
             NSLog(@"Data.summary is %f", data.temperature);
             //set the icon view based on the icon here
@@ -81,10 +68,7 @@
           //  self.currentWeatherLabel.text = [NSLocalizedString(data.summary, nil) uppercaseString];
         }
         
-        if (nil == currently)
-            NSLog(@"Failed to fetch  items: %@", error);
-        
-    }];
+   
 }
 
 

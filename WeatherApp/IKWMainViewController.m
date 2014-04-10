@@ -83,11 +83,17 @@
         
         
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeFrame =  %@", @"hourly"];
+        NSPredicate *hourlyPredicate = [NSPredicate predicateWithFormat:@"timeFrame =  %@", @"hourly"];
         
-        self.hourlyItems = [self.totalData filteredArrayUsingPredicate:predicate];
+        self.hourlyItems = [self.totalData filteredArrayUsingPredicate:hourlyPredicate];
         
-        NSLog(@"hourlyItems is %@", self.hourlyItems);
+        NSPredicate *currentlyPredicate = [NSPredicate predicateWithFormat:@"timeFrame =  %@", @"currently"];
+        
+        NSArray *currentlyData = [self.totalData filteredArrayUsingPredicate:currentlyPredicate];
+        
+        [self.currentlyViewController updateCurrentWeatherWithData:currentlyData];
+        
+        
     }];
 }
 

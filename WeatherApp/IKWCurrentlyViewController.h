@@ -10,6 +10,6 @@
 
 @interface IKWCurrentlyViewController : UIViewController
 
-- (void) updateDataForManagedObjectContext:(NSManagedObjectContext*)managedObjectContext;
+-(void)updateCurrentWeatherWithData:(NSArray*)data;
 
 @end
