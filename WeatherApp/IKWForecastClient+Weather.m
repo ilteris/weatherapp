@@ -8,7 +8,6 @@
 
 #import "IKWForecastClient+Weather.h"
 
-
 @implementation IKWForecastClient (Weather)
 
 - (NSURLSessionDataTask *)requestWeatherForCoordinateLatitude:(double)latitude
@@ -35,8 +34,9 @@
         if (responseObject) {
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(responseObject, nil); });
+               dispatch_async(dispatch_get_main_queue(), ^{
+                   completion(responseObject, nil); });
+                
             });
             
         } else {

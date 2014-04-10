@@ -51,8 +51,6 @@ static CGImageRef CreateGradientImage(int pixelsWide, int pixelsHigh);
 - (void)awakeFromNib
 {
     [self initSubviews];
-    
-    NSLog(@"initSubviews");
 }
 
 - (void)initSubviews

@@ -88,10 +88,10 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
         [self deleteRecordsFromCoreData];
             
           [[IKWForecastClient sharedClient] requestWeatherForCoordinateLatitude:coord.latitude longitude:coord.longitude completion:^(NSDictionary *weatherData, NSError *error) {
-              NSLog(@"weatherData is %@", weatherData);
 
               if (!error){
                   NSLog(@"no error");
+                  [self processJSONDataRecordsIntoCoreData:weatherData];
 
               } else {
                   NSLog(@" error");
