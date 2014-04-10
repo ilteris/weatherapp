@@ -7,8 +7,11 @@
 //
 
 #import "IKWDailyViewController.h"
+#import "IKWDayCollectionViewCell.h"
+#import "Data.h"
 
-@interface IKWDailyViewController ()
+
+@interface IKWDailyViewController () <UICollectionViewDataSource>
 
 @end
 
@@ -22,6 +25,25 @@
     }
     return self;
 }
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.data count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    IKWDayCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"dayCell" forIndexPath:indexPath];
+    
+    Data *data = [self.data objectAtIndex:indexPath.row];
+    
+   // [cell configureForCell:data];
+    
+    return cell;
+}
+
+
 
 - (void)viewDidLoad
 {

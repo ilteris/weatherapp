@@ -8,12 +8,16 @@
 
 #import "IKWMainViewController.h"
 #import "IKWHourCollectionViewCell.h"
+#import "IKWHourCollectionViewCell+ConfigureForCell.h"
 #import "SDCoreDataController.h"
 #import "IKWSyncObject.h"
 #import "Data.h"
 #import "Location.h"
 #import "IKWCurrentlyViewController.h"
-#import "IKWHourCollectionViewCell+ConfigureForCell.h"
+#import "IKWDailyViewController.h"
+
+
+
 
 @interface IKWMainViewController () <UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
@@ -29,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *hourCollectionView;
 
 @property (strong, nonatomic) IKWCurrentlyViewController *currentlyViewController;
+@property (strong, nonatomic) IKWDailyViewController *dailyViewController;
 
 
 
@@ -60,6 +65,10 @@
     if ([[segue identifier] isEqualToString:@"currentlyViewController"]) {
         self.currentlyViewController = segue.destinationViewController;
         
+    } else if ([[segue identifier] isEqualToString:@"dayViewController"])  {
+        self.dailyViewController = segue.destinationViewController;
+
+
     }
     
 }
@@ -90,7 +99,16 @@
         
         NSArray *currentlyData = [self.totalData filteredArrayUsingPredicate:currentlyPredicate];
         
+        NSPredicate *dailyPredicate = [NSPredicate predicateWithFormat:@"timeFrame =  %@", @"daily"];
+        
+        NSArray *dailyData = [self.totalData filteredArrayUsingPredicate:dailyPredicate];
+        
+        
         [self.currentlyViewController updateCurrentWeatherWithData:currentlyData];
+        
+        
+        self.dailyViewController.data = dailyData;
+        
         
         
     }];

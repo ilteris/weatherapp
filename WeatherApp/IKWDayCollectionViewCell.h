@@ -1,5 +1,5 @@
 //
-//  IKWDailyViewController.h
+//  IKWDayCollectionViewCell.h
 //  WeatherApp
 //
 //  Created by ilteris on 4/10/14.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IKWDailyViewController : UIViewController
+@interface IKWDayCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, copy) NSArray *data;
 @end

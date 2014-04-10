@@ -63,6 +63,7 @@
 		A2962B0818F59A2700B0FC9E /* IKWCurrentlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2962B0718F59A2700B0FC9E /* IKWCurrentlyViewController.m */; };
 		A2962B0B18F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2962B0A18F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.m */; };
 		A2962B0E18F6E97C00B0FC9E /* IKWDailyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2962B0D18F6E97C00B0FC9E /* IKWDailyViewController.m */; };
+		A2962B1118F72C3F00B0FC9E /* IKWDayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2962B1018F72C3F00B0FC9E /* IKWDayCollectionViewCell.m */; };
 		A2BB93A618B9659F008C67F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FE368D18B70327003D0C11 /* CoreLocation.framework */; };
 		A2BB93AE18BC22BC008C67F7 /* IKWForecastClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */; };
 		A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BB93B618DFB702008C67F7 /* IKWForecastClient+Weather.m */; };
@@ -139,6 +140,8 @@
 		A2962B0A18F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IKWHourCollectionViewCell+ConfigureForCell.m"; sourceTree = "<group>"; };
 		A2962B0C18F6E97C00B0FC9E /* IKWDailyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWDailyViewController.h; sourceTree = "<group>"; };
 		A2962B0D18F6E97C00B0FC9E /* IKWDailyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWDailyViewController.m; sourceTree = "<group>"; };
+		A2962B0F18F72C3F00B0FC9E /* IKWDayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWDayCollectionViewCell.h; sourceTree = "<group>"; };
+		A2962B1018F72C3F00B0FC9E /* IKWDayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWDayCollectionViewCell.m; sourceTree = "<group>"; };
 		A2BB93AC18BC22BB008C67F7 /* IKWForecastClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKWForecastClient.h; sourceTree = "<group>"; };
 		A2BB93AD18BC22BB008C67F7 /* IKWForecastClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKWForecastClient.m; sourceTree = "<group>"; };
 		A2BB93B518DFB702008C67F7 /* IKWForecastClient+Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IKWForecastClient+Weather.h"; sourceTree = "<group>"; };
@@ -252,6 +255,10 @@
 				A2BB93B218DFB702008C67F7 /* Resources */,
 				A2BB93B418DFB702008C67F7 /* Utilities */,
 				A2FE367118B6BBA7003D0C11 /* Model */,
+				A2962B0F18F72C3F00B0FC9E /* IKWDayCollectionViewCell.h */,
+				A2962B1018F72C3F00B0FC9E /* IKWDayCollectionViewCell.m */,
+				A2962B0C18F6E97C00B0FC9E /* IKWDailyViewController.h */,
+				A2962B0D18F6E97C00B0FC9E /* IKWDailyViewController.m */,
 				A20731F318B0260D007BB865 /* IKWHourCollectionViewCell.h */,
 				A20731F418B0260D007BB865 /* IKWHourCollectionViewCell.m */,
 				A2962B0918F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.h */,
@@ -268,8 +275,6 @@
 				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
 				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
 				A20731C118AFE395007BB865 /* Main.storyboard */,
-				A2962B0C18F6E97C00B0FC9E /* IKWDailyViewController.h */,
-				A2962B0D18F6E97C00B0FC9E /* IKWDailyViewController.m */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				A20D6C2218ADCFCD00390EDD /* WeatherApp.xcdatamodeld in Sources */,
 				A207317C18AFDFC2007BB865 /* IKWMainViewController.m in Sources */,
 				A2BB93B718DFB702008C67F7 /* IKWForecastClient+Weather.m in Sources */,
+				A2962B1118F72C3F00B0FC9E /* IKWDayCollectionViewCell.m in Sources */,
 				A2F7A48318E3C61D003201B7 /* Data.m in Sources */,
 				A2962B0818F59A2700B0FC9E /* IKWCurrentlyViewController.m in Sources */,
 				A2962B0B18F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.m in Sources */,
