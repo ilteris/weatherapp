@@ -120,7 +120,7 @@
     [self.hourCollectionView registerClass:[IKWHourCollectionViewCell class] forCellWithReuseIdentifier:@"FlickrCell"];
 
     [self loadRecordsFromCoreData];
-    self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width,  self.view.frame.size.height);
     
 }
 

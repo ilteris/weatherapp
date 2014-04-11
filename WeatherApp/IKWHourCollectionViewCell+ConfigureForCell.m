@@ -14,7 +14,7 @@
 {
     [self.hourLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:14]];
     [self.weatherLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:8]];
-    [self.rainProbLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:11]];
+    [self.rainProbLabel setFont:[UIFont fontWithName:@"Gotham-Book" size:9]];
     [self.temperatureLabel setFont:[UIFont fontWithName:@"Gotham-Medium" size:13]];
     
     
@@ -30,18 +30,12 @@
     self.temperatureLabel.text = [NSString stringWithFormat:@"%i°", rounded];
     
     self.weatherIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", data.icon]];
-    NSLog(@"cell.containerRainProbView is %@", NSStringFromCGRect(self.heightRainGraph.frame));
 
-    CGFloat height = self.heightRainGraph.frame.size.height;
-    NSLog(@"height is %f", height); //41 is 100 per cent rain probability.
-    CGFloat newHeight = data.precipProbability * height * 100;
     CGRect cellRect = self.heightRainGraph.frame;
     cellRect.size.height = -100*data.precipProbability;
-    cellRect.origin.y = 340;
+    cellRect.origin.y = 310;
     self.heightRainGraph.frame = cellRect;
-    NSLog(@"cell.containerRainProbView is %@", NSStringFromCGRect(self.heightRainGraph.frame));
-    NSLog(@"precipProbability is %f", data.precipProbability);
-    NSLog(@"new height is %f", newHeight); //41 is 100 per cent rain probability.
+    self.rainProbLabel.text = [NSString stringWithFormat:@"%g%% RAIN", data.precipProbability*100];
     
 }
 @end
