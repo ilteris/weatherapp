@@ -14,3 +14,13 @@
 "Drizzle" = "HAFİF YAĞMURLU";
 "Mostly Cloudy" = "ÇOK BULUTLU";
 "Partly Cloudy" = "PARÇALI BULUTLU";
+
+
+//DAYS
+"Monday" = "Pazartesi";
+"Tuesday" = "Sali";
+"Wednesday" = "Çarsamba";
+"Thursday" = "Persembe";
+"Friday" = "Cuma";
+"Saturday" = "Cumartesi";
+"Sunday" = "Pazar";

@@ -30,14 +30,17 @@
     self.temperatureLabel.text = [NSString stringWithFormat:@"%i°", rounded];
     
     self.weatherIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", data.icon]];
-    CGFloat height = self.containerRainProbView.frame.size.height;
+    NSLog(@"cell.containerRainProbView is %@", NSStringFromCGRect(self.heightRainGraph.frame));
+
+    CGFloat height = self.heightRainGraph.frame.size.height;
     NSLog(@"height is %f", height); //41 is 100 per cent rain probability.
     CGFloat newHeight = data.precipProbability * height * 100;
-    CGRect cellRect = self.containerRainProbView.frame;
-    cellRect.size.height = newHeight;
-    self.containerRainProbView.frame = cellRect;
-    NSLog(@"cell.containerRainProbView is %@", NSStringFromCGRect(self.containerRainProbView.frame));
-    NSLog(@"precipProbability is %f", data.precipProbability*100);
+    CGRect cellRect = self.heightRainGraph.frame;
+    cellRect.size.height = -100*data.precipProbability;
+    cellRect.origin.y = 340;
+    self.heightRainGraph.frame = cellRect;
+    NSLog(@"cell.containerRainProbView is %@", NSStringFromCGRect(self.heightRainGraph.frame));
+    NSLog(@"precipProbability is %f", data.precipProbability);
     NSLog(@"new height is %f", newHeight); //41 is 100 per cent rain probability.
     
 }
