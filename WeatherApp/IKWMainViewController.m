@@ -59,7 +59,6 @@
 }
 
 
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"currentlyViewController"]) {
@@ -118,6 +117,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.hourCollectionView registerClass:[IKWHourCollectionViewCell class] forCellWithReuseIdentifier:@"FlickrCell"];
+
     [self loadRecordsFromCoreData];
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width, self.view.frame.size.height);
     
