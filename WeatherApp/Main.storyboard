@@ -47,7 +47,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="1YB-IR-oDr">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="1YB-IR-oDr" customClass="IKWStickyHeaderLayout">
                                                             <size key="itemSize" width="300" height="61"/>
                                                             <size key="headerReferenceSize" width="320" height="222"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
