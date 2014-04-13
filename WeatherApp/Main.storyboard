@@ -150,6 +150,13 @@
                                                                 </view>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <connections>
+                                                                <outlet property="currentDegreesLabel" destination="E3P-VM-i3n" id="MYt-dA-Hix"/>
+                                                                <outlet property="currentWeatherLabel" destination="T1x-yL-J9S" id="2TY-Nb-TFf"/>
+                                                                <outlet property="currentlyIconView" destination="Vwj-gb-SLm" id="qk4-He-yec"/>
+                                                                <outlet property="iconReflectionView" destination="Djd-xL-cUC" id="3e9-fE-PeH"/>
+                                                                <outlet property="temperatureReflectionView" destination="OdO-yf-s7B" id="SHB-lM-enU"/>
+                                                            </connections>
                                                         </collectionReusableView>
                                                         <connections>
                                                             <outlet property="dataSource" destination="cEc-fw-urO" id="FGy-tN-23l"/>

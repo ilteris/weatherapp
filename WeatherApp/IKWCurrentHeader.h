@@ -17,4 +17,7 @@
 @property (strong, nonatomic) IBOutlet ReflectionView *temperatureReflectionView;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
 
+
+-(void)updateCurrentWeatherWithData:(NSArray*)currently;
+
 @end

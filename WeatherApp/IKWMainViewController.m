@@ -34,7 +34,7 @@
 
 @property (strong, nonatomic) IKWCurrentlyViewController *currentlyViewController;
 @property (strong, nonatomic) IKWDailyViewController *dailyViewController;
-
+@property (strong, nonatomic) NSArray *currentlyData;
 
 
 @end
@@ -66,7 +66,9 @@
         NSLog(@"UICollectionElementKindSectionHeader");
         
         IKWCurrentHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
+
+        [headerView updateCurrentWeatherWithData:self.currentlyData];
+        //  NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
        // headerView.title.text = title;
         //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
         //headerView.backgroundImage.image = headerImage;
@@ -123,8 +125,9 @@
         
         NSArray *dailyData = [self.totalData filteredArrayUsingPredicate:dailyPredicate];
         
-        [self.currentlyViewController updateCurrentWeatherWithData:currentlyData];
-        
+       // [self.currentlyViewController updateCurrentWeatherWithData:currentlyData];
+
+        self.currentlyData = currentlyData;
         
         self.dailyViewController.data = dailyData;
         [self.dailyViewController reloadData];
