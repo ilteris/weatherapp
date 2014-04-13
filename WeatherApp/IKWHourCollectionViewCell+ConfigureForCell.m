@@ -35,6 +35,7 @@
     cellRect.size.height = -100*data.precipProbability;
     cellRect.origin.y = 310;
     self.heightRainGraph.frame = cellRect;
+    
     self.rainProbLabel.text = [NSString stringWithFormat:@"%g%% RAIN", data.precipProbability*100];
     
 }

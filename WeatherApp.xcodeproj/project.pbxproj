@@ -284,14 +284,14 @@
 				A20D6C1E18ADCFCD00390EDD /* IKWAppDelegate.m */,
 				A20731EE18B00879007BB865 /* ReflectionView.h */,
 				A20731EF18B00879007BB865 /* ReflectionView.m */,
-				A20D6C2318ADCFCD00390EDD /* Images.xcassets */,
-				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
-				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
-				A20731C118AFE395007BB865 /* Main.storyboard */,
 				A2962B1A18FA20E000B0FC9E /* IKWStickyHeaderLayout.h */,
 				A2962B1B18FA20E000B0FC9E /* IKWStickyHeaderLayout.m */,
 				A2962B1718FA176100B0FC9E /* IKWCurrentHeader.h */,
 				A2962B1818FA176100B0FC9E /* IKWCurrentHeader.m */,
+				A20D6C2318ADCFCD00390EDD /* Images.xcassets */,
+				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
+				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
+				A20731C118AFE395007BB865 /* Main.storyboard */,
 				A2962B1518F88E0300B0FC9E /* Location.gpx */,
 			);
 			path = WeatherApp;

@@ -44,7 +44,8 @@
         [self getImageSizeForIcon:data.icon];
         
         [self.currentDegreesLabel setFont:[UIFont fontWithName:@"Gotham-Thin" size:120]];
-        
+        [self.currentDegreesLabel setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+
         self.currentlyIconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"c_%@",data.icon]];
         self.currentlyIconView.frame = CGRectMake(self.currentlyIconView.frame.origin.x, self.currentlyIconView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
         self.iconReflectionView.frame =CGRectMake(self.iconReflectionView.frame.origin.x, self.iconReflectionView.frame.origin.y,[self getImageSizeForIcon:data.icon].width,[self getImageSizeForIcon:data.icon].height);
@@ -52,6 +53,8 @@
         int rounded = (data.temperature + 0.5);
         
         self.currentDegreesLabel.text = [NSString stringWithFormat:@"%i°", rounded];
+        [self.currentDegreesLabel setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+
         [self.temperatureReflectionView updateReflection];
         [self.iconReflectionView updateReflection];
         

@@ -60,24 +60,19 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionReusableView *reusableview = nil;
+    UICollectionReusableView *headerView = nil;
     
     if (kind == UICollectionElementKindSectionHeader) {
         NSLog(@"UICollectionElementKindSectionHeader");
         
-        IKWCurrentHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        IKWCurrentHeader *aheaderView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
 
-        [headerView updateCurrentWeatherWithData:self.currentlyData];
-        //  NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
-       // headerView.title.text = title;
-        //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
-        //headerView.backgroundImage.image = headerImage;
-        
-        reusableview = headerView;
+        [aheaderView updateCurrentWeatherWithData:self.currentlyData];
+        headerView = aheaderView;
  
         
     }
-  return reusableview;
+  return headerView;
 }
          
 
