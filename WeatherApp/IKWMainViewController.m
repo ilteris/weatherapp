@@ -15,7 +15,7 @@
 #import "Location.h"
 #import "IKWCurrentlyViewController.h"
 #import "IKWDailyViewController.h"
-
+#import "IKWCurrentHeader.h"
 
 
 
@@ -57,6 +57,27 @@
 
     return cell;
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        NSLog(@"UICollectionElementKindSectionHeader");
+        
+        IKWCurrentHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
+       // headerView.title.text = title;
+        //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
+        //headerView.backgroundImage.image = headerImage;
+        
+        reusableview = headerView;
+ 
+        
+    }
+  return reusableview;
+}
+         
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -119,6 +140,8 @@
     [super viewDidLoad];
     [self.hourCollectionView registerClass:[IKWHourCollectionViewCell class] forCellWithReuseIdentifier:@"FlickrCell"];
 
+    [self.hourCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView"];
+    
     [self loadRecordsFromCoreData];
     self.scrollView.contentSize = CGSizeMake(2 * self.view.frame.size.width,  self.view.frame.size.height);
     

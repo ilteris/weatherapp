@@ -43,27 +43,19 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <subviews>
-                                                    <containerView contentMode="scaleToFill" id="hMm-2G-A0q">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="223"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <segue destination="3AA-F8-SFx" kind="embed" identifier="currentlyViewController" id="8qe-Be-otZ"/>
-                                                        </connections>
-                                                    </containerView>
                                                     <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="SRE-YA-cyh">
-                                                        <rect key="frame" x="0.0" y="222" width="300" height="346"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="1YB-IR-oDr">
                                                             <size key="itemSize" width="300" height="61"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="headerReferenceSize" width="320" height="222"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hoursCell" id="fET-hn-kSA" customClass="IKWHourCollectionViewCell">
-                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="61"/>
+                                                                <rect key="frame" x="10" y="222" width="300" height="61"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="61"/>
@@ -115,6 +107,50 @@
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
+                                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="HeaderView" reuseIdentifier="HeaderView" id="CZ7-zh-sZr" customClass="IKWCurrentHeader">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="222"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <subviews>
+                                                                <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vVg-Ep-nLI">
+                                                                    <rect key="frame" x="0.0" y="-25" width="320" height="568"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <view contentMode="scaleToFill" id="OdO-yf-s7B" userLabel="temperatureReflectionView" customClass="ReflectionView">
+                                                                            <rect key="frame" x="3" y="47" width="300" height="106"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" id="E3P-VM-i3n">
+                                                                                    <rect key="frame" x="1" y="15" width="300" height="110"/>
+                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="110"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        </view>
+                                                                        <view contentMode="scaleToFill" id="Djd-xL-cUC" userLabel="iconReflectionView" customClass="ReflectionView">
+                                                                            <rect key="frame" x="193" y="57" width="115" height="109"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <subviews>
+                                                                                <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Vwj-gb-SLm" userLabel="currentlyView">
+                                                                                    <rect key="frame" x="0.0" y="1" width="110" height="133"/>
+                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                </imageView>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        </view>
+                                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PARÇALI BULUTLU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T1x-yL-J9S">
+                                                                            <rect key="frame" x="0.0" y="184" width="320" height="39"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </view>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </collectionReusableView>
                                                         <connections>
                                                             <outlet property="dataSource" destination="cEc-fw-urO" id="FGy-tN-23l"/>
                                                             <outlet property="delegate" destination="cEc-fw-urO" id="Svw-Kd-xhU"/>
@@ -163,51 +199,7 @@
         <scene sceneID="28o-sm-yZT">
             <objects>
                 <viewController storyboardIdentifier="currentlyVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3AA-F8-SFx" customClass="IKWCurrentlyViewController" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="06v-G4-ItK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="223"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" id="3J8-tf-5mf" userLabel="temperatureReflectionView" customClass="ReflectionView">
-                                <rect key="frame" x="3" y="47" width="300" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" id="R2n-Hb-5eb">
-                                        <rect key="frame" x="1" y="15" width="300" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="110"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="wub-PX-eEm" userLabel="iconReflectionView" customClass="ReflectionView">
-                                <rect key="frame" x="193" y="57" width="115" height="109"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="m4H-2K-IZY" userLabel="currentlyView">
-                                        <rect key="frame" x="0.0" y="1" width="110" height="133"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PARÇALI BULUTLU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Ue-jS-1kM">
-                                <rect key="frame" x="0.0" y="184" width="320" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </view>
                     <toolbarItems/>
-                    <connections>
-                        <outlet property="currentDegreesLabel" destination="R2n-Hb-5eb" id="pN4-kw-MVo"/>
-                        <outlet property="currentWeatherLabel" destination="8Ue-jS-1kM" id="q0n-hM-Nzo"/>
-                        <outlet property="currentlyIconView" destination="m4H-2K-IZY" id="t9B-9q-NDq"/>
-                        <outlet property="iconReflectionView" destination="wub-PX-eEm" id="xDu-Nr-hEW"/>
-                        <outlet property="temperatureReflectionView" destination="3J8-tf-5mf" id="SST-WY-uAQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Cs-N8-STc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
