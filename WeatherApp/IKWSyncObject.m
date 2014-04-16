@@ -143,7 +143,8 @@ NSString * const kIKWSyncObjectSyncCompletedNotificationName    = @"IKWSyncObjec
             NSDictionary *hourly = [JSONDictionary objectForKey:@"hourly"];
             NSDictionary *daily = [JSONDictionary objectForKey:@"daily"];
             
-            
+            NSLog(@"timezone is %@", [JSONDictionary objectForKey:@"timezone"]);
+
             NSDictionary* locationRecord = [[NSDictionary alloc] initWithObjectsAndKeys:
                                            [JSONDictionary objectForKey:@"longitude"],@"latitude",
                                            [JSONDictionary objectForKey:@"latitude"],@"longitude",

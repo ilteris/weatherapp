@@ -12,6 +12,20 @@
 @implementation IKWStickyHeaderLayout
 
 
+-(id)init {
+    if (!(self = [super init])) return nil;
+    
+    NSLog(@"IKWStickyHeaderLayout init");
+    self.sectionInset = UIEdgeInsetsMake(100, 10, 10, 10);
+    
+  //  self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
+   // self.visibleIndexPathsSet = [NSMutableSet set];
+    
+    return self;
+}
+
+
+
 - (NSArray *) layoutAttributesForElementsInRect:(CGRect)rect {
     
     NSMutableArray *answer = [[super layoutAttributesForElementsInRect:rect] mutableCopy];

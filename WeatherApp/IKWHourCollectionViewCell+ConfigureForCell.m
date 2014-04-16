@@ -31,6 +31,7 @@
     
     self.weatherIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", data.icon]];
 
+    
     CGRect cellRect = self.heightRainGraph.frame;
     cellRect.size.height = -100*data.precipProbability;
     cellRect.origin.y = 310;
