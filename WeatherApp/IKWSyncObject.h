@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 @interface IKWSyncObject : NSObject
 
 + (IKWSyncObject *)sharedEngine;

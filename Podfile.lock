@@ -1,31 +1,36 @@
 PODS:
-  - AFNetworking (2.2.1):
+  - AFNetworking (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.1):
+  - AFNetworking/NSURLConnection (2.5.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.1):
-    - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.1)
-  - AFNetworking/Security (2.2.1)
-  - AFNetworking/Serialization (2.2.1)
-  - AFNetworking/UIKit (2.2.1):
+  - AFNetworking/NSURLSession (2.5.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.1)
+  - AFNetworking/Security (2.5.1)
+  - AFNetworking/Serialization (2.5.1)
+  - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - INTULocationManager (1.0.1)
+  - INTULocationManager (2.0.2)
+  - RBBAnimation (0.3.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - INTULocationManager
+  - RBBAnimation (= 0.3.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
-  INTULocationManager: a4080ce8cf5751e0c5242d0c75755790cfc51da0
+  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
+  INTULocationManager: 83bec34472a706e178face50a4e5e21ca986b7d2
+  RBBAnimation: 243d73be1a526f1b51d266b182e4aa0cfe9cbf64
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.34.4
