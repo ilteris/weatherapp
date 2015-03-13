@@ -267,33 +267,15 @@
 				A2BB93B218DFB702008C67F7 /* Resources */,
 				A2BB93B418DFB702008C67F7 /* Utilities */,
 				A2FE367118B6BBA7003D0C11 /* Model */,
-				A2962B0F18F72C3F00B0FC9E /* IKWDayCollectionViewCell.h */,
-				A2962B1018F72C3F00B0FC9E /* IKWDayCollectionViewCell.m */,
-				A2962B0C18F6E97C00B0FC9E /* IKWDailyViewController.h */,
-				A2962B0D18F6E97C00B0FC9E /* IKWDailyViewController.m */,
-				A2962B1218F7345000B0FC9E /* IKWDayCollectionViewCell+ConfigureForCell.h */,
-				A2962B1318F7345000B0FC9E /* IKWDayCollectionViewCell+ConfigureForCell.m */,
-				A20731F318B0260D007BB865 /* IKWHourCollectionViewCell.h */,
-				A20731F418B0260D007BB865 /* IKWHourCollectionViewCell.m */,
-				A2962B0918F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.h */,
-				A2962B0A18F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.m */,
-				A2962B0618F59A2700B0FC9E /* IKWCurrentlyViewController.h */,
-				A2962B0718F59A2700B0FC9E /* IKWCurrentlyViewController.m */,
-				A207317A18AFDFC2007BB865 /* IKWMainViewController.h */,
-				A207317B18AFDFC2007BB865 /* IKWMainViewController.m */,
-				A20D6C1D18ADCFCD00390EDD /* IKWAppDelegate.h */,
-				A20D6C1E18ADCFCD00390EDD /* IKWAppDelegate.m */,
-				A20731EE18B00879007BB865 /* ReflectionView.h */,
-				A20731EF18B00879007BB865 /* ReflectionView.m */,
-				A2962B1A18FA20E000B0FC9E /* IKWStickyHeaderLayout.h */,
-				A2962B1B18FA20E000B0FC9E /* IKWStickyHeaderLayout.m */,
-				A2962B1718FA176100B0FC9E /* IKWCurrentHeader.h */,
-				A2962B1818FA176100B0FC9E /* IKWCurrentHeader.m */,
+				A23E586C1AB3108500FFB60C /* View */,
+				A23E586D1AB3109600FFB60C /* Controller */,
+				A23E586E1AB310A300FFB60C /* Categories */,
+				A23E586F1AB310B300FFB60C /* AppDelegate */,
+				A23E58701AB310D500FFB60C /* CollectionView */,
 				A20D6C2318ADCFCD00390EDD /* Images.xcassets */,
 				A20D6C2018ADCFCD00390EDD /* WeatherApp.xcdatamodeld */,
 				A20D6C1518ADCFCC00390EDD /* Supporting Files */,
 				A20731C118AFE395007BB865 /* Main.storyboard */,
-				A2962B1518F88E0300B0FC9E /* Location.gpx */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -301,6 +283,7 @@
 		A20D6C1518ADCFCC00390EDD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A2962B1518F88E0300B0FC9E /* Location.gpx */,
 				A20D6C1618ADCFCC00390EDD /* WeatherApp-Info.plist */,
 				A20D6C1718ADCFCC00390EDD /* InfoPlist.strings */,
 				A20D6C1A18ADCFCC00390EDD /* main.m */,
@@ -326,6 +309,63 @@
 				A20D6C3418ADCFCD00390EDD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A23E586C1AB3108500FFB60C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A2962B0F18F72C3F00B0FC9E /* IKWDayCollectionViewCell.h */,
+				A2962B1018F72C3F00B0FC9E /* IKWDayCollectionViewCell.m */,
+				A20731F318B0260D007BB865 /* IKWHourCollectionViewCell.h */,
+				A20731F418B0260D007BB865 /* IKWHourCollectionViewCell.m */,
+				A20731EE18B00879007BB865 /* ReflectionView.h */,
+				A20731EF18B00879007BB865 /* ReflectionView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A23E586D1AB3109600FFB60C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A2962B0C18F6E97C00B0FC9E /* IKWDailyViewController.h */,
+				A2962B0D18F6E97C00B0FC9E /* IKWDailyViewController.m */,
+				A2962B0618F59A2700B0FC9E /* IKWCurrentlyViewController.h */,
+				A2962B0718F59A2700B0FC9E /* IKWCurrentlyViewController.m */,
+				A207317A18AFDFC2007BB865 /* IKWMainViewController.h */,
+				A207317B18AFDFC2007BB865 /* IKWMainViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A23E586E1AB310A300FFB60C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A2962B1218F7345000B0FC9E /* IKWDayCollectionViewCell+ConfigureForCell.h */,
+				A2962B1318F7345000B0FC9E /* IKWDayCollectionViewCell+ConfigureForCell.m */,
+				A2962B0918F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.h */,
+				A2962B0A18F5A25E00B0FC9E /* IKWHourCollectionViewCell+ConfigureForCell.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		A23E586F1AB310B300FFB60C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				A20D6C1D18ADCFCD00390EDD /* IKWAppDelegate.h */,
+				A20D6C1E18ADCFCD00390EDD /* IKWAppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		A23E58701AB310D500FFB60C /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				A2962B1A18FA20E000B0FC9E /* IKWStickyHeaderLayout.h */,
+				A2962B1B18FA20E000B0FC9E /* IKWStickyHeaderLayout.m */,
+				A2962B1718FA176100B0FC9E /* IKWCurrentHeader.h */,
+				A2962B1818FA176100B0FC9E /* IKWCurrentHeader.m */,
+			);
+			name = CollectionView;
 			sourceTree = "<group>";
 		};
 		A2BB93B218DFB702008C67F7 /* Resources */ = {
